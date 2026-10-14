@@ -1,0 +1,464 @@
+[
+  {
+    "id": "z1",
+    "topic": "Algorithmik",
+    "rel": "high",
+    "type": "single",
+    "q": "x = 10; SOLANGE x > 3: x = x − 2. Welchen Wert hat x nach der Schleife?",
+    "options": [
+      "3",
+      "2",
+      "4",
+      "1"
+    ],
+    "correct": 1,
+    "explain": "10 → 8 → 6 → 4 → 2; bei x = 2 ist die Bedingung x > 3 falsch. Trace-Tabelle führen!"
+  },
+  {
+    "id": "z2",
+    "topic": "Algorithmik",
+    "rel": "high",
+    "type": "gap",
+    "q": "fakultaet(n): WENN n <= 1 DANN RÜCKGABE 1 SONST RÜCKGABE n * fakultaet(n−1). Was liefert fakultaet(5)?",
+    "accept": [
+      "120"
+    ],
+    "placeholder": "Ergebnis",
+    "explain": "5 × 4 × 3 × 2 × 1 = 120. Rekursion bis zum Basisfall verfolgen, dann rückwärts auflösen."
+  },
+  {
+    "id": "z3",
+    "topic": "Algorithmik",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche durchschnittliche Zeitkomplexität haben effiziente Sortierverfahren wie Mergesort?",
+    "options": [
+      "O(n²)",
+      "O(n log n)",
+      "O(1)",
+      "O(n!)"
+    ],
+    "correct": 1,
+    "explain": "O(n log n) ist die Klasse der effizienten Vergleichssortierer; Bubble/Selection Sort liegen bei O(n²)."
+  },
+  {
+    "id": "z4",
+    "topic": "Algorithmik",
+    "rel": "med",
+    "type": "gap",
+    "q": "Maximale Vergleiche der binären Suche in 512 sortierten Elementen?",
+    "accept": [
+      "9"
+    ],
+    "placeholder": "Vergleiche",
+    "explain": "log₂(512) = 9. Halbieren, halbieren, halbieren – und die Daten müssen sortiert sein."
+  },
+  {
+    "id": "z5",
+    "topic": "OOP & UML",
+    "rel": "high",
+    "type": "match",
+    "q": "Ordne die UML-Beziehung ihrer Bedeutung zu.",
+    "pairs": [
+      {
+        "l": "Leerer Dreieckspfeil",
+        "r": "Vererbung: Unterklasse ist-ein Oberklasse"
+      },
+      {
+        "l": "Ausgefüllte Raute",
+        "r": "Komposition: Teile existenzabhängig vom Ganzen"
+      },
+      {
+        "l": "Leere Raute",
+        "r": "Aggregation: lose hat-Beziehung"
+      },
+      {
+        "l": "Gestrichelte Linie mit Dreieck",
+        "r": "Realisierung eines Interface"
+      }
+    ],
+    "explain": "Die vier Pfeilarten sind das Lesegerüst jeder Klassendiagramm-Aufgabe der FIAE-AP2."
+  },
+  {
+    "id": "z6",
+    "topic": "OOP & UML",
+    "rel": "high",
+    "type": "single",
+    "q": "fahrzeug.beschleunige() ruft bei einem PKW-Objekt eine andere Implementierung auf als bei einem LKW. Wie heißt dieses Prinzip?",
+    "options": [
+      "Kapselung",
+      "Polymorphie",
+      "Aggregation",
+      "Normalisierung"
+    ],
+    "correct": 1,
+    "explain": "Polymorphie: Der tatsächliche Objekttyp entscheidet zur Laufzeit, welche überschriebene Methode läuft."
+  },
+  {
+    "id": "z7",
+    "topic": "OOP & UML",
+    "rel": "med",
+    "type": "single",
+    "q": "Was kennzeichnet ein Interface gegenüber einer abstrakten Klasse?",
+    "options": [
+      "Es enthält vollständige Implementierungen",
+      "Es definiert nur Methodensignaturen als Vertrag; eine Klasse kann mehrere Interfaces implementieren",
+      "Es kann instanziiert werden",
+      "Es speichert Objektzustand"
+    ],
+    "correct": 1,
+    "explain": "Interface = reiner Vertrag + Mehrfach-Implementierung; die abstrakte Klasse liefert Teilimplementierung bei Einfachvererbung."
+  },
+  {
+    "id": "z8",
+    "topic": "OOP & UML",
+    "rel": "med",
+    "type": "mc",
+    "q": "Welche zwei Aussagen beschreiben Kapselung korrekt?",
+    "options": [
+      "Attribute sind privat, Zugriff läuft über öffentliche Methoden",
+      "Alle Attribute sind public",
+      "Setter können Werte validieren und den Zustand konsistent halten",
+      "Kapselung verbietet Methoden"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Information Hiding: interner Zustand geschützt, kontrollierter Zugriff – Validierung im Setter inklusive."
+  },
+  {
+    "id": "z9",
+    "topic": "Datenbanken",
+    "rel": "med",
+    "type": "gap",
+    "q": "Tabelle auftraege enthält die Kundennummern 1,1,2,3,3. Was liefert SELECT COUNT(DISTINCT kunden_nr) FROM auftraege?",
+    "accept": [
+      "3"
+    ],
+    "placeholder": "Ergebnis",
+    "explain": "DISTINCT zählt eindeutige Werte: {1,2,3} = 3. COUNT(*) hätte 5 geliefert – die Dreier-Unterscheidung sitzt selten."
+  },
+  {
+    "id": "z10",
+    "topic": "Datenbanken",
+    "rel": "high",
+    "type": "single",
+    "q": "Du willst ALLE Kunden sehen, auch die ohne Auftrag. Welcher JOIN von kunde zu auftrag?",
+    "options": [
+      "INNER JOIN",
+      "LEFT JOIN",
+      "CROSS JOIN",
+      "Kein JOIN nötig"
+    ],
+    "correct": 1,
+    "explain": "LEFT JOIN behält alle Zeilen der linken Tabelle; fehlende Aufträge erscheinen als NULL – mit IS NULL findet man die Karteileichen."
+  },
+  {
+    "id": "z11",
+    "topic": "Datenbanken",
+    "rel": "high",
+    "type": "single",
+    "q": "Welche Klausel filtert Gruppen mit SUM(betrag) > 10000?",
+    "options": [
+      "WHERE SUM(betrag) > 10000",
+      "HAVING SUM(betrag) > 10000",
+      "ORDER BY SUM(betrag)",
+      "GROUP BY betrag > 10000"
+    ],
+    "correct": 1,
+    "explain": "Aggregat-Filter gehören ins HAVING – WHERE arbeitet vor der Gruppierung und kennt SUM() nicht."
+  },
+  {
+    "id": "z12",
+    "topic": "Datenbanken",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Normalisierungsschritte in die richtige Reihenfolge.",
+    "items": [
+      "Wiederholgruppen/Listen auflösen – nur atomare Werte (1. NF)",
+      "Partielle Abhängigkeiten vom zusammengesetzten Schlüssel auslagern (2. NF)",
+      "Transitive Abhängigkeiten zwischen Nichtschlüsselattributen entfernen (3. NF)",
+      "Ergebnis-Tabellen mit Schlüsseln und Beziehungen dokumentieren"
+    ],
+    "explain": "1. NF atomar, 2. NF ganzer Schlüssel, 3. NF nichts Transitives – die Merkkette der Normalisierung."
+  },
+  {
+    "id": "z13",
+    "topic": "Datenbanken",
+    "rel": "med",
+    "type": "single",
+    "q": "Artikel können von mehreren Lieferanten stammen, Lieferanten liefern mehrere Artikel. Umsetzung?",
+    "options": [
+      "Fremdschlüssel im Artikel",
+      "Zwischentabelle artikel_lieferant mit beiden Fremdschlüsseln",
+      "Fremdschlüssel im Lieferanten",
+      "Eine große Tabelle"
+    ],
+    "correct": 1,
+    "explain": "n:m geht relational nur über die Zwischentabelle – oft mit Zusatzattributen wie Einkaufspreis."
+  },
+  {
+    "id": "z14",
+    "topic": "Datenbanken",
+    "rel": "med",
+    "type": "single",
+    "q": "Spalte artikelliste enthält 'A1;A3;A7'. Welche Normalform ist verletzt?",
+    "options": [
+      "2. NF",
+      "3. NF",
+      "1. NF – Attributwerte sind nicht atomar",
+      "Keine"
+    ],
+    "correct": 2,
+    "explain": "Listen in einer Zelle sind der klassische 1.-NF-Verstoß → je Artikel eine eigene Zeile/Tabelle."
+  },
+  {
+    "id": "z15",
+    "topic": "Testen",
+    "rel": "high",
+    "type": "single",
+    "q": "Eingabefeld akzeptiert 1–100. Wie viele Äquivalenzklassen ergeben sich mindestens?",
+    "options": [
+      "1",
+      "2",
+      "3 (ungültig klein, gültig, ungültig groß)",
+      "100"
+    ],
+    "correct": 2,
+    "explain": "Je Klasse genügt ein Repräsentant (z. B. −5, 50, 250) – das reduziert hundert Tests auf drei sinnvolle."
+  },
+  {
+    "id": "z16",
+    "topic": "Testen",
+    "rel": "high",
+    "type": "mc",
+    "q": "Wertebereich 1–100: Welche zwei Werte gehören zur Grenzwertanalyse der UNTEREN Grenze?",
+    "options": [
+      "0",
+      "1",
+      "50",
+      "99"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "explain": "Grenzwerte testen direkt an den Rändern: 0 (gerade ungültig) und 1 (gerade gültig); oben entsprechend 100/101."
+  },
+  {
+    "id": "z17",
+    "topic": "Testen",
+    "rel": "med",
+    "type": "single",
+    "q": "Nach einem Bugfix laufen automatisch alle bisherigen Tests erneut. Wie heißt das?",
+    "options": [
+      "Smoke Test",
+      "Regressionstest",
+      "Lasttest",
+      "Abnahmetest"
+    ],
+    "correct": 1,
+    "explain": "Regression sichert, dass Bestehendes weiter funktioniert – der Kernnutzen automatisierter Testsuiten."
+  },
+  {
+    "id": "z18",
+    "topic": "Testen",
+    "rel": "med",
+    "type": "single",
+    "q": "Im Unittest ersetzt eine Attrappe die echte Datenbank. Wie heißt sie?",
+    "options": [
+      "Proxy",
+      "Mock/Stub",
+      "Container",
+      "Trigger"
+    ],
+    "correct": 1,
+    "explain": "Mocks/Stubs machen Tests schnell, isoliert und reproduzierbar – ohne laufende Infrastruktur."
+  },
+  {
+    "id": "z19",
+    "topic": "Algorithmik",
+    "rel": "med",
+    "type": "single",
+    "q": "Undo-Funktion eines Editors: Welche Datenstruktur passt?",
+    "options": [
+      "Queue (FIFO)",
+      "Stack (LIFO)",
+      "Array fester Größe",
+      "Hash-Tabelle"
+    ],
+    "correct": 1,
+    "explain": "Die zuletzt ausgeführte Aktion wird zuerst zurückgenommen – Last in, first out."
+  },
+  {
+    "id": "z20",
+    "topic": "Algorithmik",
+    "rel": "med",
+    "type": "gap",
+    "q": "Was liefert 17 DIV 5 (ganzzahlige Division)?",
+    "accept": [
+      "3"
+    ],
+    "placeholder": "Ergebnis",
+    "explain": "17 ÷ 5 = 3 Rest 2 → DIV = 3, MOD = 2. Beide Operatoren im Paar lernen."
+  },
+  {
+    "id": "z21",
+    "topic": "Grundlagen",
+    "rel": "low",
+    "type": "single",
+    "q": "Worin unterscheiden sich Compiler und Interpreter grundsätzlich?",
+    "options": [
+      "Gar nicht",
+      "Compiler übersetzt vorab vollständig, Interpreter führt zeilenweise aus",
+      "Interpreter sind immer schneller",
+      "Compiler gibt es nur für Java"
+    ],
+    "correct": 1,
+    "explain": "Deshalb findet der Compiler Syntaxfehler vor dem Start, der Interpreter erst beim Erreichen der Zeile."
+  },
+  {
+    "id": "z22",
+    "topic": "Projekt",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Phasen eines Entwicklungsprojekts in die richtige Reihenfolge.",
+    "items": [
+      "Anforderungen analysieren (Ist/Soll, Lastenheft verstehen)",
+      "Entwurf: Architektur, Datenmodell, UML",
+      "Implementierung mit Versionsverwaltung",
+      "Test (Unit → Integration → System → Abnahme)",
+      "Übergabe mit Dokumentation und Einweisung"
+    ],
+    "explain": "Der klassische Ablauf – auch agil bleiben die Tätigkeiten dieselben, nur die Iterationen werden kürzer."
+  },
+  {
+    "id": "z23",
+    "topic": "Projekt",
+    "rel": "high",
+    "type": "single",
+    "q": "Lastenheft vs. Pflichtenheft?",
+    "options": [
+      "Identisch",
+      "Lastenheft: WAS/WOFÜR vom Auftraggeber; Pflichtenheft: WIE/WOMIT vom Auftragnehmer",
+      "Pflichtenheft kommt zuerst",
+      "Beides schreibt der Azubi"
+    ],
+    "correct": 1,
+    "explain": "Reihenfolge und Urheber sind der Prüfungsklassiker – das Pflichtenheft ist die Antwort auf das Lastenheft."
+  },
+  {
+    "id": "z24",
+    "topic": "Projekt",
+    "rel": "med",
+    "type": "gap",
+    "q": "Netzplan: Vorgang B hat FAZ 3 und SAZ 4. Welcher Gesamtpuffer ergibt sich?",
+    "accept": [
+      "1"
+    ],
+    "placeholder": "Tage",
+    "explain": "GP = SAZ − FAZ = 4 − 3 = 1. GP 0 hieße: B liegt auf dem kritischen Pfad."
+  },
+  {
+    "id": "z25",
+    "topic": "Sicherheit",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Loginfeld akzeptiert ' OR 1=1 -- und meldet ohne Passwort an. Welche Schwachstelle und welche Kernmaßnahme?",
+    "options": [
+      "XSS – Cookies löschen",
+      "SQL-Injection – Prepared Statements mit Parameter-Bindung",
+      "CSRF – Captcha",
+      "Brute Force – längere Passwörter"
+    ],
+    "correct": 1,
+    "explain": "Eingaben wurden als SQL ausgeführt. Parameter-Bindung macht Eingaben zu Daten statt Code – plus Least-Privilege-DB-Konto."
+  },
+  {
+    "id": "z26",
+    "topic": "Grundlagen",
+    "rel": "med",
+    "type": "single",
+    "q": "Wozu dient der finally-Block bei try/catch?",
+    "options": [
+      "Er läuft nur bei Fehlern",
+      "Er läuft IMMER – ideal zum Schließen von Ressourcen (Dateien, Verbindungen)",
+      "Er verhindert Exceptions",
+      "Er beendet das Programm"
+    ],
+    "correct": 1,
+    "explain": "Egal ob Erfolg oder Exception: finally räumt auf. Offene Verbindungen sind sonst das Leck."
+  },
+  {
+    "id": "z27",
+    "topic": "Projekt",
+    "rel": "med",
+    "type": "mc",
+    "q": "Welche zwei Formulierungen erfüllen das SMART-Kriterium „messbar“?",
+    "options": [
+      "Das System soll schneller werden",
+      "Die Antwortzeit der Suche liegt unter 2 Sekunden bei 100 parallelen Nutzern",
+      "Die Anwendung soll benutzerfreundlich sein",
+      "Der Testrestore von 10 GB gelingt in unter 60 Minuten"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "explain": "Messbar heißt: Zahl + Bedingung. „Schneller“ und „benutzerfreundlich“ sind ohne Metrik nicht prüfbar."
+  },
+  {
+    "id": "z28",
+    "topic": "Algorithmik",
+    "rel": "low",
+    "type": "single",
+    "q": "Welche Aussage über Struktogramme (Nassi-Shneiderman) stimmt?",
+    "options": [
+      "Sie erlauben GOTO-Sprünge",
+      "Sie erzwingen strukturierte Abläufe aus Sequenz, Verzweigung und Schleife",
+      "Sie zeigen Datenbankschemata",
+      "Sie sind seit 2020 unzulässig"
+    ],
+    "correct": 1,
+    "explain": "Jeder Block hat genau einen Ein- und Ausgang – deshalb eignen sie sich als Prüfungsnotation."
+  },
+  {
+    "id": "z29",
+    "topic": "Algorithmik",
+    "rel": "med",
+    "type": "gap",
+    "q": "Ein Array zahlen[0..9]: Wie lautet der Index des LETZTEN Elements?",
+    "accept": [
+      "9"
+    ],
+    "placeholder": "Index",
+    "explain": "10 Elemente, nullbasiert: Indizes 0 bis 9. zahlen[10] wäre der Off-by-One-Laufzeitfehler."
+  },
+  {
+    "id": "z30",
+    "topic": "Testen",
+    "rel": "med",
+    "type": "match",
+    "q": "Ordne die Teststufe ihrem Prüfgegenstand zu.",
+    "pairs": [
+      {
+        "l": "Unittest",
+        "r": "Einzelne Methode/Klasse isoliert"
+      },
+      {
+        "l": "Integrationstest",
+        "r": "Zusammenspiel mehrerer Komponenten"
+      },
+      {
+        "l": "Systemtest",
+        "r": "Gesamtsystem gegen die Anforderungen"
+      },
+      {
+        "l": "Abnahmetest",
+        "r": "Prüfung durch den Auftraggeber/Anwender"
+      }
+    ],
+    "explain": "Von klein nach groß – je früher ein Fehler gefunden wird, desto billiger die Behebung."
+  }
+]

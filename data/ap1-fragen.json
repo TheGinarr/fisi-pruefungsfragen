@@ -1,0 +1,961 @@
+[
+  {
+    "id": "x1",
+    "topic": "Arbeitsplatz & Hardware",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Kunde benötigt einen PC für CAD. Welche Komponente hat die höchste Priorität?",
+    "options": [
+      "Soundkarte",
+      "Leistungsstarke Grafikkarte und viel RAM",
+      "DVD-Laufwerk",
+      "RGB-Beleuchtung"
+    ],
+    "correct": 1,
+    "explain": "CAD ist grafik- und speicherintensiv. Anforderungsanalyse vor Komponentenwahl – Standardschema der AP1.",
+    "hint": "Was braucht 3D-Software wirklich?"
+  },
+  {
+    "id": "x2",
+    "topic": "Elektrotechnik",
+    "rel": "high",
+    "type": "gap",
+    "q": "Ein Server nimmt 460 W auf und läuft 24 h täglich. Wie viele kWh verbraucht er pro Tag? (Zahl mit Komma oder Punkt)",
+    "accept": [
+      "11.04",
+      "11,04"
+    ],
+    "placeholder": "kWh",
+    "explain": "0,46 kW · 24 h = 11,04 kWh.",
+    "mistake": "Watt nicht in Kilowatt umgerechnet.",
+    "hint": "Erst W in kW umrechnen (÷1000), dann mal Stunden.",
+    "simpler": "<p>460 W = 0,46 kW. Rechne 0,46 · 24.</p>"
+  },
+  {
+    "id": "x3",
+    "topic": "Zahlensysteme",
+    "rel": "high",
+    "type": "gap",
+    "q": "Rechne um: 2C (hexadezimal) = ? (dezimal)",
+    "accept": [
+      "44"
+    ],
+    "placeholder": "dezimal",
+    "explain": "2·16 + 12 = 44.",
+    "hint": "C steht für 12.",
+    "simpler": "<p>Erste Ziffer mal 16, zweite Ziffer addieren: 2·16 + C(12).</p>"
+  },
+  {
+    "id": "x4",
+    "topic": "IPv4 & Subnetting",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie lautet die Broadcast-Adresse von 192.168.20.0/25?",
+    "accept": [
+      "192.168.20.127"
+    ],
+    "placeholder": "x.x.x.x",
+    "explain": "/25 halbiert das Oktett: Block .0–.127, Broadcast .127.",
+    "hint": "Schrittweite 128.",
+    "simpler": "<p>/25 → 128er-Blöcke: 0–127 und 128–255. Die letzte Adresse des ersten Blocks suchen.</p>"
+  },
+  {
+    "id": "x5",
+    "topic": "IPv4 & Subnetting",
+    "rel": "high",
+    "type": "single",
+    "q": "Welche Subnetzmaske gehört zu /28?",
+    "options": [
+      "255.255.255.192",
+      "255.255.255.224",
+      "255.255.255.240",
+      "255.255.255.248"
+    ],
+    "correct": 2,
+    "explain": "/28 = 24 + 4 → im letzten Oktett 1111 0000 = 240.",
+    "hint": "4 Bits im letzten Oktett: 128+64+32+16."
+  },
+  {
+    "id": "x6",
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "single",
+    "q": "Welches Gerät trennt Kollisionsdomänen, aber nicht Broadcast-Domänen?",
+    "options": [
+      "Hub",
+      "Switch",
+      "Router",
+      "Repeater"
+    ],
+    "correct": 1,
+    "explain": "Jeder Switchport ist eine eigene Kollisionsdomäne; Broadcasts fluten aber weiterhin das ganze VLAN. Router trennen auch Broadcast-Domänen.",
+    "hint": "Das Gerät arbeitet auf Schicht 2."
+  },
+  {
+    "id": "x7",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "match",
+    "q": "Ordne die Schutzziele der IT-Sicherheit ihren Beschreibungen zu.",
+    "pairs": [
+      {
+        "l": "Vertraulichkeit",
+        "r": "Nur Befugte lesen die Daten"
+      },
+      {
+        "l": "Integrität",
+        "r": "Daten sind unverändert und korrekt"
+      },
+      {
+        "l": "Verfügbarkeit",
+        "r": "Systeme sind nutzbar, wenn man sie braucht"
+      }
+    ],
+    "explain": "Die CIA-Triade (Confidentiality, Integrity, Availability) – Grundlage jeder Sicherheitsbetrachtung, auch beim BSI-Grundschutz.",
+    "hint": "CIA auf Deutsch."
+  },
+  {
+    "id": "x8",
+    "topic": "Datenschutz",
+    "rel": "high",
+    "type": "mc",
+    "q": "Welche Angaben sind personenbezogene Daten im Sinne der DSGVO? (2 richtige)",
+    "options": [
+      "Privatadresse eines Kunden",
+      "Seriennummer eines Switches",
+      "Kfz-Kennzeichen eines Mitarbeiters",
+      "Firmenname einer GmbH"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Personenbezogen ist alles, was sich einer natürlichen Person zuordnen lässt – auch das Kennzeichen. Gerätedaten und juristische Personen fallen nicht darunter.",
+    "hint": "Natürliche Person erkennbar?"
+  },
+  {
+    "id": "x9",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "single",
+    "q": "Wer trägt in der dualen Ausbildung die Kosten für Ausbildungsmittel im Betrieb?",
+    "options": [
+      "Die Auszubildenden",
+      "Der Ausbildungsbetrieb",
+      "Die Berufsschule",
+      "Die Agentur für Arbeit"
+    ],
+    "correct": 1,
+    "explain": "Nach § 14 BBiG stellt der Betrieb die Ausbildungsmittel kostenlos zur Verfügung.",
+    "hint": "Wer bildet aus, der zahlt."
+  },
+  {
+    "id": "x10",
+    "topic": "WISO",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Angebotsvergleich mit gewichteten Kriterien (Preis 40 %, Service 30 %, Lieferzeit 30 %) heißt …",
+    "options": [
+      "SWOT-Analyse",
+      "Nutzwertanalyse",
+      "ABC-Analyse",
+      "Break-Even-Analyse"
+    ],
+    "correct": 1,
+    "explain": "Gewichtete Kriterien + Punktbewertung = Nutzwertanalyse.",
+    "hint": "Kam schon im Quizpool vor – Wiederholung festigt!"
+  },
+  {
+    "id": "x11",
+    "topic": "Betriebssysteme",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Aussage zu Dateisystem-Berechtigungen unter NTFS stimmt?",
+    "options": [
+      "Verweigern schlägt Zulassen",
+      "Zulassen schlägt Verweigern",
+      "Berechtigungen gelten nur lokal, nie im Netz",
+      "Jeder Benutzer hat immer Vollzugriff"
+    ],
+    "correct": 0,
+    "explain": "Explizites Verweigern hat Vorrang vor Zulassen – wichtig bei Gruppenmitgliedschaften.",
+    "hint": "Sicherheitsprinzip: Im Zweifel …?"
+  },
+  {
+    "id": "x12",
+    "topic": "Fehleranalyse",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Schritte einer strukturierten Fehleranalyse in eine sinnvolle Reihenfolge.",
+    "items": [
+      "Problem aufnehmen und reproduzieren",
+      "Ursachen eingrenzen (z. B. nach OSI-Schichten)",
+      "Lösung testen und umsetzen",
+      "Ergebnis dokumentieren und Kunden informieren"
+    ],
+    "explain": "Erst verstehen, dann eingrenzen, dann lösen, dann dokumentieren – niemals wild drauflos konfigurieren.",
+    "hint": "Dokumentation kommt zum Schluss, Verständnis zuerst."
+  },
+  {
+    "id": "x13",
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie lange dauert die Übertragung von 1,5 GB über eine 50-MBit/s-Leitung? (Sekunden, nur Zahl)",
+    "accept": [
+      "240",
+      "240s"
+    ],
+    "placeholder": "s",
+    "explain": "1,5 GB = 1.500 MB = 12.000 MBit. 12.000 ÷ 50 = 240 s (4 Minuten). Einheiten angleichen ist der halbe Punkt.",
+    "mistake": "Byte und Bit verwechselt – Faktor 8 vergessen.",
+    "hint": "GB → MBit: × 1000 × 8.",
+    "simpler": "<p>1,5 × 1000 × 8 = 12.000 MBit. Teile durch 50.</p>"
+  },
+  {
+    "id": "x14",
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "single",
+    "q": "Zwischen Etagenverteiler und Anschlussdose wird verkabelt. Welcher Bereich der strukturierten Verkabelung ist das?",
+    "options": [
+      "Primärbereich",
+      "Sekundärbereich",
+      "Tertiärbereich",
+      "Backbone"
+    ],
+    "correct": 2,
+    "explain": "Tertiär = Etage (Verteiler bis Dose, Kupfer, 90 m). Sekundär = zwischen Etagen, Primär = zwischen Gebäuden.",
+    "hint": "Von außen nach innen: Primär, Sekundär, Tertiär."
+  },
+  {
+    "id": "x15",
+    "topic": "Subnetting",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie lautet die Netzadresse von 172.16.34.100/20? (a.b.c.d)",
+    "accept": [
+      "172.16.32.0"
+    ],
+    "placeholder": "Netzadresse",
+    "explain": "/20 → drittes Oktett in 16er-Blöcken (256−240). 34 liegt im Block 32–47 → 172.16.32.0. Broadcast wäre 172.16.47.255.",
+    "mistake": "Blockgröße im falschen Oktett angewendet.",
+    "hint": "/20 = Maske 255.255.240.0 → Sprung 16 im 3. Oktett.",
+    "simpler": "<p>3. Oktett: 0, 16, 32, 48 … In welchem Block liegt 34?</p>"
+  },
+  {
+    "id": "x16",
+    "topic": "Elektrotechnik",
+    "rel": "med",
+    "type": "single",
+    "q": "Für einen Serverraum wird eine USV ohne jede Umschaltlücke gefordert. Welcher Typ?",
+    "options": [
+      "Offline-USV",
+      "Line-Interactive-USV",
+      "Online-USV (Doppelwandler)",
+      "Steckdosenleiste mit Schalter"
+    ],
+    "correct": 2,
+    "explain": "Beim Doppelwandler läuft die Last permanent über Gleichrichter + Wechselrichter – ein Ausfall ist schlicht nicht spürbar. Offline/Line-interactive schalten um (wenige ms Lücke).",
+    "hint": "„Ohne Lücke“ = die Last hängt nie direkt am Netz."
+  },
+  {
+    "id": "x17",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "gap",
+    "q": "Notebook für 4.200 € netto, Nutzungsdauer 3 Jahre, lineare AfA. Jahresbetrag in Euro? (nur Zahl)",
+    "accept": [
+      "1400",
+      "1.400"
+    ],
+    "placeholder": "€",
+    "explain": "4.200 ÷ 3 = 1.400 € pro Jahr. Bei unterjähriger Anschaffung im ersten Jahr monatsgenau anteilig.",
+    "mistake": "Brutto statt netto abgeschrieben oder Restwert erfunden.",
+    "hint": "Anschaffungskosten ÷ Nutzungsdauer.",
+    "simpler": "<p>4.200 ÷ 3 = ?</p>"
+  },
+  {
+    "id": "x18",
+    "topic": "Datenschutz",
+    "rel": "high",
+    "type": "single",
+    "q": "Welches der folgenden Daten ist KEIN personenbezogenes Datum im Sinne der DSGVO?",
+    "options": [
+      "Die private E-Mail-Adresse eines Kunden",
+      "Das Kfz-Kennzeichen eines Mitarbeiters",
+      "Die Seriennummer eines Lagerdruckers",
+      "Die IP-Adresse eines Heimanschlusses"
+    ],
+    "correct": 2,
+    "explain": "Personenbezogen ist alles, was sich einer Person zuordnen lässt – auch Kennzeichen und (dynamische) IP-Adressen. Die Druckerseriennummer beschreibt nur ein Gerät.",
+    "hint": "Frage je Option: Führt das zu einem Menschen?"
+  },
+  {
+    "id": "x19",
+    "topic": "Arbeitsplatz & Hardware",
+    "rel": "high",
+    "type": "single",
+    "q": "Eine Sachbearbeiterin (Office, Mail, Browser) bekommt einen neuen PC. Welche Konfiguration ist angemessen dimensioniert?",
+    "options": [
+      "8-Kern-CPU, 64 GB RAM, RTX-Grafikkarte",
+      "4-Kern-CPU, 16 GB RAM, integrierte Grafik, SSD",
+      "2-Kern-CPU, 4 GB RAM, HDD",
+      "Workstation mit Dual-Xeon"
+    ],
+    "correct": 1,
+    "explain": "Bedarfsgerecht heißt: weder unter- noch überdimensioniert. Office-Arbeit braucht solide Mittelklasse mit SSD – die Gaming-Grafikkarte wäre verschwendetes Budget (Wirtschaftlichkeit!), 4 GB RAM wären heute zu knapp.",
+    "mistake": "„Mehr ist besser“ – die AP1 fragt fast immer nach dem ANGEMESSENEN, nicht dem Maximum.",
+    "hint": "Anforderungsprofil vor Datenblatt."
+  },
+  {
+    "id": "x20",
+    "topic": "Arbeitsplatz & Hardware",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Schnittstelle nutzt eine moderne NVMe-SSD für maximale Geschwindigkeit?",
+    "options": [
+      "SATA III",
+      "PCIe (M.2)",
+      "USB 2.0",
+      "IDE"
+    ],
+    "correct": 1,
+    "explain": "NVMe spricht direkt über PCIe-Lanes (M.2-Steckplatz) – mehrere GB/s statt der ~550 MB/s-Grenze von SATA III. Wichtig für die Beratung: SATA-M.2 und NVMe-M.2 sehen gleich aus, unterscheiden sich aber um Welten in der Leistung.",
+    "hint": "SATA ist der Flaschenhals, den NVMe umgeht."
+  },
+  {
+    "id": "x21",
+    "topic": "Arbeitsplatz & Hardware",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Monitor soll per Kabel Bild UND Ton übertragen und den PC laden. Welcher Anschluss?",
+    "options": [
+      "VGA",
+      "DVI",
+      "USB-C mit DisplayPort Alt Mode + Power Delivery",
+      "PS/2"
+    ],
+    "correct": 2,
+    "explain": "USB-C kann per Alt Mode DisplayPort-Signale führen und per Power Delivery bis 240 W laden – ein Kabel für alles, Standard bei Dockingstationen. VGA/DVI übertragen keinen Ton.",
+    "hint": "Ein Kabel, drei Funktionen – das kann nur einer der Anschlüsse leisten."
+  },
+  {
+    "id": "x22",
+    "topic": "Zahlensysteme",
+    "rel": "high",
+    "type": "gap",
+    "q": "Ein unkomprimiertes Foto: 4.000 × 3.000 Pixel, 24 Bit Farbtiefe. Größe in MB (dezimal, ganze Zahl)?",
+    "accept": [
+      "36"
+    ],
+    "placeholder": "MB",
+    "explain": "4.000 × 3.000 = 12.000.000 Pixel × 24 Bit = 288.000.000 Bit ÷ 8 = 36.000.000 Byte = 36 MB. Der Multimedia-Klassiker der AP1 – Einheitenkette sauber notieren gibt die Punkte.",
+    "mistake": "Durch 8 teilen vergessen (Bit vs. Byte).",
+    "hint": "Pixel × Farbtiefe ÷ 8.",
+    "simpler": "<p>12 Mio. Pixel × 3 Byte = ?</p>"
+  },
+  {
+    "id": "x23",
+    "topic": "Zahlensysteme",
+    "rel": "med",
+    "type": "gap",
+    "q": "Wandle 202 (dezimal) in Hexadezimal um. (nur der Hex-Wert)",
+    "accept": [
+      "ca",
+      "CA"
+    ],
+    "placeholder": "hex",
+    "explain": "202 ÷ 16 = 12 Rest 10 → 12 = C, 10 = A → CA. Gegenprobe: 12 × 16 + 10 = 202.",
+    "mistake": "Reste in falscher Reihenfolge notiert.",
+    "hint": "Durch 16 teilen, Reste von unten nach oben lesen.",
+    "simpler": "<p>202 = 12 × 16 + 10. Welche Hex-Zeichen sind 12 und 10?</p>"
+  },
+  {
+    "id": "x24",
+    "topic": "Elektrotechnik",
+    "rel": "high",
+    "type": "gap",
+    "q": "Ein PC (Aufnahme 250 W) läuft 8 h täglich an 220 Arbeitstagen. Strompreis 0,35 €/kWh. Jahreskosten in Euro? (nur Zahl)",
+    "accept": [
+      "154"
+    ],
+    "placeholder": "€",
+    "explain": "0,25 kW × 8 h × 220 Tage = 440 kWh × 0,35 € = 154 €. Dreisprung: kW → kWh → Euro. Taucht fast jedes Jahr in Variationen auf.",
+    "mistake": "Watt nicht in kW umgerechnet (Ergebnis × 1000 daneben).",
+    "hint": "Erst kWh pro Jahr, dann mal Preis.",
+    "simpler": "<p>0,25 × 8 × 220 = 440 kWh. 440 × 0,35 = ?</p>"
+  },
+  {
+    "id": "x25",
+    "topic": "Elektrotechnik",
+    "rel": "med",
+    "type": "single",
+    "q": "Warum steht die USV im Rack GANZ UNTEN?",
+    "options": [
+      "Wegen der besseren Kühlung",
+      "Sie ist die schwerste Komponente – niedriger Schwerpunkt verhindert Kippen",
+      "Damit die Kabel kürzer sind",
+      "Vorschrift der DGUV"
+    ],
+    "correct": 1,
+    "explain": "Akkus machen die USV zum schwersten Gerät im Schrank. Unten eingebaut bleibt der Schwerpunkt tief – Kippsicherheit beim Herausziehen anderer Komponenten.",
+    "hint": "Denk an den Schwerpunkt."
+  },
+  {
+    "id": "x26",
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie viele nutzbare Host-Adressen hat das Netz 192.168.10.0/23? (nur Zahl)",
+    "accept": [
+      "510"
+    ],
+    "placeholder": "Hosts",
+    "explain": "/23 → 9 Hostbits → 2⁹ − 2 = 510. Das Netz reicht von 192.168.10.0 bis 192.168.11.255 – /23 fasst ZWEI /24 zusammen (Supernetting).",
+    "mistake": "2⁸ statt 2⁹ (nur ein Oktett betrachtet).",
+    "hint": "32 − 23 = 9 Hostbits.",
+    "simpler": "<p>2⁹ = 512. Minus Netz- und Broadcastadresse.</p>"
+  },
+  {
+    "id": "x27",
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Kunde meldet: „Internet geht nicht.“ ipconfig zeigt 169.254.77.3. Was ist die Ursache?",
+    "options": [
+      "Der DNS-Server ist falsch",
+      "Der Client hat keinen DHCP-Server erreicht (APIPA)",
+      "Die Firewall blockt Port 80",
+      "Das WLAN-Passwort ist abgelaufen"
+    ],
+    "correct": 1,
+    "explain": "169.254.x.x ist die selbstvergebene APIPA-Notadresse: Der DHCP-Discover blieb unbeantwortet. Prüfkette: Kabel/WLAN-Link → Switchport → DHCP-Dienst → Scope voll?",
+    "mistake": "An DNS denken, obwohl gar keine gültige IP existiert.",
+    "hint": "Woher kommt 169.254 automatisch?"
+  },
+  {
+    "id": "x28",
+    "topic": "Netzwerktechnik",
+    "rel": "med",
+    "type": "order",
+    "q": "Bringe den Weg eines DNS-Lookups in die richtige Reihenfolge.",
+    "items": [
+      "Lokaler Cache/hosts-Datei",
+      "Konfigurierter DNS-Resolver",
+      "Root- und TLD-Server (rekursiv)",
+      "Autoritativer Nameserver der Domain"
+    ],
+    "explain": "Erst lokal schauen, dann den Resolver fragen; der hangelt sich rekursiv über Root und TLD zum autoritativen Server. Antworten werden gemäß TTL gecacht.",
+    "hint": "Vom Nächsten zum Entferntesten."
+  },
+  {
+    "id": "x29",
+    "topic": "Netzwerktechnik",
+    "rel": "med",
+    "type": "single",
+    "q": "Welches Übertragungsmedium ist unempfindlich gegen elektromagnetische Störungen und Potenzialunterschiede?",
+    "options": [
+      "U/UTP Cat 5e",
+      "Koaxialkabel",
+      "Lichtwellenleiter",
+      "S/FTP Cat 7"
+    ],
+    "correct": 2,
+    "explain": "Glas leitet Licht statt Strom: keine EMV-Einkopplung, keine Potenzialverschleppung – deshalb Pflicht zwischen Gebäuden (Blitzschutz). Schirmung (S/FTP) mindert Störungen nur, LWL eliminiert sie.",
+    "hint": "Wo fließt gar kein Strom?"
+  },
+  {
+    "id": "x30",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Mitarbeiter findet einen USB-Stick auf dem Parkplatz. Korrektes Verhalten?",
+    "options": [
+      "Am eigenen PC prüfen, wem er gehört",
+      "Abgeben an die IT – niemals einstecken",
+      "In der Teeküche fragen und einstecken",
+      "Formatieren und selbst benutzen"
+    ],
+    "correct": 1,
+    "explain": "Präparierte Sticks („USB-Drop“) sind ein Standard-Angriffsvektor – schon das Einstecken kann Schadcode ausführen (BadUSB). Ab in die IT, die hat isolierte Prüfumgebungen.",
+    "hint": "Der Stick liegt da vielleicht mit Absicht."
+  },
+  {
+    "id": "x31",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "mc",
+    "q": "Welche zwei Eigenschaften machen ein Passwort widerstandsfähig?",
+    "options": [
+      "Länge (12+ Zeichen)",
+      "Es steht im Wörterbuch",
+      "Einzigartigkeit pro Dienst",
+      "Es enthält den Firmennamen"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Länge schlägt Komplexitätstricks (Entropie), Einzigartigkeit stoppt Credential-Stuffing nach Leaks. Passwortmanager machen beides praktikabel; Wörterbuchwörter und Firmenbezug stehen in jeder Angriffsliste.",
+    "hint": "Was hilft gegen Brute Force, was gegen Leaks?"
+  },
+  {
+    "id": "x32",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Azubi (17) kauft ohne Wissen der Eltern ein Notebook für 800 €. Der Kaufvertrag ist …",
+    "options": [
+      "gültig",
+      "nichtig",
+      "schwebend unwirksam, bis die Eltern zustimmen",
+      "nur mit Schülerausweis gültig"
+    ],
+    "correct": 2,
+    "explain": "Beschränkt Geschäftsfähige (7–17) schließen Verträge „schwebend unwirksam“ – sie werden erst mit Genehmigung der Eltern wirksam (Ausnahme: Taschengeldparagraf § 110 BGB bei eigenen Mitteln).",
+    "mistake": "„Nichtig“ gilt nur bei unter 7-Jährigen.",
+    "hint": "Der Vertrag schwebt – wer holt ihn runter?"
+  },
+  {
+    "id": "x33",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "gap",
+    "q": "Listeneinkaufspreis 1.200 €, 10 % Rabatt, 2 % Skonto, 24 € Bezugskosten. Bezugspreis in Euro? (Zahl mit Komma möglich)",
+    "accept": [
+      "1082,40",
+      "1082.40",
+      "1082,4",
+      "1082.4"
+    ],
+    "placeholder": "€",
+    "explain": "1.200 − 10 % = 1.080 → − 2 % Skonto = 1.058,40 → + 24 € Bezugskosten = 1.082,40 €. Wichtig: Skonto auf den Zieleinkaufspreis, Bezugskosten erst am Ende.",
+    "mistake": "Rabatt und Skonto zusammen von 1.200 abgezogen (Reihenfolge!).",
+    "hint": "Nacheinander rechnen, nie Prozente addieren.",
+    "simpler": "<p>1.200 × 0,9 = 1.080 · × 0,98 = 1.058,40 · + 24 = ?</p>"
+  },
+  {
+    "id": "x34",
+    "topic": "WISO",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Aussage zum Jugendarbeitsschutzgesetz (JArbSchG) stimmt für unter 18-Jährige?",
+    "options": [
+      "Sie dürfen bis zu 10 h täglich arbeiten",
+      "Maximal 8 h täglich, 40 h wöchentlich, keine Nachtarbeit",
+      "Überstunden sind unbegrenzt zulässig",
+      "Samstagsarbeit ist immer verboten"
+    ],
+    "correct": 1,
+    "explain": "Jugendarbeitsschutzgesetz: 8 h/Tag, 40 h/Woche, grundsätzlich keine Nacht- und stark eingeschränkte Wochenendarbeit, längere Pausen. Prüfungsklassiker in Kombination mit Berufsschultagen.",
+    "hint": "Das Gesetz schützt – also die restriktivste Option prüfen."
+  },
+  {
+    "id": "x35",
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "single",
+    "q": "Im Gantt-Diagramm überlappen sich zwei Vorgänge, die dieselbe Person ausführen soll. Was liegt vor?",
+    "options": [
+      "Ein kritischer Pfad",
+      "Ein Ressourcenkonflikt",
+      "Ein Meilenstein",
+      "Ein Puffer"
+    ],
+    "correct": 1,
+    "explain": "Zwei gleichzeitige Aufgaben, eine Ressource = Ressourcenkonflikt. Lösung: verschieben (Puffer nutzen), aufteilen oder zusätzliche Ressource. Der kritische Pfad beschreibt Zeit-, nicht Personalabhängigkeit.",
+    "hint": "Es geht um WER, nicht um WANN."
+  },
+  {
+    "id": "x36",
+    "topic": "Projektmanagement",
+    "rel": "med",
+    "type": "single",
+    "q": "Was gehört in ein Lastenheft?",
+    "options": [
+      "Die technische Umsetzung im Detail",
+      "WAS der Auftraggeber fordert (Ziele, Anforderungen, Rahmen)",
+      "Der Quellcode",
+      "Das Angebot des Dienstleisters"
+    ],
+    "correct": 1,
+    "explain": "Lastenheft = Anforderungen des Auftraggebers (WAS). Das Pflichtenheft antwortet mit dem WIE des Auftragnehmers. Reihenfolge und Urheber sind der Standard-Punktebringer.",
+    "hint": "Wer lastet wem etwas auf?"
+  },
+  {
+    "id": "x37",
+    "topic": "Arbeitsplatz & Hardware",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Maßnahme gehört zur ergonomischen Arbeitsplatzgestaltung?",
+    "options": [
+      "Monitor-Oberkante etwa auf Augenhöhe, 50–70 cm Abstand",
+      "Monitor direkt vor dem Fenster (Gegenlicht)",
+      "Notebook dauerhaft ohne externe Tastatur",
+      "Stuhl ohne Lehne für gerade Haltung"
+    ],
+    "correct": 0,
+    "explain": "Blickachse leicht nach unten, Abstand 50–70 cm, Blickrichtung parallel zum Fenster, externe Tastatur/Maus bei Dauerarbeit. Ergonomie ist AP1-Stoff aus dem Arbeitsplatz-Kapitel (Arbeitsstättenverordnung/DGUV).",
+    "hint": "Nacken und Augen entscheiden."
+  },
+  {
+    "id": "x38",
+    "topic": "Green IT",
+    "rel": "med",
+    "type": "gap",
+    "q": "Ein alter Server (600 W) wird durch einen neuen (350 W) ersetzt, 24/7-Betrieb, 0,30 €/kWh. Jährliche Ersparnis in Euro? (ganze Zahl)",
+    "accept": [
+      "657"
+    ],
+    "placeholder": "€",
+    "explain": "Differenz 250 W = 0,25 kW × 8.760 h = 2.190 kWh × 0,30 € = 657 €/Jahr. Solche Green-IT-Wirtschaftlichkeitsrechnungen verbinden zwei Prüfungsgebiete – Rechenweg aufschreiben!",
+    "mistake": "Mit 365 × 24 = 8.760 h verrechnet oder Differenz vergessen.",
+    "hint": "Erst Watt-Differenz, dann Jahres-kWh, dann Euro.",
+    "simpler": "<p>0,25 kW × 8.760 h = 2.190 kWh. × 0,30 € = ?</p>"
+  },
+  {
+    "id": "x39",
+    "topic": "Betriebssysteme",
+    "rel": "med",
+    "type": "single",
+    "q": "Wozu dient eine Wiederherstellungspartition bzw. das Windows-Recovery (WinRE)?",
+    "options": [
+      "Zum Spielen",
+      "Reparatur/Zurücksetzen des Systems ohne Installationsmedium",
+      "Als zweiter Briefkasten",
+      "Zur Temperaturmessung"
+    ],
+    "correct": 1,
+    "explain": "WinRE bootet unabhängig vom defekten System: Startreparatur, Systemwiederherstellung, Zurücksetzen. Ersetzt kein Backup der Nutzerdaten – aber rettet den Start ohne USB-Stick.",
+    "hint": "Was hilft, wenn Windows nicht mehr bootet?"
+  },
+  {
+    "id": "x40",
+    "topic": "Service",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Schritte der systematischen Störungsannahme in die richtige Reihenfolge.",
+    "items": [
+      "Symptom + Nutzer + Zeitpunkt aufnehmen",
+      "Priorität nach Auswirkung/Dringlichkeit festlegen",
+      "Eingrenzen und Lösung/Workaround umsetzen",
+      "Lösung dokumentieren und Ticket schließen"
+    ],
+    "explain": "Aufnahme → Priorisierung → Bearbeitung → Doku. Ohne saubere Aufnahme keine Priorisierung, ohne Doku lernt niemand daraus – exakt das ITIL-Grundmuster der AP1-Servicefragen.",
+    "hint": "Erst verstehen, dann bewerten, dann handeln, dann festhalten."
+  },
+  {
+    "id": "x41",
+    "topic": "Programmierung",
+    "rel": "high",
+    "type": "single",
+    "q": "Pseudocode: summe = 0; FÜR i = 1 BIS 8: WENN i MOD 2 = 0 DANN summe = summe + i. Welche Ausgabe liefert AUSGABE summe?",
+    "options": [
+      "36",
+      "20",
+      "16",
+      "8"
+    ],
+    "correct": 1,
+    "explain": "Addiert werden 2 + 4 + 6 + 8 = 20. Trace-Aufgaben löst man mit einer Wertetabelle je Durchlauf – der sichere Weg zu den Punkten."
+  },
+  {
+    "id": "x42",
+    "topic": "Programmierung",
+    "rel": "high",
+    "type": "gap",
+    "q": "Was liefert der Ausdruck 25 MOD 7?",
+    "accept": [
+      "4"
+    ],
+    "placeholder": "Ergebnis",
+    "explain": "MOD ist der Rest der ganzzahligen Division: 25 = 3 × 7 + 4. DIV ergäbe 3 – die Verwechslung ist die Standardfalle."
+  },
+  {
+    "id": "x43",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Wie viele Durchläufe macht die Zählschleife FÜR i = 5 BIS 17?",
+    "options": [
+      "12",
+      "17",
+      "13",
+      "11"
+    ],
+    "correct": 2,
+    "explain": "Obergrenze − Untergrenze + 1 = 17 − 5 + 1 = 13. Das vergessene +1 ist der klassische Off-by-One-Fehler."
+  },
+  {
+    "id": "x44",
+    "topic": "Testen",
+    "rel": "med",
+    "type": "order",
+    "q": "Bringe die Schritte eines dokumentierten Softwaretests in die richtige Reihenfolge.",
+    "items": [
+      "Testfall mit erwartetem Ergebnis definieren",
+      "Testdaten und Vorbedingungen vorbereiten",
+      "Test ausführen",
+      "Ist- mit Soll-Ergebnis vergleichen",
+      "Abweichung als Fehlerbericht dokumentieren"
+    ],
+    "explain": "Ohne vorab definiertes erwartetes Ergebnis gibt es keinen Soll-Ist-Vergleich – genau darauf zielt die Prüfungsfrage."
+  },
+  {
+    "id": "x45",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "match",
+    "q": "Ordne die UML-Notation ihrer Bedeutung zu.",
+    "pairs": [
+      {
+        "l": "+ vor einem Attribut",
+        "r": "public – von außen zugreifbar"
+      },
+      {
+        "l": "− vor einem Attribut",
+        "r": "private – nur innerhalb der Klasse"
+      },
+      {
+        "l": "Leerer Dreieckspfeil",
+        "r": "Vererbung (ist-ein-Beziehung)"
+      },
+      {
+        "l": "Ausgefüllte Raute",
+        "r": "Komposition – Teile sterben mit dem Ganzen"
+      }
+    ],
+    "explain": "Sichtbarkeiten und Beziehungspfeile sind das Grundvokabular jeder Klassendiagramm-Aufgabe."
+  },
+  {
+    "id": "x46",
+    "topic": "Datenbanken",
+    "rel": "high",
+    "type": "single",
+    "q": "Worin unterscheiden sich WHERE und HAVING in SQL?",
+    "options": [
+      "Gar nicht",
+      "WHERE filtert Zeilen vor der Gruppierung, HAVING filtert Gruppen anhand von Aggregatwerten",
+      "HAVING ist schneller",
+      "WHERE funktioniert nur mit Texten"
+    ],
+    "correct": 1,
+    "explain": "HAVING SUM(betrag) > 1000 ist gültig, WHERE SUM(...) nicht – WHERE kennt Aggregate noch nicht."
+  },
+  {
+    "id": "x47",
+    "topic": "Datenbanken",
+    "rel": "med",
+    "type": "gap",
+    "q": "Tabelle kunden enthält 5 Zeilen, davon 3 mit ort = 'Köln'. Was liefert SELECT COUNT(*) FROM kunden WHERE ort = 'Köln'?",
+    "accept": [
+      "3"
+    ],
+    "placeholder": "Ergebnis",
+    "explain": "WHERE filtert zuerst auf die 3 Kölner Zeilen, COUNT(*) zählt sie. COUNT zählt Zeilen, nicht Werte."
+  },
+  {
+    "id": "x48",
+    "topic": "Datenbanken",
+    "rel": "high",
+    "type": "single",
+    "q": "Wie wird eine 1:n-Beziehung (Kunde – Aufträge) relational korrekt umgesetzt?",
+    "options": [
+      "Fremdschlüssel kunden_id in der Auftragstabelle (n-Seite)",
+      "Fremdschlüssel in der Kundentabelle",
+      "Zwischentabelle zwingend",
+      "Beide Tabellen zusammenlegen"
+    ],
+    "correct": 0,
+    "explain": "Die n-Seite trägt den Schlüssel der 1-Seite. Die Zwischentabelle braucht erst die n:m-Beziehung."
+  },
+  {
+    "id": "x49",
+    "topic": "Testen",
+    "rel": "med",
+    "type": "mc",
+    "q": "Welche zwei Verfahren gehören zu den Blackbox-Testmethoden?",
+    "options": [
+      "Äquivalenzklassenbildung",
+      "Zweigüberdeckung",
+      "Grenzwertanalyse",
+      "Pfadüberdeckung"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Äquivalenzklassen und Grenzwerte arbeiten nur mit der Spezifikation; Zweig-/Pfadüberdeckung brauchen Codekenntnis (Whitebox)."
+  },
+  {
+    "id": "x50",
+    "topic": "Zahlensysteme",
+    "rel": "med",
+    "type": "gap",
+    "q": "Stelle −5 im 8-Bit-Zweierkomplement dar (8 Stellen).",
+    "accept": [
+      "11111011"
+    ],
+    "placeholder": "8 Bit",
+    "explain": "5 = 00000101 → invertieren 11111010 → +1 = 11111011. Das führende 1-Bit zeigt das negative Vorzeichen."
+  },
+  {
+    "id": "x51",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Array zahlen[0..9] wird mit FÜR i = 0 BIS 10 durchlaufen. Was passiert?",
+    "options": [
+      "Nichts Besonderes",
+      "Beim Zugriff auf zahlen[10] entsteht ein Laufzeitfehler (Index außerhalb)",
+      "Das Array wird automatisch vergrößert",
+      "Die Schleife startet neu"
+    ],
+    "correct": 1,
+    "explain": "10 Elemente belegen die Indizes 0–9. Der Zugriff auf Index 10 ist der klassische Off-by-One-Laufzeitfehler."
+  },
+  {
+    "id": "x52",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Eine rekursive Funktion ohne erreichbaren Basisfall führt zu…",
+    "options": [
+      "einer Endlos-Ausgabe ohne Folgen",
+      "einem Stack Overflow, weil jeder Aufruf Speicher auf dem Aufruf-Stack belegt",
+      "schnellerer Ausführung",
+      "einem Compilerfehler"
+    ],
+    "correct": 1,
+    "explain": "Jeder Selbstaufruf legt einen Stackframe an – ohne Abbruchbedingung läuft der Stack voll."
+  },
+  {
+    "id": "x53",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "gap",
+    "q": "Wie viele Vergleiche braucht die binäre Suche in 1.024 sortierten Elementen maximal?",
+    "accept": [
+      "10"
+    ],
+    "placeholder": "Vergleiche",
+    "explain": "log₂(1024) = 10 – pro Schritt halbiert sich der Suchraum. Voraussetzung: sortierte Daten."
+  },
+  {
+    "id": "x54",
+    "topic": "Programmierung",
+    "rel": "low",
+    "type": "match",
+    "q": "Ordne jedem Wert den passenden Datentyp zu.",
+    "pairs": [
+      {
+        "l": "true",
+        "r": "boolean"
+      },
+      {
+        "l": "42",
+        "r": "integer"
+      },
+      {
+        "l": "3,14",
+        "r": "float/double"
+      },
+      {
+        "l": "\"IT-2026\"",
+        "r": "string"
+      }
+    ],
+    "explain": "Datentyp-Wahl entscheidet über Speicherbedarf und zulässige Operationen – Grundlagenfrage der AP1."
+  },
+  {
+    "id": "x55",
+    "topic": "Programmierung",
+    "rel": "low",
+    "type": "single",
+    "q": "Git: Worin unterscheiden sich commit und push?",
+    "options": [
+      "Gar nicht",
+      "commit sichert lokal ins Repository, push überträgt die Commits zum entfernten Repository",
+      "push sichert lokal",
+      "commit löscht Änderungen"
+    ],
+    "correct": 1,
+    "explain": "Erst lokal committen (nachvollziehbare Historie), dann pushen – wer nur committet, teilt nichts mit dem Team."
+  },
+  {
+    "id": "x56",
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "gap",
+    "q": "Netzplan: A (2 Tage) hat die Nachfolger B (4 Tage) und C (5 Tage); beide münden in D. Welcher FAZ ergibt sich für D?",
+    "accept": [
+      "7"
+    ],
+    "placeholder": "Tag",
+    "explain": "FAZ(D) = Maximum der Vorgänger-FEZ: max(2+4, 2+5) = 7. Die Maximum-Regel ist DIE Netzplan-Falle."
+  },
+  {
+    "id": "x57",
+    "topic": "Wirtschaft",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Server (3.600 €, Nutzungsdauer 3 Jahre) wird am 1. Oktober gekauft. Lineare AfA im Anschaffungsjahr?",
+    "options": [
+      "1.200 €",
+      "300 €",
+      "900 €",
+      "3.600 €"
+    ],
+    "correct": 1,
+    "explain": "Jahres-AfA 1.200 €, aber nur 3 von 12 Monaten (Okt–Dez): 1.200 × 3/12 = 300 €. Monatsgenau ist Pflicht."
+  },
+  {
+    "id": "x58",
+    "topic": "Wirtschaft",
+    "rel": "med",
+    "type": "mc",
+    "q": "Welche zwei Angaben sind Pflichtangaben einer Rechnung nach § 14 UStG?",
+    "options": [
+      "Fortlaufende Rechnungsnummer",
+      "IBAN des Kunden",
+      "Steuersatz und Steuerbetrag",
+      "Ansprechpartner mit Durchwahl"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Bankdaten und Ansprechpartner sind üblich, aber keine Pflicht – die Steuerangaben und die fortlaufende Nummer schon."
+  },
+  {
+    "id": "x59",
+    "topic": "Netzwerktechnik",
+    "rel": "med",
+    "type": "single",
+    "q": "Wie lautet die maximal gekürzte Form von 2001:0db8:0000:0000:0000:0000:0000:0001?",
+    "options": [
+      "2001:db8::1",
+      "2001:db8:0:0:1",
+      "2001::db8::1",
+      "2001:db8::0001"
+    ],
+    "correct": 0,
+    "explain": "Führende Nullen je Block entfallen, EINE Folge von Nullblöcken wird zu :: – doppeltes :: ist unzulässig."
+  },
+  {
+    "id": "x60",
+    "topic": "Programmierung",
+    "rel": "med",
+    "type": "order",
+    "q": "Bringe die Schritte der Algorithmus-Entwicklung in die sinnvolle Reihenfolge.",
+    "items": [
+      "Problem und Anforderungen verstehen",
+      "Eingaben und erwartete Ausgaben bestimmen",
+      "Algorithmus als Pseudocode/Struktogramm entwerfen",
+      "Schreibtischtest mit konkreten Werten durchführen",
+      "Implementieren und testen"
+    ],
+    "explain": "Erst denken, dann tippen: Der Schreibtischtest vor der Implementierung findet Logikfehler am billigsten."
+  }
+]

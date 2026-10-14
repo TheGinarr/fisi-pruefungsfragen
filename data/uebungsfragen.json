@@ -1,0 +1,962 @@
+[
+  {
+    "id": "q1",
+    "year": 1,
+    "topic": "Hardware",
+    "rel": "high",
+    "type": "single",
+    "q": "Welche Komponente übernimmt im EVA-Prinzip die Verarbeitung?",
+    "options": [
+      "Tastatur",
+      "CPU",
+      "Monitor",
+      "SSD"
+    ],
+    "correct": 1,
+    "explain": "Die CPU führt Berechnungen und Befehle aus – sie ist das V in EVA.",
+    "mistake": "SSD wird oft gewählt – sie speichert aber nur, sie verarbeitet nicht.",
+    "hint": "E = hinein, A = heraus. Was bleibt in der Mitte?",
+    "simpler": "<p>Ordne zu: Tastatur = Eingabe, Monitor = Ausgabe, SSD = Speicher. Übrig bleibt die CPU – die Verarbeitung.</p>"
+  },
+  {
+    "id": "q2",
+    "year": 1,
+    "topic": "Hardware",
+    "rel": "high",
+    "type": "gap",
+    "q": "Ein Verbraucher zieht bei 12 V genau 5 A. Welche Leistung in Watt nimmt er auf? (nur Zahl)",
+    "accept": [
+      "60",
+      "60w",
+      "60watt"
+    ],
+    "placeholder": "z. B. 42",
+    "explain": "P = U · I = 12 V · 5 A = 60 W.",
+    "mistake": "U und I werden gern addiert statt multipliziert.",
+    "hint": "Die Formel lautet P = U · I.",
+    "simpler": "<p>Rechne zuerst 12 · 5. Das Ergebnis ist die Leistung in Watt.</p>"
+  },
+  {
+    "id": "q3",
+    "year": 1,
+    "topic": "Hardware",
+    "rel": "med",
+    "type": "match",
+    "q": "Ordne jede Komponente ihrer Aufgabe zu.",
+    "pairs": [
+      {
+        "l": "RAM",
+        "r": "flüchtiger Arbeitsspeicher"
+      },
+      {
+        "l": "SSD",
+        "r": "persistenter Massenspeicher"
+      },
+      {
+        "l": "Netzteil",
+        "r": "wandelt 230 V AC in Gleichspannung"
+      },
+      {
+        "l": "Chipsatz",
+        "r": "verbindet CPU mit Peripherie"
+      }
+    ],
+    "explain": "RAM verliert Daten ohne Strom, die SSD behält sie; das Netzteil versorgt, der Chipsatz vermittelt.",
+    "hint": "Was passiert mit RAM-Inhalt beim Ausschalten?"
+  },
+  {
+    "id": "q4",
+    "year": 1,
+    "topic": "Zahlensysteme",
+    "rel": "high",
+    "type": "gap",
+    "q": "Rechne um: 1101 0110 (binär) = ? (dezimal)",
+    "accept": [
+      "214"
+    ],
+    "placeholder": "dezimal",
+    "explain": "128+64+16+4+2 = 214. Stellenwerte der Einsen addieren.",
+    "mistake": "Häufig wird eine Stelle vergessen oder von der falschen Seite gezählt.",
+    "hint": "Stellenwerte von links: 128, 64, 32, 16, 8, 4, 2, 1 – nur die Einsen zählen.",
+    "simpler": "<p>Schreibe unter jede Ziffer den Stellenwert: 1·128, 1·64, 0·32, 1·16, 0·8, 1·4, 1·2, 0·1. Addiere die Treffer.</p>"
+  },
+  {
+    "id": "q5",
+    "year": 1,
+    "topic": "Zahlensysteme",
+    "rel": "high",
+    "type": "gap",
+    "q": "Rechne um: 173 (dezimal) = ? (hexadezimal)",
+    "accept": [
+      "ad",
+      "0xad",
+      "AD"
+    ],
+    "placeholder": "hex",
+    "explain": "173 = 10·16 + 13 → A (10) und D (13) → AD.",
+    "mistake": "Oft wird der Rest zuerst notiert – Reihenfolge beachten!",
+    "hint": "Teile 173 durch 16: Ergebnis und Rest ergeben die beiden Hex-Ziffern.",
+    "simpler": "<p>173 ÷ 16 = 10 Rest 13. 10 = A, 13 = D. Erst Ergebnis, dann Rest: AD.</p>"
+  },
+  {
+    "id": "q6",
+    "year": 1,
+    "topic": "Zahlensysteme",
+    "rel": "med",
+    "type": "single",
+    "q": "Welcher Binärwert entspricht der Hex-Ziffer F?",
+    "options": [
+      "1010",
+      "1100",
+      "1110",
+      "1111"
+    ],
+    "correct": 3,
+    "explain": "F = 15 = 1111. Jede Hex-Ziffer entspricht genau 4 Bit.",
+    "hint": "F ist die größte Hex-Ziffer.",
+    "simpler": "<p>Zähle hoch: A=1010, B=1011, C=1100, D=1101, E=1110, F=?</p>"
+  },
+  {
+    "id": "q7",
+    "year": 1,
+    "topic": "OSI-Modell",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die OSI-Schichten in die richtige Reihenfolge – wie im Modell dargestellt: oben Schicht 7, unten Schicht 1.",
+    "items": [
+      "Anwendung",
+      "Darstellung",
+      "Sitzung",
+      "Transport",
+      "Vermittlung",
+      "Sicherung",
+      "Bitübertragung"
+    ],
+    "explain": "Von oben nach unten: 7 Anwendung, 6 Darstellung, 5 Sitzung, 4 Transport, 3 Vermittlung, 2 Sicherung, 1 Bitübertragung. Merksatz: „Alle deutschen Studenten trinken verschiedene Sorten Bier“.",
+    "hint": "Unten die Physik (Kabel), oben die Anwendung."
+  },
+  {
+    "id": "q8",
+    "year": 1,
+    "topic": "OSI-Modell",
+    "rel": "high",
+    "type": "single",
+    "q": "Auf welcher OSI-Schicht arbeitet ein Router?",
+    "options": [
+      "Schicht 1",
+      "Schicht 2",
+      "Schicht 3",
+      "Schicht 4"
+    ],
+    "correct": 2,
+    "explain": "Router treffen Entscheidungen anhand von IP-Adressen – Schicht 3 (Vermittlung).",
+    "mistake": "Verwechslung mit dem Switch (Schicht 2, MAC-Adressen).",
+    "hint": "Womit arbeitet ein Router: MAC- oder IP-Adressen?",
+    "simpler": "<p>Switch = MAC = Schicht 2. Router = IP = Schicht ?</p>"
+  },
+  {
+    "id": "q9",
+    "year": 1,
+    "topic": "OSI-Modell",
+    "rel": "med",
+    "type": "match",
+    "q": "Ordne Protokoll bzw. Technik der passenden OSI-Schicht zu.",
+    "pairs": [
+      {
+        "l": "Ethernet-Frame",
+        "r": "Schicht 2 – Sicherung"
+      },
+      {
+        "l": "IP",
+        "r": "Schicht 3 – Vermittlung"
+      },
+      {
+        "l": "TCP",
+        "r": "Schicht 4 – Transport"
+      },
+      {
+        "l": "HTTP",
+        "r": "Schicht 7 – Anwendung"
+      }
+    ],
+    "explain": "Frames auf 2, Pakete/IP auf 3, Segmente/TCP auf 4, Anwendungsprotokolle auf 7.",
+    "hint": "Frames, Pakete, Segmente – die Verpackungen verraten die Schicht."
+  },
+  {
+    "id": "q10",
+    "year": 1,
+    "topic": "IPv4",
+    "rel": "high",
+    "type": "single",
+    "q": "Welche dieser Adressen ist eine private IPv4-Adresse?",
+    "options": [
+      "8.8.8.8",
+      "172.20.1.5",
+      "100.100.1.1",
+      "193.99.144.80"
+    ],
+    "correct": 1,
+    "explain": "172.16.0.0/12 umfasst 172.16.0.0 bis 172.31.255.255 – 172.20.1.5 liegt darin (RFC 1918).",
+    "mistake": "172.x wird oft pauschal als öffentlich einsortiert – nur 172.16–172.31 ist privat.",
+    "hint": "Die drei privaten Bereiche: 10/8, 172.16/12, 192.168/16.",
+    "simpler": "<p>Prüfe nur das zweite Oktett: Liegt 20 zwischen 16 und 31?</p>"
+  },
+  {
+    "id": "q11",
+    "year": 1,
+    "topic": "IPv4",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie viele nutzbare Host-Adressen hat ein /24-Netz? (nur Zahl)",
+    "accept": [
+      "254"
+    ],
+    "placeholder": "Anzahl",
+    "explain": "8 Hostbits → 2⁸ = 256, minus Netz- und Broadcast-Adresse = 254.",
+    "mistake": "256 vergisst den Abzug von Netz- und Broadcast-Adresse.",
+    "hint": "2 hoch Hostbits minus 2.",
+    "simpler": "<p>/24 lässt 32−24 = 8 Bits für Hosts. 2⁸ = 256. Ziehe 2 ab.</p>"
+  },
+  {
+    "id": "q12",
+    "year": 1,
+    "topic": "IPv4",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Client zeigt die IP 169.254.44.17. Was bedeutet das?",
+    "options": [
+      "Er ist im Firmen-WLAN",
+      "Er hat keinen DHCP-Server erreicht",
+      "Er nutzt IPv6",
+      "Er wurde gehackt"
+    ],
+    "correct": 1,
+    "explain": "169.254.0.0/16 ist der APIPA-Bereich: Der Client hat sich selbst eine Notfall-Adresse gegeben.",
+    "hint": "Stichwort APIPA.",
+    "simpler": "<p>Merke: 169.254.x.x = automatische Verlegenheitsadresse ohne DHCP.</p>"
+  },
+  {
+    "id": "q13",
+    "year": 2,
+    "topic": "Subnetting",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie lautet die Netzadresse von 192.168.10.77/26?",
+    "accept": [
+      "192.168.10.64"
+    ],
+    "placeholder": "x.x.x.x",
+    "explain": "/26 → Schrittweite 64 → Blöcke .0, .64, .128, .192. 77 liegt im Block .64–.127.",
+    "mistake": "Oft wird .0 angegeben – das gilt nur für Hosts unter .64.",
+    "hint": "Schrittweite = 256 − 192 = 64. In welchem 64er-Block liegt 77?",
+    "simpler": "<p>Zähle in 64er-Schritten: 0, 64, 128. 77 ist größer als 64 und kleiner als 128 → Netzadresse .64.</p>"
+  },
+  {
+    "id": "q14",
+    "year": 2,
+    "topic": "Subnetting",
+    "rel": "high",
+    "type": "gap",
+    "q": "Wie lautet die Broadcast-Adresse des Netzes 10.1.1.0/27?",
+    "accept": [
+      "10.1.1.31"
+    ],
+    "placeholder": "x.x.x.x",
+    "explain": "/27 → Schrittweite 32 → Block .0 bis .31; die letzte Adresse ist der Broadcast.",
+    "hint": "Nächstes Netz minus 1.",
+    "simpler": "<p>/27: das Netz umfasst 32 Adressen (0–31). Die höchste davon ist der Broadcast.</p>"
+  },
+  {
+    "id": "q15",
+    "year": 2,
+    "topic": "Subnetting",
+    "rel": "high",
+    "type": "single",
+    "q": "In wie viele /26-Subnetze lässt sich ein /24-Netz aufteilen?",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "correct": 1,
+    "explain": "Von /24 auf /26 sind es 2 zusätzliche Netzbits → 2² = 4 Subnetze.",
+    "mistake": "Es zählt die Differenz der Präfixe, nicht die Maske selbst.",
+    "hint": "2 hoch (26 − 24).",
+    "simpler": "<p>26 − 24 = 2 geliehene Bits. 2² = ?</p>"
+  },
+  {
+    "id": "q16",
+    "year": 2,
+    "topic": "DHCP & DNS",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe den DHCP-Ablauf (DORA) in die richtige Reihenfolge.",
+    "items": [
+      "Discover – Client sucht Server",
+      "Offer – Server bietet Adresse an",
+      "Request – Client fordert Adresse an",
+      "Acknowledge – Server bestätigt"
+    ],
+    "explain": "Discover, Offer, Request, Acknowledge – daher das Kürzel DORA.",
+    "hint": "Das Kürzel DORA gibt die Reihenfolge vor."
+  },
+  {
+    "id": "q17",
+    "year": 2,
+    "topic": "DHCP & DNS",
+    "rel": "med",
+    "type": "single",
+    "q": "Welcher DNS-Record-Typ verweist auf den Mailserver einer Domain?",
+    "options": [
+      "A",
+      "CNAME",
+      "MX",
+      "PTR"
+    ],
+    "correct": 2,
+    "explain": "MX = Mail Exchange. A löst Namen zu IPv4 auf, CNAME ist ein Alias, PTR der Rückwärtseintrag.",
+    "hint": "Welcher Record-Typ ist für die Mailzustellung zuständig?",
+    "simpler": "<p>Streiche aus: A = Adresse, CNAME = Alias, PTR = reverse. Was bleibt?</p>"
+  },
+  {
+    "id": "q18",
+    "year": 2,
+    "topic": "DHCP & DNS",
+    "rel": "med",
+    "type": "gap",
+    "q": "Auf welchem Port arbeitet DNS standardmäßig? (nur Zahl)",
+    "accept": [
+      "53"
+    ],
+    "placeholder": "Port",
+    "explain": "DNS nutzt Port 53 (UDP für Anfragen, TCP u. a. für Zonentransfers).",
+    "hint": "Zweistellige Zahl, kleiner als 80.",
+    "simpler": "<p>Merkhilfe: DNS = 53 – einer der Klassiker unter den Well-Known-Ports (0–1023).</p>"
+  },
+  {
+    "id": "q19",
+    "year": 2,
+    "topic": "VLAN & Switching",
+    "rel": "high",
+    "type": "single",
+    "q": "Was ist die Aufgabe eines Trunk-Ports?",
+    "options": [
+      "Er verbindet genau einen PC mit einem VLAN",
+      "Er transportiert mehrere getaggte VLANs zwischen Switches",
+      "Er blockiert Broadcasts",
+      "Er ersetzt den Router"
+    ],
+    "correct": 1,
+    "explain": "Trunks übertragen Frames mehrerer VLANs mit 802.1Q-Tag, z. B. zwischen zwei Switches.",
+    "mistake": "Access-Port (1 VLAN, ungetaggt) und Trunk-Port werden gern vertauscht.",
+    "hint": "Access = Endgerät, Trunk = ?",
+    "simpler": "<p>Merke: Access-Port = 1 VLAN für Endgeräte. Trunk-Port = viele VLANs für Verbindungen zwischen Switches.</p>"
+  },
+  {
+    "id": "q20",
+    "year": 2,
+    "topic": "VLAN & Switching",
+    "rel": "high",
+    "type": "single",
+    "q": "PC in VLAN 10 soll mit Server in VLAN 20 kommunizieren. Was ist nötig?",
+    "options": [
+      "Nichts, gleicher Switch reicht",
+      "Ein Routing zwischen den VLANs (Router oder Layer-3-Switch)",
+      "Ein längeres Kabel",
+      "Ein zweiter DHCP-Server"
+    ],
+    "correct": 1,
+    "explain": "VLANs sind getrennte Netze – Verkehr dazwischen muss geroutet werden.",
+    "hint": "VLANs verhalten sich wie physisch getrennte Netze.",
+    "simpler": "<p>Stell dir VLAN 10 und 20 als zwei Gebäude vor. Wer bringt Pakete von Gebäude zu Gebäude?</p>"
+  },
+  {
+    "id": "q21",
+    "year": 2,
+    "topic": "VLAN & Switching",
+    "rel": "med",
+    "type": "mc",
+    "q": "Welche Vorteile bringen VLANs? (2 richtige)",
+    "options": [
+      "Kleinere Broadcast-Domänen",
+      "Automatisch mehr Bandbreite pro Kabel",
+      "Logische Trennung erhöht die Sicherheit",
+      "Sie machen Firewalls überflüssig"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "VLANs begrenzen Broadcasts und trennen Bereiche logisch. Bandbreite erhöhen sie nicht, und Firewalls ersetzen sie nicht.",
+    "hint": "VLANs trennen – mehr nicht."
+  },
+  {
+    "id": "q22",
+    "year": 2,
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "gap",
+    "q": "RAID 5 mit 4 Platten à 4 TB: Wie viel TB sind netto nutzbar? (nur Zahl)",
+    "accept": [
+      "12",
+      "12tb"
+    ],
+    "placeholder": "TB",
+    "explain": "RAID 5: (n−1) × Plattengröße = 3 × 4 TB = 12 TB; eine Plattenkapazität geht für Parität drauf.",
+    "mistake": "16 TB ignoriert die Parität, 8 TB verwechselt RAID 5 mit RAID 10.",
+    "hint": "Eine Platte ist rechnerisch für die Parität reserviert.",
+    "simpler": "<p>Formel: (Anzahl − 1) · Größe. Also (4 − 1) · 4 TB.</p>"
+  },
+  {
+    "id": "q23",
+    "year": 2,
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "single",
+    "q": "Worin unterscheidet sich die differenzielle von der inkrementellen Sicherung?",
+    "options": [
+      "Differenziell sichert seit der letzten Vollsicherung, inkrementell seit der letzten Sicherung überhaupt",
+      "Differenziell ist immer kleiner",
+      "Inkrementell sichert alles doppelt",
+      "Es gibt keinen Unterschied"
+    ],
+    "correct": 0,
+    "explain": "Differenziell wächst bis zur nächsten Vollsicherung, braucht beim Restore nur Voll + letzte Diff. Inkrementell ist klein, braucht aber die ganze Kette.",
+    "hint": "Bezugspunkt ist der Unterschied: letzte VOLLsicherung vs. letzte Sicherung.",
+    "simpler": "<p>Restore-Frage stellen: Was brauchst du zum Wiederherstellen? Diff: 2 Sätze. Inkrementell: alle seit der Vollsicherung.</p>"
+  },
+  {
+    "id": "q24",
+    "year": 2,
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "single",
+    "q": "Wofür steht die 3-2-1-Regel?",
+    "options": [
+      "3 Platten, 2 Server, 1 Admin",
+      "3 Kopien, 2 Medientypen, 1 Kopie extern",
+      "3 Backups pro Tag, 2 pro Woche, 1 pro Monat",
+      "3 RAID-Level kombinieren"
+    ],
+    "correct": 1,
+    "explain": "3 Kopien der Daten auf 2 unterschiedlichen Medientypen, davon 1 außer Haus/offline.",
+    "hint": "Es geht um Kopien, Medien und Standorte."
+  },
+  {
+    "id": "q25",
+    "year": 3,
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "single",
+    "q": "Eine Verfügbarkeit von 99,9 % pro Jahr erlaubt ungefähr wie viel Ausfallzeit?",
+    "options": [
+      "53 Minuten",
+      "8,8 Stunden",
+      "3,7 Tage",
+      "36 Stunden"
+    ],
+    "correct": 1,
+    "explain": "0,1 % von 8760 h ≈ 8,76 h. 99,99 % wären ≈ 53 min, 99 % ≈ 3,7 Tage.",
+    "mistake": "Prozentrechnung: 0,1 % ist ein Tausendstel, nicht ein Hundertstel.",
+    "hint": "Ein Jahr hat 8760 Stunden. Rechne 8760 · 0,001.",
+    "simpler": "<p>8760 h ÷ 1000 = ? Stunden Ausfall bei 99,9 %.</p>"
+  },
+  {
+    "id": "q26",
+    "year": 3,
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "single",
+    "q": "Was ist ein Single Point of Failure (SPOF)?",
+    "options": [
+      "Ein besonders sicherer Serverraum",
+      "Eine Komponente, deren Ausfall das Gesamtsystem lahmlegt",
+      "Ein Fehler, der nur einmal auftritt",
+      "Die zentrale Firewall-Regel"
+    ],
+    "correct": 1,
+    "explain": "Fällt ein SPOF aus, steht der Dienst – deshalb Redundanz für alle kritischen Komponenten.",
+    "hint": "single = einzeln, failure = Ausfall."
+  },
+  {
+    "id": "q27",
+    "year": 3,
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "single",
+    "q": "Was beschreibt der RTO-Wert in einem Notfallkonzept?",
+    "options": [
+      "Wie viele Daten maximal verloren gehen dürfen",
+      "Wie lange die Wiederherstellung maximal dauern darf",
+      "Wie oft Backups geprüft werden",
+      "Die Lebensdauer der Hardware"
+    ],
+    "correct": 1,
+    "explain": "RTO = Recovery Time Objective = maximal tolerierte Ausfall-/Wiederanlaufzeit. Datenverlust regelt der RPO.",
+    "mistake": "RTO (Zeit bis wieder online) und RPO (Datenverlust) werden ständig vertauscht.",
+    "hint": "T wie Time = Ausfallzeit; P wie Point = Datenstand.",
+    "simpler": "<p>Frage dich: Wie lange dürfen wir offline sein? → RTO. Wie alt darf der letzte Datenstand sein? → RPO.</p>"
+  },
+  {
+    "id": "q28",
+    "year": 3,
+    "topic": "Cloud",
+    "rel": "med",
+    "type": "match",
+    "q": "Ordne die Beispiele dem passenden Servicemodell zu.",
+    "pairs": [
+      {
+        "l": "Gemietete VM mit eigenem OS",
+        "r": "IaaS"
+      },
+      {
+        "l": "Managed-Datenbank-Plattform",
+        "r": "PaaS"
+      },
+      {
+        "l": "Fertige Mail- und Office-Suite",
+        "r": "SaaS"
+      }
+    ],
+    "explain": "IaaS = Infrastruktur (VM), PaaS = Plattform (DB, Runtime), SaaS = fertige Software.",
+    "hint": "Je mehr der Anbieter verwaltet, desto weiter hinten im Alphabet: I → P → S."
+  },
+  {
+    "id": "q29",
+    "year": 3,
+    "topic": "Cloud",
+    "rel": "med",
+    "type": "single",
+    "q": "Was kennzeichnet eine Hybrid Cloud?",
+    "options": [
+      "Zwei Public-Cloud-Anbieter gleichzeitig",
+      "Kombination aus eigener Infrastruktur (on-prem) und Cloud-Diensten",
+      "Cloud nur für Backups",
+      "Eine Cloud ohne Internetzugang"
+    ],
+    "correct": 1,
+    "explain": "Hybrid verbindet On-Premises-Umgebung und Cloud zu einer Gesamtlösung.",
+    "hint": "hybrid = gemischt."
+  },
+  {
+    "id": "q30",
+    "year": 3,
+    "topic": "Cloud",
+    "rel": "med",
+    "type": "single",
+    "q": "Shared Responsibility bei IaaS: Wer ist für die Datensicherung der VM-Inhalte verantwortlich?",
+    "options": [
+      "Immer der Cloud-Anbieter",
+      "Der Kunde",
+      "Niemand, Clouds verlieren keine Daten",
+      "Die Bundesnetzagentur"
+    ],
+    "correct": 1,
+    "explain": "Der Anbieter sichert die Infrastruktur, der Kunde seine Daten, OS-Konfiguration und Backups.",
+    "mistake": "Cloud heißt nicht backupfrei – gelöschte Daten sind auch in der Cloud weg.",
+    "hint": "Der Anbieter stellt die Hardware – wem gehören die Daten?"
+  },
+  {
+    "id": "q31",
+    "year": 3,
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Welches PowerShell-Cmdlet listet alle Dienste auf?",
+    "options": [
+      "List-Services",
+      "Get-Service",
+      "Show-Dienste",
+      "services --all"
+    ],
+    "correct": 1,
+    "explain": "PowerShell folgt dem Verb-Nomen-Schema: Get-Service, Get-Process, New-ADUser …",
+    "hint": "Das Verb für Abfragen ist immer Get."
+  },
+  {
+    "id": "q32",
+    "year": 3,
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Womit planst du unter Linux die tägliche Ausführung eines Backup-Skripts um 02:00 Uhr?",
+    "options": [
+      "autoexec.bat",
+      "cron (crontab)",
+      "Taskleiste",
+      "systemd-networkd"
+    ],
+    "correct": 1,
+    "explain": "cron ist der klassische Zeitplaner: 0 2 * * * /usr/local/bin/backup.sh",
+    "hint": "5 Sternchen und eine Tabelle …"
+  },
+  {
+    "id": "q33",
+    "year": 3,
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Was bedeutet Idempotenz bei Infrastructure as Code?",
+    "options": [
+      "Das Skript läuft nur einmal",
+      "Mehrfaches Ausführen führt immer zum gleichen Endzustand",
+      "Der Code ist verschlüsselt",
+      "Es braucht keine Versionierung"
+    ],
+    "correct": 1,
+    "explain": "Egal wie oft angewendet: Das Ergebnis bleibt der beschriebene Sollzustand – Grundprinzip von Ansible, Terraform und Co.",
+    "hint": "idem = dasselbe (lat.)."
+  },
+  {
+    "id": "q34",
+    "year": 3,
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "single",
+    "q": "Wer erstellt das Lastenheft?",
+    "options": [
+      "Der Auftragnehmer",
+      "Der Auftraggeber/Kunde",
+      "Die IHK",
+      "Der Projektleiter des Dienstleisters"
+    ],
+    "correct": 1,
+    "explain": "Der Auftraggeber beschreibt im Lastenheft, WAS er fordert. Der Auftragnehmer antwortet im Pflichtenheft, WIE er es umsetzt.",
+    "mistake": "Lasten-/Pflichtenheft-Verwechslung ist der WISO-Klassiker schlechthin.",
+    "hint": "Wer hat die Anforderungen – wer die Lösung?",
+    "simpler": "<p>Eselsbrücke: Der Kunde lädt dem Auftragnehmer Lasten auf. Der Auftragnehmer hat die Pflicht zu liefern.</p>"
+  },
+  {
+    "id": "q35",
+    "year": 3,
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "single",
+    "q": "Wozu dient eine Nutzwertanalyse?",
+    "options": [
+      "Zur Berechnung der Stromkosten",
+      "Zum objektiven Vergleich von Alternativen anhand gewichteter Kriterien",
+      "Zur Messung der Netzwerklast",
+      "Zum Erstellen des Gantt-Diagramms"
+    ],
+    "correct": 1,
+    "explain": "Kriterien festlegen, gewichten, Alternativen bewerten, Punkte × Gewicht summieren – die höchste Summe gewinnt. Beliebt in AP-Aufgaben und Angebotsvergleichen.",
+    "hint": "Nutzen + Wert = Entscheidungshilfe."
+  },
+  {
+    "id": "q36",
+    "year": 3,
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Projektphasen in die richtige Reihenfolge.",
+    "items": [
+      "Initiierung (Projektantrag)",
+      "Planung (PSP, Zeitplan, Kosten)",
+      "Durchführung & Kontrolle",
+      "Abschluss (Soll-Ist, Übergabe, Doku)"
+    ],
+    "explain": "Erst der Auftrag, dann der Plan, dann die Umsetzung, am Ende Abnahme und Dokumentation.",
+    "hint": "Ohne Antrag kein Plan, ohne Plan keine Umsetzung."
+  },
+  {
+    "id": "q37",
+    "year": 2,
+    "topic": "Verkabelung",
+    "rel": "high",
+    "type": "single",
+    "q": "Welcher Bereich der strukturierten Verkabelung verbindet die Gebäude eines Campus?",
+    "options": [
+      "Tertiärbereich",
+      "Sekundärbereich",
+      "Primärbereich",
+      "Quartärbereich"
+    ],
+    "correct": 2,
+    "explain": "Primär = zwischen Gebäuden (Campus, fast immer LWL), Sekundär = zwischen Etagen, Tertiär = Etagenverteiler bis Anschlussdose. Einen Quartärbereich gibt es nicht.",
+    "mistake": "Sekundär und Primär werden gern vertauscht – Merkreihenfolge: von außen nach innen.",
+    "hint": "Je größer die Distanz, desto ‚primärer‘.",
+    "simpler": "<p>Drei Ebenen: Gebäude↔Gebäude, Etage↔Etage, Verteiler↔Dose. Gesucht ist Gebäude↔Gebäude.</p>"
+  },
+  {
+    "id": "q38",
+    "year": 2,
+    "topic": "Verkabelung",
+    "rel": "high",
+    "type": "gap",
+    "q": "Twisted-Pair-Link: max. Länge der festen Verkabelung (ohne Patchkabel) in Metern? (nur Zahl)",
+    "accept": [
+      "90",
+      "90m"
+    ],
+    "placeholder": "m",
+    "explain": "90 m fest installierte Strecke + je 5 m Patchkabel an beiden Enden = 100 m Gesamtkanal (Channel).",
+    "mistake": "100 m ist der komplette Kanal inklusive Patchkabel, nicht die feste Strecke.",
+    "hint": "Kanal = 100 m, davon gehen 2 × 5 m Patchkabel ab.",
+    "simpler": "<p>100 m gesamt − 10 m Patchkabel = ?</p>"
+  },
+  {
+    "id": "q39",
+    "year": 2,
+    "topic": "Verkabelung",
+    "rel": "high",
+    "type": "mc",
+    "q": "Warum wird zwischen zwei Gebäuden Glasfaser statt Kupfer verlegt? (2 richtige)",
+    "options": [
+      "Größere Reichweite ohne Verstärker",
+      "LWL ist immer billiger als Kupfer",
+      "Galvanische Trennung: keine Potenzialverschleppung/Blitzschäden",
+      "LWL braucht keine Stecker"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "LWL schafft große Distanzen und trennt die Gebäude elektrisch (EMV/Blitzschutz). Billiger ist sie meist nicht, und Stecker (LC/SC) braucht sie natürlich auch.",
+    "hint": "Denk an Distanz und an Elektrik zwischen zwei Gebäuden.",
+    "simpler": "<p>Zwei Argumente aus der Praxis: Entfernung + Schutz vor Überspannung zwischen Gebäuden.</p>"
+  },
+  {
+    "id": "q40",
+    "year": 3,
+    "topic": "Speichernetze",
+    "rel": "high",
+    "type": "single",
+    "q": "Worin liegt der Kernunterschied zwischen NAS und SAN?",
+    "options": [
+      "NAS ist schneller als SAN",
+      "NAS liefert Dateifreigaben (SMB/NFS), SAN liefert Blockspeicher (iSCSI/FC)",
+      "SAN funktioniert nur mit Glasfaser",
+      "NAS kann kein RAID"
+    ],
+    "correct": 1,
+    "explain": "NAS arbeitet auf Dateiebene über das LAN, SAN stellt rohe Blockgeräte bereit – der Server formatiert sie selbst. iSCSI-SANs laufen über normales Ethernet, FC über eigene Infrastruktur.",
+    "mistake": "‚SAN nur mit Glasfaser‘ verwechselt Fibre Channel mit iSCSI.",
+    "hint": "Datei vs. Block – das ist die Prüfungsantwort.",
+    "simpler": "<p>NAS = fertiges Netzlaufwerk. SAN = rohe ‚Festplatte über das Netz‘.</p>"
+  },
+  {
+    "id": "q41",
+    "year": 3,
+    "topic": "Speichernetze",
+    "rel": "high",
+    "type": "single",
+    "q": "Wie heißt das logische Laufwerk, das ein iSCSI-Target dem Initiator bereitstellt?",
+    "options": [
+      "VLAN",
+      "LUN",
+      "NIC",
+      "CIFS"
+    ],
+    "correct": 1,
+    "explain": "LUN = Logical Unit Number, die adressierbare Speichereinheit. Initiator (Server) verbindet sich zum Target (Storage) und bindet die LUN als Blockgerät ein.",
+    "hint": "Wie heißt die adressierbare Speichereinheit, die der Initiator einbindet?",
+    "simpler": "<p>Begriffe: Initiator = Client, Target = Speicher, ??? = das Laufwerk selbst.</p>"
+  },
+  {
+    "id": "q42",
+    "year": 3,
+    "topic": "Speichernetze",
+    "rel": "med",
+    "type": "mc",
+    "q": "Best Practices für ein iSCSI-Storage-Netz? (2 richtige)",
+    "options": [
+      "Eigenes VLAN/eigene NICs für Storage-Traffic",
+      "Storage und Gäste-WLAN ins selbe Netz",
+      "Multipathing über zwei getrennte Pfade",
+      "Jumbo Frames grundsätzlich deaktivieren"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Storage-Traffic wird getrennt geführt (VLAN/NICs) und redundant angebunden (Multipathing). Jumbo Frames sind bei iSCSI meist sinnvoll, nicht verboten – und Gäste-WLAN hat dort nichts verloren.",
+    "hint": "Trennung + Redundanz.",
+    "simpler": "<p>Zwei Prinzipien: Storage vom Rest trennen und Wege doppelt auslegen.</p>"
+  },
+  {
+    "id": "q43",
+    "year": 1,
+    "topic": "Netzwerktechnik",
+    "rel": "med",
+    "type": "single",
+    "q": "Zu welcher (historischen) Netzklasse gehört die Adresse 172.20.0.0, und welche Standardmaske gehört dazu?",
+    "options": [
+      "Klasse A – 255.0.0.0",
+      "Klasse B – 255.255.0.0",
+      "Klasse C – 255.255.255.0",
+      "Klasse D – Multicast, keine Hostmaske"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg: Die Netzklasse liest man am ERSTEN Oktett ab. Klasse A: 1–126 (/8, Maske 255.0.0.0). Klasse B: 128–191 (/16, Maske 255.255.0.0). Klasse C: 192–223 (/24, Maske 255.255.255.0). Klasse D: 224–239 (Multicast). Klasse E: 240–255 (reserviert). 172 liegt zwischen 128 und 191 → Klasse B, Standardmaske 255.255.0.0. Bonuswissen für die Prüfung: 172.20.0.0 liegt gleichzeitig im privaten Bereich 172.16.0.0–172.31.255.255 (RFC 1918). Heute wird klassenlos geroutet (CIDR), aber IHK-Aufgaben fragen die Klassen weiterhin ab – und die Standardmaske ist oft der zweite Teil der Aufgabe.",
+    "mistake": "Wer nur auf die 172.16er-Assoziation schaut, antwortet vorschnell ‚privat = Klasse C‘. Privat/öffentlich und Netzklasse sind zwei getrennte Eigenschaften.",
+    "hint": "Merkgrenzen erstes Oktett: 126 | 128–191 | 192–223.",
+    "simpler": "<p>Erstes Oktett = 172. In welchem Bereich liegt es: bis 126, 128–191 oder 192–223?</p>"
+  },
+  {
+    "id": "q44",
+    "year": 2,
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "single",
+    "q": "Wozu dient eine DMZ (Demilitarisierte Zone) im Firmennetz?",
+    "options": [
+      "Sie beschleunigt den Internetzugang durch Caching",
+      "Öffentlich erreichbare Dienste (Web-, Mail-, Reverse-Proxy-Server) stehen isoliert zwischen Internet und LAN – wird ein DMZ-Server kompromittiert, kommt der Angreifer nicht direkt ins interne Netz",
+      "Sie ersetzt die Firewall",
+      "Sie ist ein separates WLAN für Gäste"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg: Frage dich, WAS von außen erreichbar sein muss (Webserver, Mailserver, VPN-Gateway) und WAS niemals direkt erreichbar sein darf (Domain Controller, Datenbanken, Fileserver). Die DMZ ist das Netzsegment dazwischen: entweder zwischen zwei Firewalls (Perimeter-Modell) oder als drittes Bein einer Firewall (dreibeinige Firewall). Regelwerk-Prinzip: Internet → DMZ nur auf die nötigen Ports (z. B. 443), DMZ → LAN fast nichts (nur definierte Verbindungen, z. B. zum Datenbank-Server auf einem Port), LAN → DMZ nach Bedarf. So begrenzt ein kompromittierter Webserver den Schaden. Typische AP2-Aufgabe: Netzplan mit Internet, Firewall, DMZ (Webserver) und LAN zeichnen und die Regelrichtungen begründen.",
+    "mistake": "‚DMZ ersetzt die Firewall‘ ist genau falsch herum – die DMZ EXISTIERT nur durch Firewall-Regeln.",
+    "hint": "Denk an den Webshop: erreichbar von außen, aber nicht im selben Netz wie die Buchhaltung.",
+    "simpler": "<p>Welche Antwort beschreibt eine Pufferzone für von außen erreichbare Server?</p>"
+  },
+  {
+    "id": "q45",
+    "year": 2,
+    "topic": "IT-Sicherheit",
+    "rel": "med",
+    "type": "single",
+    "q": "Port-basierte Netzwerk-Authentifizierung nach IEEE 802.1X: Welche Rolle übernimmt der Switch?",
+    "options": [
+      "Supplicant (Antragsteller)",
+      "Authenticator – er reicht die Anmeldedaten des Clients an den RADIUS-Server weiter und schaltet den Port erst nach erfolgreicher Prüfung frei",
+      "Authentication Server",
+      "Certificate Authority"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg über die drei Rollen: 1) Supplicant = der Client (Notebook, Drucker, IP-Telefon) mit seiner Kennung/seinem Zertifikat. 2) Authenticator = der Netzzugangspunkt (Switch-Port oder WLAN-AP): Er lässt zunächst NUR EAP-Verkehr durch, verpackt die Anmeldung in RADIUS-Pakete und fragt beim Server an. 3) Authentication Server = der RADIUS-Server (oft NPS bei Windows oder FreeRADIUS), der gegen AD/Zertifikate prüft. Erst nach ‚Access-Accept‘ schaltet der Switch den Port frei – häufig gleich mit dynamischer VLAN-Zuweisung (Mitarbeiter-VLAN vs. Gäste-VLAN). Praxisnutzen: Ein fremdes Gerät an einer freien Netzwerkdose kommt ohne Anmeldung nirgendwo hin. Genau diese Rollenverteilung ist eine beliebte Zuordnungsaufgabe.",
+    "mistake": "Switch und RADIUS-Server werden gern vertauscht – der Switch PRÜFT nichts selbst, er vermittelt nur und setzt das Ergebnis um.",
+    "hint": "Der Switch ist der Türsteher, der beim Chef (RADIUS) nachfragt.",
+    "simpler": "<p>Drei Rollen: Wer will rein (Client)? Wer steht an der Tür (?)? Wer entscheidet (RADIUS)?</p>"
+  },
+  {
+    "id": "q46",
+    "year": 2,
+    "topic": "Netzwerktechnik",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Interface hat die IPv6-Adresse fe80::1a2b:3c4d:5e6f:7a8b. Was sagt dir das Präfix fe80::/10?",
+    "options": [
+      "Es ist eine globale Unicast-Adresse (im Internet routbar)",
+      "Es ist eine Link-Local-Adresse: nur im lokalen Netzsegment gültig, wird nie geroutet – jede IPv6-Schnittstelle hat automatisch eine",
+      "Es ist eine Multicast-Adresse",
+      "Die Adresse ist ungültig konfiguriert"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg über die IPv6-Adresstypen (Prüfungstabelle im Kopf): 2000::/3 = Global Unicast (öffentlich, routbar). fc00::/7 (praktisch fd…) = Unique Local (privates Gegenstück zu RFC 1918). fe80::/10 = Link-Local: automatisch auf JEDER IPv6-Schnittstelle vorhanden (SLAAC/EUI-64 oder zufällig), gilt nur im eigenen Segment und wird von Routern nicht weitergeleitet. ff00::/8 = Multicast (z. B. ff02::1 alle Knoten, ff02::2 alle Router). ::1 = Loopback. Wichtig fürs Verständnis: Nachbarschaftserkennung (NDP), Router-Advertisements und OSPFv3-Nachbarschaften laufen über Link-Local-Adressen – ihre Existenz ist also normal und kein Konfigurationsfehler.",
+    "mistake": "‚fe80 = kaputt/DHCP-Fehler‘ stimmt nur bei IPv4-APIPA (169.254.x.x). Bei IPv6 ist Link-Local IMMER zusätzlich vorhanden.",
+    "hint": "fe80 ist das IPv6-Pendant zu ‚nur hier im Segment‘.",
+    "simpler": "<p>Vier Kandidaten: 2000er = Internet, fd = privat, fe80 = ?, ff = Gruppen.</p>"
+  },
+  {
+    "id": "q47",
+    "year": 3,
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein SLA garantiert 99,9 % Verfügbarkeit pro Jahr. Wie viel Ausfallzeit ist damit maximal erlaubt?",
+    "options": [
+      "ca. 53 Minuten",
+      "ca. 8,8 Stunden",
+      "ca. 43,8 Stunden",
+      "ca. 3,65 Tage"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg Schritt für Schritt: 1) Ein Jahr hat 365 × 24 = 8.760 Stunden. 2) Erlaubte Ausfallzeit = 8.760 × (100 % − 99,9 %) = 8.760 × 0,001 = 8,76 Stunden ≈ 8 h 46 min. Die Nachbarwerte solltest du ebenfalls parat haben, weil sie als Distraktoren auftauchen: 99 % ≈ 87,6 h (3,65 Tage), 99,5 % ≈ 43,8 h, 99,99 % ≈ 52,6 min, 99,999 % (‚five nines‘) ≈ 5,3 min. Zweite Prüfungsformel dazu: Verfügbarkeit = MTBF / (MTBF + MTTR) – mit ihr rechnest du aus Ausfall- und Reparaturzeiten die Prozentzahl aus. Typische Konzeptfrage: ‚Der Kunde fordert 99,99 % – welche Maßnahmen schlagen Sie vor?‘ → Redundanz (Cluster, RAID, USV, zwei Leitungen), Monitoring mit Alarmierung, definierte RTO/RPO.",
+    "mistake": "365 × 0,001 = 0,365 ‚Tage‘ und dann falsch umgerechnet – rechne konsequent in Stunden.",
+    "hint": "8.760 Stunden × 0,001.",
+    "simpler": "<p>1 Promille von 8.760 Stunden = ?</p>"
+  },
+  {
+    "id": "q48",
+    "year": 2,
+    "topic": "Elektrotechnik",
+    "rel": "high",
+    "type": "gap",
+    "q": "USV-Dimensionierung: Server (400 W) + Switch (100 W) sollen abgesichert werden. Leistungsfaktor der USV: 0,8. Wie viel VA muss die USV mindestens liefern? (nur Zahl)",
+    "accept": [
+      "625",
+      "625va"
+    ],
+    "placeholder": "VA",
+    "explain": "Lösungsweg Schritt für Schritt: 1) Wirkleistung addieren: 400 W + 100 W = 500 W. 2) USVs werden in Scheinleistung (VA) angegeben; Zusammenhang: W = VA × Leistungsfaktor (cos φ). 3) Umstellen: VA = W ÷ Leistungsfaktor = 500 ÷ 0,8 = 625 VA. In der Praxis plant man zusätzlich 20–30 % Reserve (hier also eher eine 750–1000-VA-USV) und prüft die gewünschte Überbrückungszeit anhand der Akku-Kennlinien des Herstellers – die Autonomiezeit sinkt überproportional mit der Last. Merke die Richtung: Die VA-Zahl ist IMMER größer oder gleich der Watt-Zahl, nie umgekehrt.",
+    "mistake": "500 × 0,8 = 400 rechnet in die falsche Richtung – dann wäre die USV zu klein dimensioniert.",
+    "hint": "Watt DURCH Leistungsfaktor, nicht mal.",
+    "simpler": "<p>500 W ÷ 0,8 = ?</p>"
+  },
+  {
+    "id": "q49",
+    "year": 2,
+    "topic": "Elektrotechnik",
+    "rel": "med",
+    "type": "gap",
+    "q": "Ein Netzteil hat 80 % Wirkungsgrad und liefert 400 W an die Komponenten. Wie viel Watt nimmt es aus der Steckdose auf? (nur Zahl)",
+    "accept": [
+      "500",
+      "500w"
+    ],
+    "placeholder": "W",
+    "explain": "Lösungsweg: Wirkungsgrad η = Abgabe ÷ Aufnahme. Umgestellt: Aufnahme = Abgabe ÷ η = 400 W ÷ 0,8 = 500 W. Die Differenz von 100 W wird als Wärme abgegeben (deshalb Lüfter!). Prüfungs- und Praxisbezug: Die 80-PLUS-Zertifizierung stuft Netzteile nach Wirkungsgrad (Bronze bis Titanium); ein effizienteres Netzteil spart laufende Stromkosten – klassische Anschlussaufgabe: ‚100 W Mehrverbrauch × 8 h/Tag × 250 Tage × 0,30 €/kWh = 60 € pro Jahr.‘ Damit verbindet die IHK gern Elektrotechnik mit Wirtschaftlichkeitsrechnung.",
+    "mistake": "400 × 0,8 = 320 rechnet die Verluste in die falsche Richtung – die Aufnahme ist immer GRÖSSER als die Abgabe.",
+    "hint": "Abgabe ÷ Wirkungsgrad.",
+    "simpler": "<p>400 ÷ 0,8 = ?</p>"
+  },
+  {
+    "id": "q50",
+    "year": 3,
+    "topic": "Monitoring",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Aussage zu SNMP (Simple Network Management Protocol) ist korrekt?",
+    "options": [
+      "SNMP überträgt Dateien zwischen Servern",
+      "Der SNMP-Agent läuft auf dem überwachten Gerät; der Manager fragt Werte über OIDs aus der MIB ab, und bei Ereignissen sendet der Agent unaufgefordert Traps – ab Version 3 authentifiziert und verschlüsselt",
+      "SNMP funktioniert nur mit Cisco-Geräten",
+      "SNMP ist ein Routing-Protokoll"
+    ],
+    "correct": 1,
+    "explain": "Lösungsweg über die Bausteine: Agent = kleiner Dienst auf Switch, Router, Server, USV oder Drucker. Manager = das Monitoring-System (z. B. Zabbix, PRTG, CheckMK). MIB = die ‚Landkarte‘ der abfragbaren Werte, OID = die eindeutige Nummer eines Wertes (z. B. Interface-Traffic, Tonerstand, USV-Akkuladung). Zwei Kommunikationsrichtungen: Polling (Manager fragt zyklisch, UDP 161) und Traps (Agent meldet spontan, UDP 162). Sicherheitsaspekt für die Prüfung: v1/v2c schützen nur mit einem Klartext-Community-String – in neuen Netzen gehört SNMPv3 mit Authentifizierung + Verschlüsselung konfiguriert. SNMP ist herstellerübergreifend genormt und damit das Rückgrat fast jedes Infrastruktur-Monitorings.",
+    "mistake": "SNMP mit Syslog verwechseln: Syslog schickt Textmeldungen, SNMP liefert strukturierte Messwerte + Traps.",
+    "hint": "S-N-M-P: Management, nicht Transport, nicht Routing.",
+    "simpler": "<p>Wer läuft auf dem Gerät, wer fragt ab, was ist eine Trap? Nur eine Option beschreibt das.</p>"
+  },
+  {
+    "id": "q51",
+    "year": 3,
+    "topic": "Elektrotechnik",
+    "rel": "med",
+    "type": "gap",
+    "q": "Green IT: Ein Rechenzentrum nimmt insgesamt 200 kW auf, davon entfallen 125 kW auf die IT-Last. Berechne den PUE-Wert. (Dezimalzahl)",
+    "accept": [
+      "1,6",
+      "1.6"
+    ],
+    "placeholder": "PUE",
+    "explain": "Lösungsweg: PUE (Power Usage Effectiveness) = Gesamtenergieaufnahme ÷ Energieaufnahme der IT = 200 ÷ 125 = 1,6. Interpretation: Für jedes Watt IT-Leistung werden 0,6 W zusätzlich für Kühlung, USV-Verluste und Gebäudetechnik verbraucht. Der Idealwert ist 1,0 (unerreichbar); moderne Rechenzentren liegen um 1,2–1,4, Altbestand oft über 1,8. Das deutsche Energieeffizienzgesetz macht PUE-Vorgaben für Rechenzentren – deshalb taucht der Wert zunehmend in Prüfungen auf. Maßnahmen zur Verbesserung, die du nennen können solltest: Kalt-/Warmgang-Einhausung, höhere Zulufttemperaturen, freie Kühlung (Außenluft), effiziente USVs, Abwärmenutzung, Virtualisierung/Konsolidierung.",
+    "mistake": "125 ÷ 200 = 0,625 ist der Kehrwert – ein PUE unter 1 ist physikalisch unmöglich und damit ein sicheres Zeichen für vertauschte Werte.",
+    "hint": "Gesamt DURCH IT – das Ergebnis ist immer größer als 1.",
+    "simpler": "<p>200 ÷ 125 = ?</p>"
+  },
+  {
+    "id": "q52",
+    "year": 2,
+    "topic": "IT-Sicherheit",
+    "rel": "med",
+    "type": "single",
+    "q": "Kerberos in einer Active-Directory-Domäne: Welche Funktion hat das TGT (Ticket Granting Ticket)?",
+    "options": [
+      "Es ist das Passwort des Benutzers in verschlüsselter Form",
+      "Es verschlüsselt die Festplatte des Clients",
+      "Nach der einmaligen Anmeldung beim KDC weist der Client damit seine Identität nach und fordert Service-Tickets für einzelne Dienste an – ohne das Passwort erneut zu senden (Single Sign-on)",
+      "Es ersetzt das Benutzerkonto im Active Directory"
+    ],
+    "correct": 2,
+    "explain": "Lösungsweg über den Ablauf: 1) Anmeldung: Der Client authentifiziert sich beim KDC (Key Distribution Center, läuft auf jedem Domain Controller) und erhält das TGT – sein ‚Tagesausweis‘. 2) Dienstzugriff: Für jeden Dienst (Fileserver, Drucker, SQL) legt der Client das TGT beim Ticket Granting Service vor und bekommt ein Service-Ticket NUR für diesen Dienst. 3) Der Dienst prüft das Ticket, ohne dass je das Passwort über das Netz ging – das ist Single Sign-on. Zwei Praxis-Stolpersteine, die auch die Prüfung liebt: Kerberos toleriert standardmäßig nur ±5 Minuten Zeitabweichung (deshalb ist NTP/w32time in der Domäne kritisch – ‚Uhrzeit falsch = Anmeldung schlägt fehl‘), und Tickets haben Lebenszeiten (Standard 10 h), nach denen erneuert wird.",
+    "mistake": "TGT mit dem Passwort-Hash gleichsetzen – das TGT ist ein zeitlich begrenztes Ticket, kein Passwortersatz im Klartextsinn.",
+    "hint": "Festival-Logik: einmal Ausweis zeigen, Bändchen holen (TGT), damit du an jeder Bühne Einlass-Stempel (Service-Tickets) abholen kannst.",
+    "simpler": "<p>Welche Option beschreibt ‚einmal anmelden, danach Tickets für einzelne Dienste holen‘?</p>"
+  }
+]

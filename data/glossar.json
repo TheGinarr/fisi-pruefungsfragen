@@ -1,0 +1,1007 @@
+[
+  {
+    "term": "Link Aggregation (LACP)",
+    "simple": "Mehrere physische Switch-Ports werden zu einem logischen Link gebündelt – mehr Durchsatz und Ausfallsicherheit zugleich.",
+    "deep": "Standard IEEE 802.3ad/802.1AX; das LACP-Protokoll handelt die Bündelung automatisch aus (Modi active/passive), Cisco nennt die Gruppe EtherChannel/Port-Channel. Die Lastverteilung erfolgt per Hash (z. B. über MAC/IP-Paare) – ein einzelner Datenstrom wird dadurch NICHT schneller als ein Einzellink, erst viele parallele Verbindungen profitieren. Fällt ein Mitgliedslink aus, übernehmen die restlichen unterbrechungsfrei. Typischer Einsatz: Switch-zu-Switch-Uplinks und Server-Anbindung (NIC-Teaming)."
+  },
+  {
+    "term": "Interframe Gap (IFG)",
+    "simple": "Die vorgeschriebene Sendepause zwischen zwei Ethernet-Frames: 96 Bitzeiten.",
+    "deep": "Auch Interpacket Gap/Interframe Spacing; 96 Bitzeiten = 12 Byte, bei 1 Gbit/s nur 96 ns. Gibt Empfängern Verarbeitungszeit und zählt mit Präambel+SFD (8 Byte) zum festen Overhead jeder Übertragung – wichtig für Durchsatz- und Framerate-Berechnungen (Details in der LF9-Lektion Medienzugriff)."
+  },
+  {
+    "term": "Strukturierte Verkabelung",
+    "simple": "Der genormte Verkabelungsaufbau eines Gebäudes in drei Ebenen: Gelände, Gebäude, Etage.",
+    "deep": "Primärverkabelung = zwischen Gebäuden (meist LWL), Sekundär = zwischen Etagenverteilern im Gebäude, Tertiär = vom Etagenverteiler zur Anschlussdose. Anwendungsneutral geplant (EN 50173), damit Umzüge und neue Dienste ohne Neuverkabelung funktionieren."
+  },
+  {
+    "term": "T568A / T568B",
+    "simple": "Die zwei genormten Aderbelegungen für RJ45-Stecker – im Projekt einheitlich verwenden!",
+    "deep": "Beide Schemata funktionieren gleichwertig; gemischt ergeben sie ein Crossover-Kabel. In Deutschland ist T568B verbreitet. Prüfungsklassiker: Belegung dem Farbcode zuordnen."
+  },
+  {
+    "term": "Crossover-Kabel",
+    "simple": "Patchkabel mit gekreuzten Sende-/Empfangsadern – historisch für Switch-zu-Switch nötig.",
+    "deep": "Heute dank Auto-MDI-X praktisch überflüssig: Moderne Ports erkennen und kreuzen automatisch. Auftauchen in Prüfungen: Altgeräte oder die Frage, warum es ohne Kreuzung früher nicht ging (Tx auf Rx)."
+  },
+  {
+    "term": "Schirmung (U/UTP, F/UTP, S/FTP)",
+    "simple": "Kürzel für die Schirmvarianten von Twisted-Pair-Kabeln: Gesamtschirm/Paarschirm.",
+    "deep": "Schreibweise Gesamtschirm/Paarschirm+TP: U/UTP = ungeschirmt, F/UTP = Folien-Gesamtschirm, S/FTP = Geflecht-Gesamtschirm + Folie je Paar (PiMF). Mehr Schirm = besserer Schutz vor EMI und Nebensprechen, aber Erdung/Auflegen wird wichtiger."
+  },
+  {
+    "term": "Keystone-Modul",
+    "simple": "Genormter Einsatz, der RJ45-Buchsen in Dosen, Panels und Leergehäuse klickt.",
+    "deep": "Vorteil: Werkzeugarm (teils werkzeuglos) auflegbar, defekte Buchse einzeln tauschbar, gemischte Belegung (Kupfer/LWL/HDMI) im selben Panel. Standard in moderner Tertiärverkabelung."
+  },
+  {
+    "term": "Höheneinheit (HE / U)",
+    "simple": "Rastermaß für 19-Zoll-Schränke: 1 HE = 44,45 mm Einbauhöhe.",
+    "deep": "Server, Switches und Panels werden in HE angegeben (Switch 1 HE, Server oft 1–2 HE). Bei der Schrankplanung zählt man HE-Bedarf plus Reserve, Kabelmanagement und Lüftungsraum; befestigt wird mit Käfigmuttern."
+  },
+  {
+    "term": "Kaltgang / Warmgang",
+    "simple": "RZ-Prinzip: Kalte Zuluft vorn, heiße Abluft hinten – Gänge konsequent trennen.",
+    "deep": "Racks stehen Front an Front (Kaltgang) und Rück an Rück (Warmgang); Einhausung verhindert Luftkurzschlüsse. Ergebnis: effizientere Kühlung, niedrigere Energiekosten – beliebtes Argument in Wirtschaftlichkeits- und Green-IT-Aufgaben."
+  },
+  {
+    "term": "Spleißen (LWL)",
+    "simple": "Dauerhafte Verbindung zweier Glasfasern – meist per Lichtbogen verschweißt (Fusionsspleiß).",
+    "deep": "Sehr geringe Einfügedämpfung (~0,05 dB), Ablage in Spleißkassetten; am Abschluss meist Pigtails auf Kupplungen. Alternative Steckverbindung dämpft stärker. Messnachweis per OTDR/Dämpfungsmessung gehört zur Doku."
+  },
+  {
+    "term": "OM- und OS-Fasern",
+    "simple": "Klassen für Glasfasern: OM = Multimode (kurze Strecken), OS = Singlemode (lange Strecken).",
+    "deep": "OM3/OM4/OM5 (50 µm Kern, Gradientenindex) tragen 10–100 Gbit/s über hunderte Meter im Gebäude; OS2 (9 µm) über viele Kilometer. Singlemode braucht Laser statt VCSEL – Fasern günstig, Optiken teurer."
+  },
+  {
+    "term": "Multimode vs. Singlemode",
+    "simple": "Dicker Kern mit vielen Lichtwegen (Multimode) gegen dünnen Kern mit einem Modus (Singlemode).",
+    "deep": "Multimode leidet an Modendispersion (Impulse verschmieren → Streckenlimit), Gradientenindexfasern mildern das. Singlemode vermeidet es und schafft Weitverkehr. Physikalische Basis der Faser: Totalreflexion an der Kern-Mantel-Grenze."
+  },
+  {
+    "term": "Dämpfung (LWL/Kupfer)",
+    "simple": "Signalverlust auf der Strecke, gemessen in Dezibel (dB).",
+    "deep": "Einfügedämpfung = Verlust durch Stecker/Spleiß/Länge; Rückflussdämpfung = wie viel reflektiert wird (hoch = gut). Budgetrechnung: Sender-Leistung minus Streckendämpfung muss über der Empfängerempfindlichkeit bleiben."
+  },
+  {
+    "term": "Dark Fiber",
+    "simple": "Gemietete, unbeleuchtete Glasfaser – die eigene Technik macht das Licht.",
+    "deep": "Der Kunde betreibt beide Enden selbst (eigene Optiken, beliebige Protokolle/Bandbreiten) und zahlt für die Faser statt für einen Dienst. Relevanz: Standortkopplung mit voller Kontrolle, auch für verschlüsselte Layer-1/2-Kopplungen."
+  },
+  {
+    "term": "Biegeradius",
+    "simple": "Der kleinste erlaubte Bogen eines Kabels – zu eng geknickt = Dämpfung oder Bruch.",
+    "deep": "Faustwerte: Kupfer-TP ca. 4× Kabeldurchmesser (verlegt), LWL je nach Typ 15–20× bzw. Herstellerangabe; biegeunempfindliche Fasern (G.657) verzeihen mehr. Klassiker bei Abnahmemessungen: Makro-Biegung als Fehlerursache."
+  },
+  {
+    "term": "AWG (American Wire Gauge)",
+    "simple": "US-Maß für den Aderndurchmesser – kleinere Zahl = dickerer Draht.",
+    "deep": "Patchkabel oft AWG26/27 (dünn, flexibel, mehr Dämpfung), Verlegekabel AWG22/23 (starr, geringere Verluste – wichtig für PoE-Wärme und lange Strecken)."
+  },
+  {
+    "term": "Kabeltester / Netzwerktester",
+    "simple": "Prüfgerät für Verkabelung: vom simplen Durchgangstest bis zur Zertifizierungsmessung.",
+    "deep": "Stufen: Verdrahtungstester (Belegung, Bruch, Vertauschung), Qualifizierer (schafft die Strecke 1 Gbit/s?), Zertifizierer (misst NEXT, Dämpfung, Länge gegen Norm-Grenzwerte mit Protokoll für die Abnahme)."
+  },
+  {
+    "term": "MAC-Flapping",
+    "simple": "Eine MAC-Adresse „springt“ im Switch ständig zwischen Ports – Alarmzeichen!",
+    "deep": "Ursachen: Layer-2-Schleife (ohne STP), gedoppelte MAC, falsch gepatchte Verbindung. Symptom in Switch-Logs; Folge sind Paketverluste. Gegenmittel: STP/RSTP, Loop Protection, Ursache physisch suchen."
+  },
+  {
+    "term": "Runt / Giant / Jabber",
+    "simple": "Fehlerhafte Ethernet-Frames: zu kurz (Runt), zu lang (Giant), Dauersender (Jabber).",
+    "deep": "Runts (<64 Byte) entstehen oft durch Kollisionen/Duplex-Mismatch, Giants (>MTU inkl. Toleranz) durch Treiber-/MTU-Fehler. Steigende Zähler auf einem Port = Hinweis auf Hardware-, Kabel- oder Konfigurationsproblem."
+  },
+  {
+    "term": "FCS / CRC (Prüfsumme)",
+    "simple": "Jeder Ethernet-Frame endet mit einer Prüfsumme – stimmt sie nicht, wird er verworfen.",
+    "deep": "Frame Check Sequence, berechnet per Cyclic Redundancy Check (CRC-32). CRC-Fehler-Zähler am Switchport sind DER Indikator für Kabel-/Duplexprobleme. Wichtig: CRC erkennt Fehler, korrigiert aber nicht (im Gegensatz zu ECC)."
+  },
+  {
+    "term": "IGMP Snooping",
+    "simple": "Der Switch belauscht Multicast-Anmeldungen und flutet Multicast nicht mehr an alle.",
+    "deep": "Ohne Snooping wird Multicast (z. B. IPTV, Imaging) wie Broadcast an alle Ports verteilt. Mit Snooping lernt der Switch aus IGMP-Meldungen, wer die Gruppe abonniert hat, und liefert gezielt – Pflicht in Netzen mit viel Multicast."
+  },
+  {
+    "term": "SFP / SFP+",
+    "simple": "Steckbare Mini-Module, die einem Switchport seine Schnittstelle geben (LWL oder Kupfer).",
+    "deep": "Small Form-factor Pluggable: SFP bis 1 Gbit/s, SFP+ 10 Gbit/s, QSFP-Varianten für 40/100 Gbit/s. Vorteil: gleiche Hardware, flexible Medien (Multimode, Singlemode, DAC-Kupfer) – auf kompatible/kodierte Module achten."
+  },
+  {
+    "term": "Uplink",
+    "simple": "Die Verbindung eines Switches „nach oben“ Richtung Verteiler, Core oder Router.",
+    "deep": "Uplinks sind Sammelleitungen: höhere Bandbreite als Access-Ports einplanen (Oversubscription im Blick), redundant ausführen (LACP/Stack) und im STP bewusst behandeln (kein PortFast!)."
+  },
+  {
+    "term": "FQDN",
+    "simple": "Der vollständige Name eines Hosts inklusive aller Domain-Ebenen, z. B. srv01.firma.de.",
+    "deep": "Fully Qualified Domain Name: Hostname + Domain + TLD (streng genommen mit Punkt für die Root). Wichtig bei Zertifikaten, DNS-Einträgen und überall, wo „nur der Hostname“ nicht eindeutig ist."
+  },
+  {
+    "term": "TLD / ccTLD / gTLD",
+    "simple": "Die letzte Stufe eines Domainnamens: .de (Länder-TLD) oder .com/.org (generisch).",
+    "deep": "Country-Code-TLDs verwaltet je ein Land (DENIC für .de), generische die Registries unter ICANN-Aufsicht. Prüfungsbezug: DNS-Hierarchie Root → TLD → Domain → Subdomain."
+  },
+  {
+    "term": "ICANN / IANA",
+    "simple": "Die Organisationen hinter Domainnamen und IP-Adressvergabe weltweit.",
+    "deep": "IANA (bei ICANN) koordiniert Root-Zone, IP-Blöcke und Portnummern; regionale Registries (für Europa: RIPE NCC) verteilen Adressen an Provider. Erklärt, warum niemand „einfach so“ öffentliche IPs benutzen darf."
+  },
+  {
+    "term": "RFC",
+    "simple": "Die öffentlichen Standard-Dokumente des Internets – von IP bis E-Mail.",
+    "deep": "Requests for Comments der IETF definieren Protokolle (RFC 791 IPv4, RFC 1918 private Adressen …). Frei zugänglich und zitierfähig – im Zweifel schlägt die Primärquelle jedes Lehrbuch."
+  },
+  {
+    "term": "Ephemeral Port",
+    "simple": "Der zufällige, kurzlebige Quellport, den dein Rechner für ausgehende Verbindungen nimmt.",
+    "deep": "Bereich typischerweise 49152–65535 (IANA-Empfehlung). Erklärt Firewall-Verhalten: Antworten kommen an den Quellport zurück (Stateful Inspection merkt sich genau das)."
+  },
+  {
+    "term": "PXE-Boot",
+    "simple": "Rechner startet ohne Festplatte übers Netzwerk – Basis automatischer OS-Installation.",
+    "deep": "Preboot Execution Environment: NIC holt per DHCP IP + Bootserver-Info, lädt per TFTP das Bootimage. Grundlage von Rollout-Systemen (WDS/MDT, FOG). Prüfungsnah: welcher Dienst liefert was (DHCP-Optionen 66/67)."
+  },
+  {
+    "term": "DSCP / QoS-Markierung",
+    "simple": "Ein Feld im IP-Header, das Paketen ihre Priorität mitgibt (z. B. Sprache zuerst).",
+    "deep": "Differentiated Services Code Point (6 Bit im ToS-Feld): EF für Sprache, AF-Klassen für abgestufte Dienste. Switches/Router bedienen daraus ihre Warteschlangen – Ende-zu-Ende nur wirksam, wenn alle Geräte mitspielen und Markierungen vertraut werden."
+  },
+  {
+    "term": "GRE-Tunnel",
+    "simple": "Ein simpler Tunnel, der beliebige Pakete in IP einpackt – ohne eigene Verschlüsselung.",
+    "deep": "Generic Routing Encapsulation transportiert z. B. Routing-Protokolle oder Multicast über Netze hinweg; für Vertraulichkeit kombiniert man GRE over IPsec. Merksatz: GRE = Transportbox, IPsec = Tresor."
+  },
+  {
+    "term": "Autonomes System (AS)",
+    "simple": "Ein großes Netz unter einheitlicher Verwaltung (Provider, Konzern) mit eigener AS-Nummer.",
+    "deep": "Zwischen AS spricht das Internet BGP (Border Gateway Protocol) – Policy-basiertes Routing statt kürzester Wege. Erklärt Begriffe wie Peering und warum Internet-Routing politisch/vertraglich ist."
+  },
+  {
+    "term": "Peering / Internet Exchange",
+    "simple": "Netzbetreiber tauschen Verkehr direkt aus – oft an Knoten wie dem DE-CIX in Frankfurt.",
+    "deep": "Peering (meist kostenneutral) vs. Transit (bezahlter Zugang zum Rest-Internet). Direkter Austausch senkt Latenz und Kosten; der DE-CIX gehört zu den größten Knoten weltweit."
+  },
+  {
+    "term": "Zeroconf / mDNS",
+    "simple": "Geräte finden sich im lokalen Netz ohne Server – so entdeckt der Laptop den Drucker.",
+    "deep": "Zero Configuration Networking: Link-Local-Adressen (APIPA), Namensauflösung per mDNS (.local, bei Apple „Bonjour“), Dienstsuche per DNS-SD. Praktisch im Heimnetz, in Firmennetzen oft bewusst begrenzt (Broadcast-Last, Sicherheit)."
+  },
+  {
+    "term": "ARP-Spoofing / ARP-Poisoning",
+    "simple": "Angreifer verteilt gefälschte MAC-Antworten und leitet so fremden Verkehr über sich um.",
+    "deep": "Man-in-the-Middle im LAN: Opfer und Gateway bekommen gefälschte ARP-Einträge. Abwehr: Dynamic ARP Inspection (mit DHCP-Snooping), statische Einträge für kritische Systeme, Netztrennung – und Verschlüsselung, damit Mitlesen wertlos bleibt."
+  },
+  {
+    "term": "Wörterbuchangriff",
+    "simple": "Passwortknacken mit Listen echter Wörter und bekannter Passwörter statt purem Raten.",
+    "deep": "Effizienter als Brute Force, weil Menschen vorhersagbar wählen. Abwehr: lange Passphrasen, Sperr-/Verzögerungsmechanismen, MFA, serverseitig langsame Hashverfahren (bcrypt/Argon2) mit Salt."
+  },
+  {
+    "term": "Pharming",
+    "simple": "Manipulierte Namensauflösung leitet dich auf die falsche (Betrüger-)Website – ohne dass du klickst.",
+    "deep": "Angriff auf DNS/Hosts-Datei statt auf den Menschen (Unterschied zu Phishing). Abwehr: DNSSEC, kontrollierte Resolver, HTTPS-Zertifikate prüfen (dagegen hilft dem Angreifer auch die richtige Optik nicht)."
+  },
+  {
+    "term": "CVE",
+    "simple": "Der weltweite Katalog bekannter Sicherheitslücken – jede bekommt eine eindeutige Nummer.",
+    "deep": "Common Vulnerabilities and Exposures (z. B. CVE-2021-44228 „Log4Shell“); Schweregrad über CVSS-Score. Praxis: Schwachstellenscanner melden CVEs, Patch-Management priorisiert danach."
+  },
+  {
+    "term": "Schwachstellenscan",
+    "simple": "Automatisierte Prüfung von Systemen auf bekannte Lücken und Fehlkonfigurationen.",
+    "deep": "Tools inventarisieren Dienste und gleichen gegen CVE-Datenbanken ab (authenticated Scans sehen mehr). Abgrenzung: Ein Penetrationstest geht weiter und versucht die Ausnutzung. Regelmäßige Scans sind Bestandteil eines ISMS."
+  },
+  {
+    "term": "Kerckhoffs-Prinzip",
+    "simple": "Ein Verschlüsselungsverfahren muss sicher bleiben, auch wenn der Algorithmus öffentlich ist.",
+    "deep": "Nur der Schlüssel ist geheim. Gegenteil ist „Security through Obscurity“ – Sicherheit durch Verstecken, die regelmäßig scheitert. Moderne Kryptografie (AES = öffentlich gewordener Rijndael-Algorithmus) lebt Kerckhoff."
+  },
+  {
+    "term": "Bastion Host",
+    "simple": "Ein bewusst gehärteter, exponierter Server als kontrollierter Zugangspunkt (z. B. Jump-Host).",
+    "deep": "Minimal-Dienste, striktes Logging, MFA; steht in der DMZ oder als Admin-Sprungbrett vor sensiblen Zonen. Moderne Variante: Bastion-/Jump-Server für RDP/SSH mit Session-Aufzeichnung."
+  },
+  {
+    "term": "WEP / TKIP (veraltet)",
+    "simple": "Alte WLAN-Verschlüsselungen – heute in Minuten knackbar und darum tabu.",
+    "deep": "WEP (RC4, Design-Fehler) ist trivial brechbar; TKIP war die WPA-Übergangslösung. Heute gilt: WPA2-AES als Minimum, WPA3 wo möglich. Prüfungsklassiker: Verfahren der Sicherheit nach ordnen."
+  },
+  {
+    "term": "Blade-Server",
+    "simple": "Viele schmale Server-Einschübe teilen sich ein Chassis mit Strom, Kühlung und Netz.",
+    "deep": "Vorteile: Dichte, zentrale Verwaltung, weniger Verkabelung über die gemeinsame Backplane. Nachteile: Chassis als gemeinsamer Fehlerpunkt, Herstellerbindung. Alternative heute oft: kompakte Rack-Server + Virtualisierung."
+  },
+  {
+    "term": "Backplane",
+    "simple": "Die passive „Steckdosenleiste“ im Gehäuse, über die Module/Platten direkt verbunden sind.",
+    "deep": "Statt Kabelbaum: Einschübe (Blades, Hot-Swap-Platten) kontaktieren eine gemeinsame Platine. Relevanz: Hot-Swap-Fähigkeit und saubere Zuordnung von Einschub zu Controller-Port."
+  },
+  {
+    "term": "JBOD",
+    "simple": "„Just a Bunch of Disks“ – Platten ohne RAID-Verbund, einzeln oder aneinandergehängt.",
+    "deep": "Kein Redundanzgewinn (Ausfall = Datenverlust der Platte); sinnvoll, wenn die Redundanz eine Ebene höher liegt (Software-defined Storage, Backup-Ziele). Prüfungsbezug: Abgrenzung zu RAID-Leveln."
+  },
+  {
+    "term": "SAS (Serial Attached SCSI)",
+    "simple": "Die Server-Schnittstelle für Festplatten/SSDs – robuster großer Bruder von SATA.",
+    "deep": "Vorteile gegenüber SATA: Dual-Port (zwei Pfade je Platte), höhere Signalqualität, tiefe Warteschlangen, Expander für viele Laufwerke. SATA-Platten laufen an SAS-Controllern, nicht umgekehrt."
+  },
+  {
+    "term": "ECC-RAM",
+    "simple": "Arbeitsspeicher, der Bitfehler erkennt und einzelne Fehler selbst korrigiert.",
+    "deep": "Error Correcting Code: Zusatzbits pro Wort; korrigiert 1-Bit-, erkennt 2-Bit-Fehler. Pflicht in Servern (leise Speicherfehler = schleichende Datenkorruption); braucht Board/CPU-Unterstützung."
+  },
+  {
+    "term": "SO-DIMM",
+    "simple": "Das kompakte RAM-Format für Notebooks, Mini-PCs und viele NAS-Geräte.",
+    "deep": "Small Outline DIMM – kürzere Module als Desktop-DIMMs, elektrisch gleiche Generationen (DDR4/DDR5). Beim Aufrüsten zählen Format, Generation, Takt und die Freigabenliste des Herstellers."
+  },
+  {
+    "term": "FRU / CRU",
+    "simple": "Ersatzteil-Kategorien: vom Techniker (FRU) oder vom Kunden selbst (CRU) tauschbar.",
+    "deep": "Field/Customer Replaceable Unit – bestimmt Serviceabläufe und SLAs: Netzteile und Platten sind oft CRU (Hot-Swap), Mainboards FRU. Relevant für Wartungsverträge und Ausfallzeiten-Planung."
+  },
+  {
+    "term": "Tape-Library / Autoloader",
+    "simple": "Bandlaufwerk mit Robotik, das Kassetten automatisch wechselt – Backup in großem Stil.",
+    "deep": "LTO-Bänder: günstig je TB, offline-fähig (Air Gap gegen Ransomware), lange Archivierung. Autoloader = 1 Laufwerk + Magazin; Library = mehrere Laufwerke/Slots. Im 3-2-1-Konzept oft die „andere Medienart“."
+  },
+  {
+    "term": "Fixiereinheit (Fuser)",
+    "simple": "Das Heizmodul im Laserdrucker, das den Toner ins Papier einbrennt.",
+    "deep": "Typisches Verschleißteil (Wartungskit). Fehlerbilder: Toner wischt sich ab (Fuser zu kalt/defekt), Knitter/Streifen. Support-Klassiker inklusive Vorsicht: heiß!"
+  },
+  {
+    "term": "Printserver",
+    "simple": "Dienst oder Gerät, das Drucker zentral im Netz bereitstellt und Warteschlangen verwaltet.",
+    "deep": "Zentrale Treiber-/Queue-Verwaltung, Rechte, Abrechnung. Unter Linux/macOS übernimmt das CUPS (Common UNIX Printing System, Protokoll IPP); Windows nutzt die Druckwarteschlange samt Point-and-Print."
+  },
+  {
+    "term": "DSLAM",
+    "simple": "Der Konzentrator in der Vermittlungsstelle/im Kabelverzweiger, an dem alle DSL-Leitungen enden.",
+    "deep": "Digital Subscriber Line Access Multiplexer bündelt Teilnehmeranschlüsse Richtung Providernetz. Je näher am Kunden (Outdoor-DSLAM/FTTC), desto höhere DSL-Raten – Basis von VDSL/Vectoring."
+  },
+  {
+    "term": "Splitter / TAL",
+    "simple": "Splitter trennte früher Telefon und DSL; die TAL ist die Kupfer-Anschlussleitung zu dir.",
+    "deep": "Teilnehmeranschlussleitung: die „letzte Meile“ Kupfer. Bei All-IP-Anschlüssen entfällt der Splitter – Telefonie läuft als VoIP über den Router. Historik taucht in Bestandsnetzen/Prüfungen noch auf."
+  },
+  {
+    "term": "DSL-Familie (ADSL/VDSL)",
+    "simple": "Internet über die Telefon-Kupferleitung – asymmetrisch (ADSL) bis schnell kurzstreckig (VDSL).",
+    "deep": "ADSL: mehr Down- als Upstream, längere Reichweite. VDSL2 (+Vectoring/Supervectoring): bis 100–250 Mbit/s auf kurzer TAL. Entscheidend ist die Leitungslänge zum DSLAM – daher der Glasfaserausbau (FTTC/FTTH)."
+  },
+  {
+    "term": "DOCSIS",
+    "simple": "Der Standard für Internet über das TV-Kabelnetz (Kabelmodem).",
+    "deep": "Data Over Cable Service Interface Specification; DOCSIS 3.1 erlaubt Gigabit-Downstream. Shared Medium im Segment – Bandbreite teilt sich die Nachbarschaft; Rückkanal historisch knapper."
+  },
+  {
+    "term": "POTS / All-IP",
+    "simple": "POTS = das klassische analoge Telefonnetz; heute fast überall durch IP-Telefonie ersetzt.",
+    "deep": "„Plain Old Telephone Service“. Die Migration auf All-IP bedeutet: Sprache als VoIP/SIP über den Anschlussrouter, alte Endgeräte per ATA-Adapter – wichtig bei Aufzügen/Hausnotruf/Alarmanlagen (Sonderlösungen nötig)."
+  },
+  {
+    "term": "DECT",
+    "simple": "Der Funkstandard für Schnurlostelefone – eigene Basis, eigenes Frequenzband.",
+    "deep": "Digital Enhanced Cordless Telecommunications (1880–1900 MHz, stört kein WLAN). In Firmen als DECT-über-IP mit Mehrzellen-Systemen für Roaming; Verschlüsselung aktivieren (DECT Security)."
+  },
+  {
+    "term": "CTI",
+    "simple": "Computer und Telefonanlage verzahnt: anrufen per Klick, Kundenakte poppt beim Anruf auf.",
+    "deep": "Computer Telephony Integration – Schnittstellen (z. B. TAPI) verbinden TK-Anlage/Cloud-Telefonie mit CRM/Ticketsystem. Nutzenargument in Service-Szenarien: kürzere Bearbeitungszeiten."
+  },
+  {
+    "term": "E.164",
+    "simple": "Das internationale Format für Rufnummern: +49 30 12345-678.",
+    "deep": "ITU-Standard: Ländercode + nationale Nummer, maximal 15 Ziffern. In VoIP-Systemen die Normalform für Routing und Nummernübermittlung (CLIP); sauberes E.164 erspart Wählregel-Chaos."
+  },
+  {
+    "term": "Leistungsmerkmale Telefonie",
+    "simple": "Komfortfunktionen der TK-Anlage: Anklopfen, Makeln, Rückruf, Umleitung, Konferenz.",
+    "deep": "Prüfungs-/Praxisvokabeln: CLIP/CLIR (Rufnummer zeigen/unterdrücken), CFU/CFB (Umleitung sofort/bei besetzt), Halten/Makeln, Dreierkonferenz, Sammelanschluss. In VoIP-Anlagen per Feature-Codes oder GUI."
+  },
+  {
+    "term": "Asterisk",
+    "simple": "Die bekannteste Open-Source-Telefonanlage – Software statt TK-Kasten.",
+    "deep": "SIP-basierte PBX für Linux (Basis vieler Produkte wie FreePBX). Relevanz: kostengünstige VoIP-Anlagen, Kopplung mit CTI/Warteschlangen; Wartung und Security liegen dafür im eigenen Haus."
+  },
+  {
+    "term": "TKG",
+    "simple": "Das Telekommunikationsgesetz – Spielregeln für Netze, Anbieter und Kundenrechte.",
+    "deep": "Regelt u. a. Kundenschutz (Entstörung, Minderungsrecht bei Minderleistung, Anbieterwechsel), Fernmeldegeheimnis und Versorgungsauflagen. Praxisbezug: Rechte bei lahmem Anschluss, Portierung."
+  },
+  {
+    "term": "Baud",
+    "simple": "Symbolrate einer Übertragung – nicht automatisch gleich Bit pro Sekunde.",
+    "deep": "1 Baud = 1 Symbol/s; trägt ein Symbol mehrere Bits (QAM!), ist die Bitrate ein Vielfaches der Baudrate. Klassische Verwechslungsfrage aus der Übertragungstechnik."
+  },
+  {
+    "term": "dBm",
+    "simple": "Leistungsangabe in Dezibel bezogen auf 1 Milliwatt – Standard bei Funk und LWL.",
+    "deep": "0 dBm = 1 mW, +3 dB ≈ Verdopplung, −3 dB ≈ Halbierung. Praktisch: Sende-/Empfangspegel und Dämpfungsbudgets lassen sich als einfache Addition/Subtraktion rechnen."
+  },
+  {
+    "term": "Kibibyte & Co. (IEC-Präfixe)",
+    "simple": "KiB/MiB/GiB rechnen mit 1024 – KB/MB/GB offiziell mit 1000.",
+    "deep": "Daher „fehlt“ Speicherplatz: 1 TB (10¹²) ≈ 0,91 TiB. In Prüfungen auf die Einheit achten: Datenraten fast immer dezimal (Mbit/s), Speicher oft binär. Umrechnung ist Standard-Rechenaufgabe."
+  },
+  {
+    "term": "Big Endian / Little Endian",
+    "simple": "Die Byte-Reihenfolge im Speicher: höchstwertiges Byte zuerst – oder zuletzt.",
+    "deep": "Netzwerkprotokolle nutzen Big Endian („Network Byte Order“), x86-CPUs Little Endian. Relevanz: Datenaustausch/Parsing binärer Formate, hton/ntoh-Funktionen in der Programmierung."
+  },
+  {
+    "term": "MIME-Typ",
+    "simple": "Die Typangabe für Dateien/Inhalte im Web und in Mails, z. B. text/html oder image/png.",
+    "deep": "Multipurpose Internet Mail Extensions: steuert, wie Browser/Mailclients Inhalte behandeln (Content-Type-Header). Sicherheitsaspekt: falsche MIME-Typen ermöglichen Sniffing-Tricks – Server sollten korrekt deklarieren."
+  },
+  {
+    "term": "WebDAV",
+    "simple": "Dateizugriff über HTTP(S): Ordner im Web wie ein Netzlaufwerk einbinden.",
+    "deep": "Web Distributed Authoring and Versioning erweitert HTTP um Schreiben/Sperren/Verschieben. Praktisch für Cloud-Speicher-Anbindung durch Firewalls; Authentifizierung + TLS sind Pflicht."
+  },
+  {
+    "term": "ODBC",
+    "simple": "Eine Standard-Schnittstelle, über die Programme mit fast jeder Datenbank sprechen.",
+    "deep": "Open Database Connectivity: Treiber je DBMS, DSN-Konfiguration im OS. Praxis: Reporting-Tools/Excel an SQL-Server & Co. anbinden, ohne die Anwendung je Datenbank neu zu bauen."
+  },
+  {
+    "term": "TWAIN",
+    "simple": "Die klassische Schnittstelle zwischen Scanner und Software.",
+    "deep": "Erlaubt Scannen direkt aus Anwendungen; Alternativen: WIA (Windows), SANE (Linux), herstellereigene Treiber. Support-Bezug: „Scanner wird in Programm X nicht angezeigt“ = Treiber-/Schnittstellenfrage."
+  },
+  {
+    "term": "EXIF-Daten",
+    "simple": "Unsichtbare Zusatzinfos in Fotos: Kamera, Zeitpunkt – oft auch GPS-Position.",
+    "deep": "Exchangeable Image File Format. Datenschutzrelevant: Vor Veröffentlichung Metadaten prüfen/entfernen (Standort!); forensisch nützlich. Gehört in Awareness-Schulungen."
+  },
+  {
+    "term": "CMYK",
+    "simple": "Das Farbmodell des Drucks: Cyan, Magenta, Gelb, Schwarz.",
+    "deep": "Subtraktive Mischung (Druck) vs. additives RGB (Bildschirm) – deshalb weichen Ausdrucke vom Monitor ab. Praxis: Dokumente für Druckdienstleister in CMYK/mit Farbprofil liefern."
+  },
+  {
+    "term": "OLED",
+    "simple": "Displaytechnik mit selbstleuchtenden Pixeln – echtes Schwarz, starke Kontraste.",
+    "deep": "Keine Hintergrundbeleuchtung: einzelne Pixel aus = perfektes Schwarz, dünn und effizient bei dunklen Inhalten. Nachteile: Einbrennrisiko bei Statikbildern, Helligkeitsabnahme – relevant bei Monitorauswahl."
+  },
+  {
+    "term": "Bildwiederholfrequenz",
+    "simple": "Wie oft der Monitor pro Sekunde ein neues Bild zeigt (Hz).",
+    "deep": "60 Hz Büro-Standard, 120/144+ Hz für flüssige Bewegung. Nicht verwechseln mit FPS (was die Grafikkarte liefert) – zusammen mit Reaktionszeit ein Ergonomie-/Auswahlkriterium."
+  },
+  {
+    "term": "Hotspot",
+    "simple": "Öffentlicher WLAN-Zugang – bequem, aber prinzipiell mitlesbar.",
+    "deep": "Schutzregeln: nur TLS-Dienste nutzen, Firmenzugriff ausschließlich per VPN, Dateifreigaben aus, „automatisch verbinden“ deaktivieren (Evil-Twin-Gefahr). Betreiberseitig: Gastnetz strikt vom Betriebsnetz trennen."
+  },
+  {
+    "term": "Fresnel-Zone",
+    "simple": "Die „unsichtbare Zigarre“ um eine Funkstrecke, die frei bleiben muss.",
+    "deep": "Bei Richtfunk/WLAN-Bridges müssen nicht nur Sichtlinie, sondern auch die Fresnel-Zone weitgehend hindernisfrei sein, sonst bricht die Verbindung trotz Sichtkontakt ein. Faktor bei Standortkopplung per Funk."
+  },
+  {
+    "term": "OpenWrt",
+    "simple": "Freie Linux-Firmware für Router – volle Kontrolle statt Hersteller-Oberfläche.",
+    "deep": "Erweiterbar (VLANs, VPN, Monitoring) und lange Updates für Alt-Hardware. Abwägung im Betrieb: Flexibilität vs. Support/Gewährleistung; Einspielen fremder Firmware nur auf eigene Geräte."
+  },
+  {
+    "term": "Baselining",
+    "simple": "Erst den Normalzustand messen – sonst erkennt man Abweichungen nicht.",
+    "deep": "Referenzwerte für Auslastung, Latenz, Fehlerraten über typische Zeiträume erheben; Monitoring-Schwellen darauf aufbauen. Ohne Baseline sind „ist das viel?“-Fragen im Störungsfall Raterei."
+  },
+  {
+    "term": "OOP",
+    "simple": "Programmieren mit Objekten: Daten und zugehörige Funktionen wandern zusammen in Klassen.",
+    "deep": "Objektorientierte Programmierung; Grundpfeiler: Kapselung, Vererbung, Polymorphie, Abstraktion. Ziel: Wartbarkeit und Wiederverwendung; modelliert wird in UML."
+  },
+  {
+    "term": "Polymorphie",
+    "simple": "Gleicher Methodenaufruf, unterschiedliches Verhalten – je nachdem, welches Objekt dahintersteckt.",
+    "deep": "Überschreiben (Laufzeit-Polymorphie via dynamischer Bindung) vs. Überladen (gleicher Name, andere Parameter, Compile-Zeit). Kernfrage vieler AE-Prüfungsaufgaben mit Klassendiagrammen."
+  },
+  {
+    "term": "Interface (OOP)",
+    "simple": "Ein Vertrag: Wer das Interface implementiert, verspricht diese Methoden anzubieten.",
+    "deep": "Nur Signaturen, keine Implementierung; ermöglicht lose Kopplung und Austauschbarkeit (Dependency Inversion). Eine Klasse kann mehrere Interfaces implementieren – anders als bei Vererbung."
+  },
+  {
+    "term": "Exception",
+    "simple": "Kontrollierter Umgang mit Fehlern: fangen, behandeln, weiterarbeiten oder sauber abbrechen.",
+    "deep": "try/catch/finally; geprüfte vs. ungeprüfte Exceptions (Java). Regeln: nie leer fangen, spezifisch fangen, Ressourcen in finally/using schließen, Fehler mit Kontext loggen."
+  },
+  {
+    "term": "Rekursion",
+    "simple": "Eine Funktion ruft sich selbst auf – mit Abbruchbedingung.",
+    "deep": "Basisfall + rekursiver Fall; ohne Basisfall Stack Overflow. Klassiker: Fakultät, Fibonacci, Baumtraversierung. Jede Rekursion ist iterativ umformbar (Stack)."
+  },
+  {
+    "term": "Big-O-Notation",
+    "simple": "Beschreibt, wie stark die Laufzeit wächst, wenn die Datenmenge wächst.",
+    "deep": "Asymptotische Obergrenze: O(1) &lt; O(log n) &lt; O(n) &lt; O(n log n) &lt; O(n²). Konstanten fallen weg. Prüfungsklassiker: binäre Suche O(log n) setzt SORTIERTE Daten voraus."
+  },
+  {
+    "term": "ACID",
+    "simple": "Vier Zusagen einer Datenbank-Transaktion: ganz oder gar nicht, immer gültig, ungestört, dauerhaft.",
+    "deep": "Atomicity, Consistency, Isolation, Durability. Umsetzung über Locking/MVCC und Transaktionslog. Gegenpol: BASE bei vielen NoSQL-Systemen (eventual consistency)."
+  },
+  {
+    "term": "SQL-Injection",
+    "simple": "Angriff, bei dem Benutzereingaben als SQL-Befehle ausgeführt werden.",
+    "deep": "Ursache: String-Konkatenation von Eingaben in Abfragen. Abwehr: Prepared Statements (Parameter-Bindung), Least-Privilege-DB-Konto, Eingabevalidierung, ORM korrekt nutzen. OWASP-Top-Klassiker."
+  },
+  {
+    "term": "Prepared Statement",
+    "simple": "SQL mit Platzhaltern: Die Eingabe wird als Wert übergeben und kann nie zu Code werden.",
+    "deep": "Statement wird vorkompiliert, Parameter getrennt gebunden (?, :name). Nebeneffekt: Ausführungsplan-Wiederverwendung = schneller bei Massenoperationen."
+  },
+  {
+    "term": "Unit-Test",
+    "simple": "Automatischer Test der kleinsten Einheit – eine Funktion, eine Klasse.",
+    "deep": "AAA-Muster: Arrange, Act, Assert. Isolation über Mocks/Stubs für Abhängigkeiten. Kennzahl Testabdeckung mit Vorsicht (100 % ≠ fehlerfrei). Basis jeder CI-Pipeline."
+  },
+  {
+    "term": "Mock",
+    "simple": "Attrappe einer Abhängigkeit im Test – antwortet vorhersagbar statt echte Systeme zu belasten.",
+    "deep": "Mock (prüft Interaktionen) vs. Stub (liefert nur Werte) vs. Fake (vereinfachte Implementierung). Ermöglicht Tests ohne DB/Netz und definierte Fehlerszenarien."
+  },
+  {
+    "term": "CI/CD",
+    "simple": "Jede Code-Änderung wird automatisch gebaut, getestet und (bei CD) ausgerollt.",
+    "deep": "Continuous Integration: Merge + Build + Tests bei jedem Push. Continuous Delivery/Deployment: automatisiertes Release bis in Produktion. Werkzeuge: GitLab CI, GitHub Actions, Jenkins."
+  },
+  {
+    "term": "MVC",
+    "simple": "Aufteilung einer Anwendung in Daten (Model), Darstellung (View) und Steuerung (Controller).",
+    "deep": "Trennung der Verantwortlichkeiten: Model = Zustand/Logik, View = Präsentation, Controller = Eingaben/Ablauf. Varianten MVVM/MVP; Ziel: testbar und parallel entwickelbar."
+  },
+  {
+    "term": "Refactoring",
+    "simple": "Code verbessern, ohne sein Verhalten zu ändern.",
+    "deep": "Kleine, abgesicherte Schritte (Tests als Netz): Umbenennen, Methoden extrahieren, Duplikate zusammenführen. Anlass: Code-Smells wie lange Methoden, tiefe Verschachtelung, Magic Numbers."
+  },
+  {
+    "term": "ARP",
+    "simple": "Fragt im lokalen Netz: Welche MAC-Adresse gehört zu dieser IP?",
+    "deep": "Address Resolution Protocol (Grenze Schicht 2/3). Broadcast-Anfrage, Unicast-Antwort, Cache am Host (arp -a). Angriffsfläche: ARP-Spoofing → Gegenmaßnahme Dynamic ARP Inspection."
+  },
+  {
+    "term": "ICMP",
+    "simple": "Das Melde-Protokoll des Internets: ping und Fehlermeldungen wie 'Ziel nicht erreichbar'.",
+    "deep": "Internet Control Message Protocol (Schicht 3). Typen u. a. Echo Request/Reply (ping), Time Exceeded (traceroute nutzt TTL-Ablauf), Destination Unreachable. Komplett-Blocken bricht Diagnose und Path-MTU-Discovery."
+  },
+  {
+    "term": "Active Directory",
+    "simple": "Zentrales Verzeichnis von Microsoft: Benutzer, Computer, Gruppen und Richtlinien an einem Ort.",
+    "deep": "Verzeichnisdienst auf Domänencontrollern; Struktur aus Gesamtstruktur, Domäne, OU. Authentifizierung via Kerberos, Suche via LDAP, DNS-abhängig (SRV-Records). Rechtevergabe klassisch nach AGDLP."
+  },
+  {
+    "term": "GPO",
+    "simple": "Gruppenrichtlinie: verteilt Einstellungen automatisch auf viele Rechner/Benutzer.",
+    "deep": "Group Policy Object im Active Directory, verknüpft mit Standort/Domäne/OU, Anwendung in dieser Reihenfolge (LSDOU). Typisch: Passwort-Richtlinien, Laufwerks-Mappings, Software-Einschränkung. Diagnose: gpresult /r."
+  },
+  {
+    "term": "LDAP",
+    "simple": "Standard-Protokoll, um in Verzeichnisdiensten zu suchen und zu lesen.",
+    "deep": "Lightweight Directory Access Protocol, Port 389 (LDAPS 636). Objekte mit Distinguished Names (CN=, OU=, DC=). Von AD ebenso genutzt wie von Anwendungen für zentrale Logins."
+  },
+  {
+    "term": "PKI / Zertifikat",
+    "simple": "Digitale Ausweise: Eine vertrauenswürdige Stelle bestätigt, dass ein Schlüssel wirklich zu einem Server oder einer Person gehört.",
+    "deep": "Public Key Infrastructure: CA signiert Zertifikate (X.509), Kette Root → Zwischen-CA → Endzertifikat. Prüfpunkte: Gültigkeit, Name (SAN), Kette, Sperrstatus (CRL/OCSP). Grundlage von TLS, Code-Signierung, 802.1X-EAP-TLS."
+  },
+  {
+    "term": "TLS",
+    "simple": "Die Verschlüsselung hinter dem 's' in https.",
+    "deep": "Transport Layer Security: Handshake vereinbart Schlüssel (heute ECDHE für Perfect Forward Secrecy), Zertifikat authentisiert den Server, danach symmetrische Verschlüsselung (AES-GCM). Aktuell TLS 1.2/1.3; SSL und TLS 1.0/1.1 sind abgekündigt."
+  },
+  {
+    "term": "Ransomware",
+    "simple": "Schadsoftware, die Daten verschlüsselt und Lösegeld fordert.",
+    "deep": "Eintritt meist über Phishing/RDP/ungepatchte Dienste; verschlüsselt lokal UND erreichbare Shares, moderne Varianten exfiltrieren zusätzlich (Double Extortion). Schutzpaket: Offline-/immutable Backups (3-2-1), Segmentierung, Least Privilege, Patchen, Awareness, Notfallplan mit Wiederanlaufreihenfolge."
+  },
+  {
+    "term": "Phishing",
+    "simple": "Gefälschte Mails oder Seiten, die Zugangsdaten oder Zahlungen abgreifen wollen.",
+    "deep": "Social-Engineering-Klassiker; Varianten: Spear-Phishing (gezielt), Whaling (Führungskräfte), Smishing/Vishing. Technische Hürden: SPF/DKIM/DMARC, Link-Filter, MFA; organisatorisch: Schulung und Meldeweg ohne Schuldzuweisung."
+  },
+  {
+    "term": "MFA / 2FA",
+    "simple": "Anmeldung mit zweitem Faktor – Passwort allein reicht nicht.",
+    "deep": "Faktorklassen: Wissen (Passwort), Besitz (Token, Smartphone, FIDO2-Stick), Merkmal (Biometrie). Zwei Faktoren aus VERSCHIEDENEN Klassen. Phishing-resistent sind FIDO2/Passkeys; SMS gilt als schwächster Besitzfaktor."
+  },
+  {
+    "term": "IDS / IPS",
+    "simple": "Einbruchs-Melder (IDS) bzw. -Blocker (IPS) für das Netzwerk.",
+    "deep": "Intrusion Detection/Prevention System; signatur- und anomaliebasiert. IDS meldet (out-of-band, Mirror-Port), IPS sitzt im Datenpfad und blockt – Fehlalarm blockiert dann aber auch legitimen Verkehr. Oft Teil moderner Firewalls (NGFW)."
+  },
+  {
+    "term": "SIEM",
+    "simple": "Sammelt Logs aus allen Systemen und schlägt bei verdächtigen Mustern Alarm.",
+    "deep": "Security Information and Event Management: zentrale Log-Korrelation (Firewall, AD, Server, EDR), Use-Cases/Regeln, Alarmierung ans SOC. Voraussetzung: Zeitsynchronisation (NTP) und durchdachte Log-Quellen – sonst teuer und blind."
+  },
+  {
+    "term": "Proxy",
+    "simple": "Stellvertreter zwischen Client und Internet – filtert, cached und protokolliert.",
+    "deep": "Forward-Proxy: kontrolliert ausgehenden Verkehr (URL-Filter, Malware-Scan, Cache). Reverse-Proxy: steht vor eigenen Servern (TLS-Terminierung, Load Balancing, WAF). In Prüfungen gern als Baustein sicherer Internet-Anbindung gefragt."
+  },
+  {
+    "term": "Load Balancer",
+    "simple": "Verteilt Anfragen auf mehrere Server – für Last und Ausfallsicherheit.",
+    "deep": "Verfahren: Round Robin, Least Connections, IP-Hash; Health-Checks nehmen tote Server aus der Rotation. L4 (TCP) vs. L7 (HTTP, kann Sessions/Cookies berücksichtigen). Selbst redundant auslegen, sonst neuer SPOF."
+  },
+  {
+    "term": "Cluster / Quorum",
+    "simple": "Mehrere Server arbeiten als Team; das Quorum verhindert, dass bei Störung zwei 'Chefs' entstehen.",
+    "deep": "Failover-Cluster (aktiv/passiv) oder aktiv/aktiv. Quorum = Stimmenmehrheit (ungerade Zahl, Witness) gegen Split-Brain. Kennzahlen: Failover-Zeit vs. RTO; Cluster ersetzt kein Backup."
+  },
+  {
+    "term": "Container",
+    "simple": "Leichtgewichtige Alternative zur VM: Anwendung + Abhängigkeiten teilen sich den Kernel des Hosts.",
+    "deep": "Isolation über Namespaces/cgroups (Docker, Podman); Images aus Registries, deklarativ via Dockerfile/Compose, Orchestrierung mit Kubernetes. Vorteil: Start in Sekunden, identisch von Test bis Produktion. VM bleibt für fremde Kernel/starke Isolation."
+  },
+  {
+    "term": "iSCSI",
+    "simple": "Festplatten-Blöcke über das normale IP-Netz bereitstellen.",
+    "deep": "SCSI über TCP (Port 3260): Initiator (Server) → Target (Storage), Adressierung über IQN. Best Practices: eigenes VLAN/Netz, Jumbo Frames Ende-zu-Ende, MPIO statt LACP, CHAP-Authentifizierung."
+  },
+  {
+    "term": "SAN",
+    "simple": "Eigenes Speichernetz, das Servern Plattenplatz als Blöcke (LUNs) liefert.",
+    "deep": "Storage Area Network über Fibre Channel oder iSCSI; Server formatiert die LUN selbst. Zoning/LUN-Masking steuern Sichtbarkeit, zwei Fabrics + Multipathing gegen SPOF. Einsatz: Datenbanken, Virtualisierungs-Datastores."
+  },
+  {
+    "term": "NAS",
+    "simple": "Netzwerkspeicher, der fertige Dateifreigaben (SMB/NFS) anbietet.",
+    "deep": "Network Attached Storage verwaltet das Dateisystem selbst; Zugriff parallel durch viele Clients, Rechte via ACLs. Abgrenzung zum SAN: Datei- vs. Blockzugriff – Prüfungsklassiker."
+  },
+  {
+    "term": "Snapshot",
+    "simple": "Eingefrorener Zwischenstand eines Systems – schnell zurückrollen, aber kein Backup.",
+    "deep": "Copy-on-Write-Stand auf demselben Speichersystem; ideal vor Updates/Changes. Stirbt mit dem Array, wächst mit der Änderungsrate, für Aufbewahrung/Compliance ungeeignet – dafür Backup nach 3-2-1."
+  },
+  {
+    "term": "PoE",
+    "simple": "Strom über das Netzwerkkabel – ein Kabel für Daten und Versorgung.",
+    "deep": "Power over Ethernet: 802.3af (~13 W), at/PoE+ (~25,5 W), bt (~51/71 W) – jeweils Leistung am Endgerät. Planungsgrößen: Leistungsklasse je Gerät UND Gesamt-Power-Budget des Switches; Verluste auf der Leitung einrechnen. Typisch: APs, IP-Telefone, Kameras."
+  },
+  {
+    "term": "QoS",
+    "simple": "Wichtiger Verkehr (z. B. Telefonie) bekommt Vorfahrt im Netz.",
+    "deep": "Quality of Service: Klassifizieren (DSCP-Markierung), Queuing/Priorisierung an Engpässen. VoIP braucht niedrige Latenz/Jitter (< ~30 ms Jitter, < 1 % Verlust). Wirkt nur, wenn ALLE Geräte im Pfad mitspielen."
+  },
+  {
+    "term": "SNMP",
+    "simple": "Standard, mit dem Monitoring-Systeme Geräte abfragen (Auslastung, Status, Fehler).",
+    "deep": "Simple Network Management Protocol: Manager fragt Agenten (GET), Geräte melden aktiv (TRAP); Datenmodell MIB/OID. v2c nur mit Community-String (unsicher, nur lesend + ACL), v3 mit Authentifizierung/Verschlüsselung."
+  },
+  {
+    "term": "Trunk",
+    "simple": "Verbindung zwischen Switches, die mehrere VLANs gleichzeitig transportiert.",
+    "deep": "802.1Q-Tagging je Frame (VLAN-ID). Access-Port = 1 VLAN, untagged; Trunk = viele VLANs, getaggt; natives VLAN läuft untagged und muss beidseitig gleich sein. Nur benötigte VLANs erlauben (Pruning)."
+  },
+  {
+    "term": "STP",
+    "simple": "Verhindert Netzwerk-Schleifen: überflüssige Wege werden automatisch blockiert.",
+    "deep": "Spanning Tree (802.1D, schneller: RSTP 802.1w): Wahl der Root-Bridge über kleinste Bridge-ID, Blockieren redundanter Pfade, Nachrücken im Fehlerfall. Schutzfunktionen: BPDU-Guard an Endgeräteports, Root-Guard Richtung Access."
+  },
+  {
+    "term": "DSGVO",
+    "simple": "EU-Regeln für den Umgang mit personenbezogenen Daten.",
+    "deep": "Kernprinzipien Art. 5 (Zweckbindung, Datenminimierung, Speicherbegrenzung …), Rechtsgrundlagen Art. 6, Betroffenenrechte (Auskunft, Löschung), Meldepflicht von Datenpannen binnen 72 h (Art. 33), TOM (Art. 32), Auftragsverarbeitung (Art. 28)."
+  },
+  {
+    "term": "AV-Vertrag",
+    "simple": "Pflicht-Vertrag, wenn ein Dienstleister personenbezogene Daten im Auftrag verarbeitet.",
+    "deep": "Auftragsverarbeitung nach Art. 28 DSGVO: Gegenstand, Weisungsbindung, TOM, Unterauftragnehmer, Lösch-/Nachweispflichten. Praxisfälle: Cloud-Dienste, externer IT-Support, Hoster – ohne AVV drohen Bußgelder."
+  },
+  {
+    "term": "ISO 27001",
+    "simple": "Internationale Norm für Informationssicherheits-Management – zertifizierbar.",
+    "deep": "Fordert ein ISMS: Risikoanalyse, Maßnahmen (Annex A), PDCA-Verbesserung, Management-Verantwortung. Deutscher Weg: BSI IT-Grundschutz. In Ausschreibungen häufig Zuschlagskriterium."
+  },
+  {
+    "term": "ITIL",
+    "simple": "Sammlung bewährter Abläufe für den IT-Betrieb (Incidents, Changes, Probleme).",
+    "deep": "Best-Practice-Framework: Incident (Störung schnell beheben), Problem (Ursache dauerhaft), Change (kontrolliert ändern, CAB, Rollback-Plan), Service Request. Kennzahlen wie Erstlösungsquote; Grundlage vieler Ticketsysteme."
+  },
+  {
+    "term": "SLA",
+    "simple": "Vertrag über Dienstgüte: was wird garantiert, was passiert bei Verstoß?",
+    "deep": "Service Level Agreement: Messgrößen (Verfügbarkeit in %, Reaktions-/Wiederherstellzeit), Messzeitraum (Monat vs. Jahr!), Wartungsfenster, Pönalen. Intern als OLA, Richtung Lieferant als UC."
+  },
+  {
+    "term": "APIPA",
+    "simple": "Automatische Notfall-IP (169.254.x.x), wenn kein DHCP-Server antwortet.",
+    "deep": "Automatic Private IP Addressing; Link-Local-Bereich 169.254.0.0/16. Klassisches Diagnose-Indiz für DHCP-Probleme."
+  },
+  {
+    "term": "DMZ",
+    "simple": "Pufferzone im Netz für Server, die aus dem Internet erreichbar sein müssen (Web, Mail).",
+    "deep": "Demilitarisierte Zone zwischen zwei Firewalls oder als drittes Firewall-Bein. Regelprinzip: Internet→DMZ nur nötige Ports, DMZ→LAN fast nichts. Begrenzt den Schaden kompromittierter Server."
+  },
+  {
+    "term": "RADIUS",
+    "simple": "Zentraler Anmelde-Server: Switch/WLAN fragt dort, ob ein Gerät ins Netz darf.",
+    "deep": "Remote Authentication Dial-In User Service; AAA-Protokoll (Authentication, Authorization, Accounting). Kern von IEEE 802.1X: Supplicant (Client) → Authenticator (Switch/AP) → RADIUS-Server (z. B. NPS/FreeRADIUS), oft mit dynamischer VLAN-Zuweisung."
+  },
+  {
+    "term": "Kerberos",
+    "simple": "Anmeldeverfahren im Active Directory: einmal anmelden, dann Tickets statt Passwörter.",
+    "deep": "Ticket-basiertes SSO: KDC stellt nach Anmeldung ein TGT aus, damit werden Service-Tickets je Dienst geholt. Voraussetzung: Zeitsynchronisation (±5 min, NTP/w32time). Standard-Authentifizierung in AD-Domänen."
+  },
+  {
+    "term": "Link-Local (IPv6)",
+    "simple": "Automatische fe80::-Adresse, die jede IPv6-Schnittstelle immer hat – gilt nur im eigenen Segment.",
+    "deep": "fe80::/10, wird nie geroutet. Grundlage für NDP, Router Advertisements und OSPFv3-Nachbarschaften. Nicht mit IPv4-APIPA-Fehlerbild verwechseln: Bei IPv6 ist Link-Local immer ZUSÄTZLICH vorhanden."
+  },
+  {
+    "term": "LUN",
+    "simple": "Das ‚virtuelle Laufwerk‘, das ein Storage-System einem Server bereitstellt.",
+    "deep": "Logical Unit Number; adressierbare Blockspeicher-Einheit eines iSCSI-/FC-Targets. Der Initiator (Server) bindet die LUN wie eine lokale Platte ein und formatiert sie selbst."
+  },
+  {
+    "term": "Multipathing",
+    "simple": "Zwei getrennte Wege zum Speicher, damit ein Pfadausfall nichts stoppt.",
+    "deep": "MPIO: mehrere physische Pfade (NICs/Switches/Controller) zur selben LUN, aktiv/aktiv oder aktiv/passiv. Pflicht in produktiven SAN-Umgebungen – eliminiert den Single Point of Failure im Storage-Pfad."
+  },
+  {
+    "term": "PUE",
+    "simple": "Effizienz-Kennzahl eines Rechenzentrums: Gesamtstrom geteilt durch IT-Strom.",
+    "deep": "Power Usage Effectiveness = Gesamtaufnahme ÷ IT-Last; ideal 1,0, modern 1,2–1,4. Hebel: Kalt-/Warmgang, freie Kühlung, effiziente USVs, Abwärmenutzung. Durch das Energieeffizienzgesetz zunehmend prüfungsrelevant."
+  },
+  {
+    "term": "Jumbo Frames",
+    "simple": "Extragroße Ethernet-Pakete (bis 9000 Byte) für Storage- und Backup-Netze.",
+    "deep": "Erhöhen den Durchsatz und senken die CPU-Last bei iSCSI/NFS. Voraussetzung: ALLE Geräte im Pfad (NICs, Switches) müssen dieselbe MTU sprechen, sonst Fragmentierung/Verbindungsabbrüche."
+  },
+  {
+    "term": "Broadcast",
+    "simple": "Nachricht an alle Geräte im Netz.",
+    "deep": "Letzte Adresse eines Subnetzes (Hostanteil nur 1en). Switches fluten Broadcasts, Router begrenzen die Broadcast-Domäne."
+  },
+  {
+    "term": "CIDR",
+    "simple": "Schreibweise für Subnetzmasken mit Schrägstrich, z. B. /24.",
+    "deep": "Classless Inter-Domain Routing: Präfixlänge statt Klassen. /26 = 26 Netzbits = Maske 255.255.255.192."
+  },
+  {
+    "term": "DHCP",
+    "simple": "Dienst, der Geräten automatisch IP-Adressen zuteilt.",
+    "deep": "Dynamic Host Configuration Protocol, UDP 67/68, Ablauf DORA. Vergibt Lease mit Optionen (Gateway, DNS, Domäne)."
+  },
+  {
+    "term": "DNS",
+    "simple": "Übersetzt Namen (example.de) in IP-Adressen.",
+    "deep": "Domain Name System, Port 53. Hierarchie: Root → TLD → autoritativ. Records: A, AAAA, CNAME, MX, PTR, TXT."
+  },
+  {
+    "term": "Default Gateway",
+    "simple": "Der Router, über den Pakete das eigene Netz verlassen.",
+    "deep": "Muss im gleichen Subnetz liegen wie der Host. Fehlt es, sind nur lokale Ziele erreichbar."
+  },
+  {
+    "term": "EVA-Prinzip",
+    "simple": "Eingabe → Verarbeitung → Ausgabe: Grundmuster jeder Datenverarbeitung.",
+    "deep": "Erweitert um Speicherung (EVAS). Grundlage für Fehlereingrenzung und Systemverständnis."
+  },
+  {
+    "term": "Firewall",
+    "simple": "Kontrolliert, welcher Datenverkehr rein und raus darf.",
+    "deep": "Paketfilter (Layer 3/4) bis Next-Gen (Application Layer). Regelwerk: Quelle, Ziel, Port, Aktion; Default Deny empfohlen."
+  },
+  {
+    "term": "Hypervisor",
+    "simple": "Software, die virtuelle Maschinen auf echter Hardware betreibt.",
+    "deep": "Typ 1 (bare metal: ESXi, Hyper-V, Proxmox) vs. Typ 2 (auf OS: VirtualBox). Teilt CPU, RAM, Storage, Netz zu."
+  },
+  {
+    "term": "IaC",
+    "simple": "Infrastruktur als Code: Server & Netze aus Textdateien erzeugen.",
+    "deep": "Deklarativ, idempotent, versioniert (z. B. Terraform, Ansible). Reproduzierbare Umgebungen, weniger Konfigurationsdrift."
+  },
+  {
+    "term": "IPv6",
+    "simple": "Der Nachfolger von IPv4 mit riesigem Adressraum.",
+    "deep": "128 Bit, hexadezimal in 8 Blöcken. Link-Local fe80::/10, Global Unicast 2000::/3. SLAAC statt/neben DHCPv6. Kein NAT nötig."
+  },
+  {
+    "term": "LAN / WAN / WLAN",
+    "simple": "Lokales Netz / Weitverkehrsnetz / Funknetz.",
+    "deep": "LAN: Ethernet 802.3. WLAN: 802.11 (Wi-Fi), WPA2/WPA3. WAN verbindet Standorte (MPLS, VPN über Internet)."
+  },
+  {
+    "term": "Lease",
+    "simple": "„Mietdauer“ einer per DHCP vergebenen IP-Adresse.",
+    "deep": "Nach 50 % der Lease-Zeit versucht der Client die Verlängerung (Renew) direkt beim Server."
+  },
+  {
+    "term": "MAC-Adresse",
+    "simple": "Weltweit eindeutige Hardware-Adresse einer Netzwerkkarte.",
+    "deep": "48 Bit, hex (z. B. 00:1A:2B:…), Schicht 2. Erste 24 Bit = Hersteller (OUI). Grundlage für Switching und DHCP-Reservierungen."
+  },
+  {
+    "term": "MTBF / MTTR",
+    "simple": "Wie lange etwas durchhält / wie schnell es repariert ist.",
+    "deep": "Mean Time Between Failures / Mean Time To Repair. Verfügbarkeit = MTBF/(MTBF+MTTR)."
+  },
+  {
+    "term": "NAT",
+    "simple": "Übersetzt private IP-Adressen auf eine öffentliche.",
+    "deep": "Network Address Translation; meist PAT/Masquerading (viele private → 1 öffentliche, unterschieden per Port)."
+  },
+  {
+    "term": "OSI-Modell",
+    "simple": "7-Schichten-Modell für Netzwerkkommunikation.",
+    "deep": "Bitübertragung, Sicherung, Vermittlung, Transport, Sitzung, Darstellung, Anwendung. Referenz für Fehleranalyse."
+  },
+  {
+    "term": "Patchmanagement",
+    "simple": "Geregeltes Einspielen von Updates.",
+    "deep": "Inventarisieren → bewerten (CVE/CVSS) → testen → ausrollen → kontrollieren. Wartungsfenster und Rollback-Plan definieren."
+  },
+  {
+    "term": "RAID",
+    "simple": "Verbund mehrerer Festplatten für Ausfallsicherheit oder Tempo.",
+    "deep": "RAID 0/1/5/6/10. Parität erlaubt Rekonstruktion. Ersetzt kein Backup. Hot-Spare = automatische Ersatzplatte."
+  },
+  {
+    "term": "RPO / RTO",
+    "simple": "Wie viele Daten dürfen verloren gehen / wie lange darf der Ausfall dauern.",
+    "deep": "Recovery Point / Recovery Time Objective – Grundlage jedes Backup- und Notfallkonzepts."
+  },
+  {
+    "term": "Router",
+    "simple": "Verbindet verschiedene Netze und wählt den Weg für Pakete.",
+    "deep": "Layer 3, Routingtabelle, längster Präfix gewinnt. Statisch oder dynamisch (OSPF, BGP)."
+  },
+  {
+    "term": "Subnetzmaske",
+    "simple": "Teilt eine IP-Adresse in Netz- und Hostanteil.",
+    "deep": "32 Bit; Einsen = Netzanteil. /24 = 255.255.255.0. Bestimmt Netzgröße: 2^Hostbits − 2 nutzbare Adressen."
+  },
+  {
+    "term": "Switch",
+    "simple": "Verteiler im LAN, der Daten gezielt an den richtigen Port schickt.",
+    "deep": "Layer 2, lernt MAC-Adressen, Full-Duplex je Port. Managed Switches: VLANs, Port-Security, STP."
+  },
+  {
+    "term": "TCP / UDP",
+    "simple": "Zuverlässiger bzw. schneller Transport von Daten.",
+    "deep": "TCP: verbindungsorientiert, 3-Wege-Handshake, Quittungen. UDP: verbindungslos, für DNS, VoIP, Streaming."
+  },
+  {
+    "term": "TOM",
+    "simple": "Technische und organisatorische Maßnahmen zum Datenschutz.",
+    "deep": "Art. 32 DSGVO: u. a. Zutritts-, Zugangs-, Zugriffskontrolle, Verschlüsselung, Verfügbarkeit, Wiederherstellbarkeit."
+  },
+  {
+    "term": "USV",
+    "simple": "Batterie-Puffer, der Server bei Stromausfall weiterlaufen lässt.",
+    "deep": "Unterbrechungsfreie Stromversorgung (offline/line-interactive/online). Überbrückt bis zum geordneten Shutdown oder Notstrom."
+  },
+  {
+    "term": "VLAN",
+    "simple": "Logisch getrenntes Netz auf demselben Switch.",
+    "deep": "IEEE 802.1Q, Tags mit VLAN-ID. Access- vs. Trunk-Ports. Trennt Broadcast-Domänen, erhöht Sicherheit."
+  },
+  {
+    "term": "VPN",
+    "simple": "Verschlüsselter Tunnel durch ein unsicheres Netz.",
+    "deep": "Site-to-Site (Standorte) oder Remote-Access (Mitarbeiter). Protokolle: IPsec, WireGuard, OpenVPN/TLS."
+  },
+  {
+    "term": "Virtualisierung",
+    "simple": "Mehrere virtuelle Computer auf einer physischen Maschine.",
+    "deep": "Bessere Auslastung, Snapshots, Live-Migration, schnelle Bereitstellung. Container (Docker) virtualisieren nur den Userspace."
+  },
+  {
+    "term": "Zero Trust",
+    "simple": "Niemandem automatisch vertrauen – jede Anfrage prüfen.",
+    "deep": "„Never trust, always verify“: Authentifizierung, Autorisierung, Segmentierung und Monitoring für jeden Zugriff, auch intern."
+  },
+  {
+    "term": "Struktogramm (Nassi-Shneiderman)",
+    "simple": "Ablaufdarstellung aus verschachtelten Rechtecken – ohne Pfeile, erzwingt saubere Struktur.",
+    "deep": "DIN 66261; Grundstrukturen Sequenz, Auswahl, Wiederholung (kopf-/fußgesteuert). Werkzeug: Structorizer."
+  },
+  {
+    "term": "Programmablaufplan (PAP)",
+    "simple": "Flussdiagramm mit Symbolen und Pfeilen: Oval Start/Ende, Raute Entscheidung, Rechteck Anweisung.",
+    "deep": "DIN 66001; Parallelogramm = Ein-/Ausgabe. Stärke bei verzweigten Abläufen, Gefahr unstrukturierter „Spaghetti“-Pfeile."
+  },
+  {
+    "term": "Adjazenzmatrix",
+    "simple": "Tabelle, die speichert, welche Knoten eines Netzes/Graphen direkt verbunden sind.",
+    "deep": "a[i][j]=1 bzw. Gewicht; ungerichtet = symmetrisch, Zeilensumme = Knotengrad, A² zählt 2-Hop-Wege."
+  },
+  {
+    "term": "Scrum",
+    "simple": "Agiles Rahmenwerk: feste Sprints, drei Rollen, Zwischenstände statt Endabnahme.",
+    "deep": "Rollen PO/Scrum Master/Team; Artefakte Product/Sprint Backlog, Increment; Events Planning, Daily, Review, Retro."
+  },
+  {
+    "term": "Kanban",
+    "simple": "Arbeit auf einem Board sichtbar machen und parallele Arbeit begrenzen – Fluss statt Takt.",
+    "deep": "WIP-Limits, Pull-Prinzip, Kennzahlen Durchlaufzeit/Durchsatz; Ursprung Lean/Toyota."
+  },
+  {
+    "term": "WIP-Limit",
+    "simple": "Obergrenze für gleichzeitig begonnene Aufgaben je Spalte des Kanban-Boards.",
+    "deep": "Weniger Kontextwechsel, kürzere Durchlaufzeit; volle Spalte macht Engpässe sofort sichtbar."
+  },
+  {
+    "term": "User Story",
+    "simple": "Anforderung aus Nutzersicht: Als <Rolle> möchte ich <Funktion>, um <Nutzen>.",
+    "deep": "Mit Akzeptanzkriterien (oft Given/When/Then); Aufwand in Story Points geschätzt (Planning Poker)."
+  },
+  {
+    "term": "Velocity",
+    "simple": "Wie viele Story Points ein Team pro Sprint schafft – zur eigenen Prognose.",
+    "deep": "Teamintern kalibriert; ungeeignet für Vergleiche zwischen Teams oder als Leistungsmaß."
+  },
+  {
+    "term": "Definition of Done",
+    "simple": "Gemeinsame Checkliste, wann eine Aufgabe wirklich „fertig“ ist.",
+    "deep": "Z. B. Code reviewed, getestet, dokumentiert, deployed – verhindert „fast fertig“."
+  },
+  {
+    "term": "Incident (ITIL)",
+    "simple": "Ungeplante Störung oder Qualitätsminderung eines IT-Services.",
+    "deep": "Ziel: schnellstmögliche Wiederherstellung, notfalls Workaround; Priorität = Impact × Urgency."
+  },
+  {
+    "term": "Problem (ITIL)",
+    "simple": "Die zugrunde liegende Ursache hinter einem oder mehreren Incidents.",
+    "deep": "Problem Management sucht die Root Cause; dokumentiert als Known Error mit Workaround."
+  },
+  {
+    "term": "Change (ITIL)",
+    "simple": "Kontrollierte Änderung an der IT – bewertet, genehmigt, geplant.",
+    "deep": "Standard (vorab genehmigt), Normal (CAB-Bewertung), Emergency (beschleunigt)."
+  },
+  {
+    "term": "Service Request",
+    "simple": "Standardanfrage ohne Störungscharakter, z. B. Passwort-Reset oder Neugerät.",
+    "deep": "Läuft über den Service Desk (SPOC), oft mit Self-Service-Katalog und Standardfreigaben."
+  },
+  {
+    "term": "SPOC (Single Point of Contact)",
+    "simple": "Die eine Anlaufstelle für alle IT-Anliegen: der Service Desk.",
+    "deep": "Nimmt auf, kategorisiert, priorisiert, löst 1st-Level oder eskaliert funktional/hierarchisch."
+  },
+  {
+    "term": "OLA (Operational Level Agreement)",
+    "simple": "Internes Leistungsversprechen zwischen Abteilungen, das ein Kunden-SLA stützt.",
+    "deep": "Kette: SLA (Kunde) ← OLA (intern) ← UC/Underpinning Contract (externer Lieferant)."
+  },
+  {
+    "term": "CAB (Change Advisory Board)",
+    "simple": "Gremium, das geplante Änderungen auf Risiko prüft und Freigaben empfiehlt.",
+    "deep": "Bewertet Normal Changes; Notfalländerungen laufen über ein verkleinertes Emergency-CAB."
+  },
+  {
+    "term": "Inventur",
+    "simple": "Das Zählen, Messen, Wiegen aller Vermögenswerte und Schulden zum Stichtag.",
+    "deep": "§ 240 HGB; Verfahren: Stichtags-, verlegte, permanente, Stichprobeninventur. Ergebnis: das Inventar."
+  },
+  {
+    "term": "Bilanz",
+    "simple": "Kurzfassung des Vermögens (Aktiva) und der Finanzierung (Passiva) in Kontoform.",
+    "deep": "Aktiva = Anlage-+Umlaufvermögen, Passiva = Eigen-+Fremdkapital; Summen immer gleich."
+  },
+  {
+    "term": "Buchungssatz",
+    "simple": "Die Buchungsformel „Soll an Haben“ – welches Konto links, welches rechts.",
+    "deep": "Aktivkonten mehren im Soll, Passivkonten im Haben; jeder Vorfall berührt mind. zwei Konten."
+  },
+  {
+    "term": "GuV (Gewinn- und Verlustrechnung)",
+    "simple": "Sammelkonto aller Aufwendungen (Soll) und Erträge (Haben) – der Saldo ist Gewinn oder Verlust.",
+    "deep": "Erfolgskonten schließen über die GuV ab, deren Saldo geht ans Eigenkapital."
+  },
+  {
+    "term": "Vorsteuer",
+    "simple": "Die beim Einkauf gezahlte Umsatzsteuer – holt sich der Betrieb vom Finanzamt zurück.",
+    "deep": "Forderung ans FA (Soll); Zahllast = vereinnahmte USt − Vorsteuer."
+  },
+  {
+    "term": "Zahllast",
+    "simple": "Der USt-Betrag, den der Betrieb nach Verrechnung ans Finanzamt abführt.",
+    "deep": "Umsatzsteuer (aus Verkäufen) minus Vorsteuer (aus Einkäufen), per USt-Voranmeldung gemeldet."
+  },
+  {
+    "term": "Eigenkapital",
+    "simple": "Der Teil des Vermögens, der den Eigentümern gehört: Vermögen minus Schulden.",
+    "deep": "Restgröße der Bilanz; Gewinn erhöht, Verlust und Privatentnahmen mindern es."
+  },
+  {
+    "term": "Zinseszins",
+    "simple": "Zinsen werden mitverzinst – Kapital wächst exponentiell statt linear.",
+    "deep": "Kn = K0·(1+p/100)ⁿ; Umkehrungen über Wurzel/Logarithmus; Überschlag mit der 72er-Regel."
+  },
+  {
+    "term": "Barwert (Abzinsung)",
+    "simple": "Was eine zukünftige Zahlung heute wert ist.",
+    "deep": "K0 = Kn ÷ qⁿ – Grundlage der Kapitalwertmethode beim Investitionsvergleich."
+  },
+  {
+    "term": "Gewaltenteilung",
+    "simple": "Staatsmacht verteilt auf Gesetzgebung, Regierung/Verwaltung und Gerichte.",
+    "deep": "Legislative, Exekutive, Judikative (horizontal) plus Bund/Länder (vertikal) – Art. 20 GG."
+  },
+  {
+    "term": "Bundesrat",
+    "simple": "Vertretung der 16 Landesregierungen bei der Bundesgesetzgebung.",
+    "deep": "3–6 Stimmen je Land, einheitlich abzugeben; Zustimmungs- vs. Einspruchsgesetze."
+  },
+  {
+    "term": "Ewigkeitsklausel",
+    "simple": "Art. 1 (Menschenwürde) und Art. 20 (Staatsprinzipien) sind unabänderbar.",
+    "deep": "Art. 79 Abs. 3 GG – selbst mit Zweidrittelmehrheit nicht antastbar."
+  },
+  {
+    "term": "Subsidiaritätsprinzip",
+    "simple": "Die höhere Ebene regelt nur, was die niedrigere nicht selbst besser kann.",
+    "deep": "Leitprinzip der EU-Kompetenzverteilung und des Föderalismus."
+  },
+  {
+    "term": "EU-Verordnung",
+    "simple": "EU-Gesetz, das sofort und wortgleich in allen Mitgliedstaaten gilt.",
+    "deep": "Beispiele DSGVO, AI Act; kein nationales Umsetzungsgesetz nötig – anders als die Richtlinie."
+  },
+  {
+    "term": "EU-Richtlinie",
+    "simple": "EU-Vorgabe, die jeder Staat binnen Frist in eigenes Recht umsetzen muss.",
+    "deep": "Beispiel NIS2; verbindlich ist das Ziel, den Weg wählt der Mitgliedstaat."
+  },
+  {
+    "term": "Filterblase",
+    "simple": "Algorithmen zeigen bevorzugt, was dir gefällt – Gegenmeinungen verschwinden.",
+    "deep": "Mit Echokammern Verstärker für Desinformation; Gegenmittel: aktive Quellenvielfalt, Faktencheck."
+  },
+  {
+    "term": "Deepfake",
+    "simple": "KI-generierte, täuschend echte Bilder, Stimmen oder Videos.",
+    "deep": "Erkennung über Artefakte, Quellenprüfung, Rückwärtssuche; relevant für Desinformation und CEO-Fraud."
+  },
+  {
+    "term": "Digital Services Act (DSA)",
+    "simple": "EU-Verordnung, die Plattformen zu Transparenz und Risikominderung verpflichtet.",
+    "deep": "Meldewege, Werbetransparenz, Risikoanalysen – abgestuft nach Plattformgröße."
+  },
+  {
+    "term": "Emissionshandel (ETS)",
+    "simple": "CO2 kostet: begrenzte Zertifikate machen Ausstoß teuer und Sparen attraktiv.",
+    "deep": "EU-ETS für Energie/Industrie; Cap-and-Trade: sinkende Obergrenze, handelbare Rechte."
+  },
+  {
+    "term": "Greenwashing",
+    "simple": "Sich grüner darstellen, als man ist – Umweltwerbung ohne Substanz.",
+    "deep": "Zunehmend rechtlich riskant (UWG, EU-Green-Claims-Vorhaben); Gegenmittel: belegbare Kennzahlen wie PUE."
+  },
+  {
+    "term": "TOP-Prinzip (Arbeitsschutz)",
+    "simple": "Schutzmaßnahmen-Rangfolge: Technisch vor Organisatorisch vor Persönlich.",
+    "deep": "Gefahrenquelle beseitigen → Abläufe regeln → PSA als letztes Mittel; Basis Gefährdungsbeurteilung (§ 5 ArbSchG)."
+  },
+  {
+    "term": "DGUV Vorschrift 3",
+    "simple": "Regelmäßige Prüfpflicht für elektrische Geräte – die Plakette am Netzteil.",
+    "deep": "Ortsveränderliche Betriebsmittel wiederkehrend prüfen (Sichtprüfung, Schutzleiter, Isolation)."
+  },
+  {
+    "term": "Brandklassen",
+    "simple": "Einteilung von Bränden: A fest, B flüssig, C Gase, D Metalle, F Speisefette.",
+    "deep": "Für Elektronik: CO2-Löscher (rückstandsfrei); Pulver kontaminiert, Wasser an Anlagen tabu."
+  },
+  {
+    "term": "Berichtsheft (Ausbildungsnachweis)",
+    "simple": "Pflicht-Nachweis der Ausbildungsinhalte – ohne ihn keine Zulassung zur Abschlussprüfung.",
+    "deep": "§§ 13, 14, 43 BBiG: Azubi führt, Betrieb stellt kostenlos + gibt Zeit; schriftlich oder elektronisch."
+  }
+]

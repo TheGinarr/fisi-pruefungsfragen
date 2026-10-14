@@ -1,0 +1,798 @@
+[
+  {
+    "id": "y1",
+    "topic": "Netzwerkanalyse",
+    "rel": "high",
+    "type": "gap",
+    "q": "VLSM: Aus 10.20.0.0/22 wird das erste Subnetz für 500 Hosts gebildet. Welches Präfix ist optimal? (Format: /xx)",
+    "accept": [
+      "/23",
+      "23"
+    ],
+    "placeholder": "/xx",
+    "explain": "500 Hosts → 2⁹−2 = 510 ≥ 500 → 9 Hostbits → /23.",
+    "mistake": "/22 verschwendet, /24 (254) reicht nicht.",
+    "hint": "2 hoch n minus 2 muss mindestens 500 ergeben.",
+    "simpler": "<p>Teste: 2⁸−2 = 254 (zu klein), 2⁹−2 = 510 (passt). 32 − 9 = ?</p>"
+  },
+  {
+    "id": "y2",
+    "topic": "Systemintegration",
+    "rel": "high",
+    "type": "single",
+    "q": "Router-on-a-Stick bedeutet:",
+    "options": [
+      "Ein Router mit nur einem Interface routet mehrere VLANs über Subinterfaces",
+      "Ein Backup-Router im Schrank",
+      "Ein Router mit WLAN-Antenne",
+      "Ein defekter Router"
+    ],
+    "correct": 0,
+    "explain": "Über einen Trunk zum Switch bedient der Router mit Subinterfaces (je VLAN) das Inter-VLAN-Routing.",
+    "hint": "Ein Kabel, viele VLANs."
+  },
+  {
+    "id": "y3",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "single",
+    "q": "Eine Firewall-Policy nach dem Whitelist-Prinzip bedeutet:",
+    "options": [
+      "Alles erlaubt, Bekanntes wird gesperrt",
+      "Alles verboten, nur explizit Erlaubtes passiert (Default Deny)",
+      "Nur Ports über 1024 sind offen",
+      "Die Firewall lernt selbstständig"
+    ],
+    "correct": 1,
+    "explain": "Default Deny ist Best Practice: minimale Angriffsfläche, jede Freigabe ist dokumentiert und begründet.",
+    "hint": "Weiße Liste = Gästeliste."
+  },
+  {
+    "id": "y4",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "mc",
+    "q": "Ein Mitarbeiter meldet eine Phishing-Mail, auf die er geklickt hat. Sinnvolle Sofortmaßnahmen? (2 richtige)",
+    "options": [
+      "Gerät vom Netz trennen und Incident melden",
+      "Mail einfach löschen und weiterarbeiten",
+      "Passwörter des Benutzers zurücksetzen",
+      "Den Mitarbeiter abmahnen"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Eindämmen (isolieren) und Zugangsdaten sichern sind erste Schritte im Incident-Prozess. Vertuschen oder Bestrafen verschlimmert die Meldekultur.",
+    "hint": "Denke an den Incident-Response-Zyklus: erkennen, eindämmen, beheben."
+  },
+  {
+    "id": "y5",
+    "topic": "Serverdienste",
+    "rel": "high",
+    "type": "single",
+    "q": "Nutzer erreichen intranet.firma.de nicht, der Ping auf die Server-IP funktioniert. Wo liegt die Ursache am wahrscheinlichsten?",
+    "options": [
+      "Kabelbruch",
+      "DNS-Auflösung",
+      "Netzteil des Servers",
+      "RAID-Controller"
+    ],
+    "correct": 1,
+    "explain": "IP erreichbar, Name nicht → Namensauflösung prüfen (A-Record, DNS-Server, Client-Konfiguration).",
+    "hint": "Was übersetzt Namen in IPs?"
+  },
+  {
+    "id": "y6",
+    "topic": "Backup & Recovery",
+    "rel": "high",
+    "type": "gap",
+    "q": "Vollsicherung sonntags 22:00, inkrementell täglich 22:00. Crash am Mittwoch 15:00. Wie viele Sicherungssätze brauchst du für den Restore? (nur Zahl)",
+    "accept": [
+      "3"
+    ],
+    "placeholder": "Anzahl",
+    "explain": "Voll (So) + inkrementell Mo + inkrementell Di = 3 Sätze. Mittwochs 22:00 lief noch nicht.",
+    "mistake": "Der Mittwochs-Job war zum Crash-Zeitpunkt noch nicht gelaufen!",
+    "hint": "Zähle nur Sicherungen VOR dem Crash.",
+    "simpler": "<p>Schreibe die Zeitachse auf: So (voll), Mo (ink), Di (ink), Mi 15:00 Crash. Welche Sätze existieren?</p>"
+  },
+  {
+    "id": "y7",
+    "topic": "Monitoring",
+    "rel": "med",
+    "type": "single",
+    "q": "Was unterscheidet Monitoring von Logging?",
+    "options": [
+      "Nichts",
+      "Monitoring überwacht Zustände/Metriken aktiv und alarmiert, Logging protokolliert Ereignisse zur späteren Analyse",
+      "Logging ist nur für Entwickler",
+      "Monitoring funktioniert nur in der Cloud"
+    ],
+    "correct": 1,
+    "explain": "Monitoring = aktueller Zustand + Alarme (z. B. CPU > 90 %); Logs = Ereignis-Historie für Analyse und Forensik. Zusammen sind sie die Basis des Incident Managements.",
+    "hint": "Live-Blick vs. Tagebuch."
+  },
+  {
+    "id": "y8",
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "single",
+    "q": "Im Gantt-Diagramm verzögert sich ein Vorgang auf dem kritischen Pfad um 2 Tage. Folge?",
+    "options": [
+      "Keine – Puffer fängt das ab",
+      "Das Projektende verschiebt sich um 2 Tage",
+      "Nur die Kosten steigen",
+      "Der kritische Pfad verschwindet"
+    ],
+    "correct": 1,
+    "explain": "Vorgänge auf dem kritischen Pfad haben keinen Puffer – jede Verzögerung schlägt aufs Projektende durch.",
+    "mistake": "Puffer existiert nur abseits des kritischen Pfads.",
+    "hint": "Kritisch = ohne Puffer."
+  },
+  {
+    "id": "y9",
+    "topic": "WISO",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Azubi verursacht beim Kunden fahrlässig einen Schaden. Wer haftet zunächst gegenüber dem Kunden?",
+    "options": [
+      "Der Azubi persönlich in voller Höhe",
+      "Der Ausbildungsbetrieb (ggf. mit internem Rückgriff)",
+      "Die Berufsschule",
+      "Niemand"
+    ],
+    "correct": 1,
+    "explain": "Der Betrieb haftet gegenüber Dritten für seine Erfüllungsgehilfen (§ 278 BGB); interner Rückgriff richtet sich nach Verschuldensgrad.",
+    "hint": "Wer ist Vertragspartner des Kunden?"
+  },
+  {
+    "id": "y10",
+    "topic": "Präsentation & Fachgespräch",
+    "rel": "high",
+    "type": "mc",
+    "q": "Was gehört in eine gute AP2-Projektpräsentation (15 Min)? (2 richtige)",
+    "options": [
+      "Nachvollziehbarer Entscheidungsweg mit Begründungen",
+      "Möglichst viele Folien mit Fließtext",
+      "Soll-Ist-Vergleich und Fazit",
+      "Nur technische Details ohne Kundenbezug"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Prüfer bewerten Struktur, Begründungen und Reflexion (Soll-Ist). Textwüsten und fehlender Projektkontext kosten Punkte.",
+    "hint": "Weniger Folien, mehr roter Faden."
+  },
+  {
+    "id": "y11",
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "single",
+    "q": "Firewall (99 %) und dahinterliegender Server (99,5 %) bilden eine Kette. Gesamtverfügbarkeit?",
+    "options": [
+      "99,5 %",
+      "99,25 %",
+      "98,5 %",
+      "100 %"
+    ],
+    "correct": 2,
+    "explain": "Reihenschaltung: 0,99 × 0,995 = 0,98505 ≈ 98,5 %. Ketten sind immer schlechter als ihr schwächstes Glied allein – Redundanz (parallel) rechnet 1 − (1−V₁)(1−V₂).",
+    "hint": "Multiplizieren, nicht mitteln."
+  },
+  {
+    "id": "y12",
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "gap",
+    "q": "RAID 6 mit 8 Platten à 8 TB: nutzbare Nettokapazität in TB? (nur Zahl)",
+    "accept": [
+      "48"
+    ],
+    "placeholder": "TB",
+    "explain": "RAID 6 = (n − 2) × Größe = 6 × 8 = 48 TB. Zwei Plattenkapazitäten gehen für die doppelte Parität drauf – dafür dürfen zwei Platten gleichzeitig ausfallen.",
+    "mistake": "(n−1) gerechnet – das wäre RAID 5.",
+    "hint": "RAID 6 verkraftet 2 Ausfälle → 2 Platten Parität.",
+    "simpler": "<p>(8 − 2) × 8 = ?</p>"
+  },
+  {
+    "id": "y13",
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "gap",
+    "q": "Ein Vorgang hat FAZ 12 und SAZ 17. Wie groß ist der Gesamtpuffer in Tagen? (nur Zahl)",
+    "accept": [
+      "5"
+    ],
+    "placeholder": "Tage",
+    "explain": "GP = SAZ − FAZ = 17 − 12 = 5 Tage. Erst bei GP = 0 liegt der Vorgang auf dem kritischen Pfad.",
+    "mistake": "FEZ statt FAZ verwendet.",
+    "hint": "Späteste minus früheste Anfangszeit.",
+    "simpler": "<p>17 − 12 = ?</p>"
+  },
+  {
+    "id": "y14",
+    "topic": "Systemintegration",
+    "rel": "med",
+    "type": "single",
+    "q": "Nach dem Klonen einer VM schlägt die Domänen-Anmeldung mit Kerberos-Fehlern fehl. Häufigste Ursache?",
+    "options": [
+      "Falsches VLAN",
+      "Uhrzeit der VM weicht mehr als 5 Minuten ab",
+      "RAM zu klein",
+      "Falscher Browser"
+    ],
+    "correct": 1,
+    "explain": "Kerberos toleriert standardmäßig ±5 Minuten Zeitversatz. Geklonte/pausierte VMs driften gern – NTP/w32time prüfen ist der erste Handgriff bei Anmelde-Mysterien.",
+    "hint": "Tickets tragen Zeitstempel."
+  },
+  {
+    "id": "y15",
+    "topic": "Systemintegration",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein iSCSI-Storage soll ausfallsicher an zwei Hosts angebunden werden. Welche Maßnahme gehört zwingend dazu?",
+    "options": [
+      "Jumbo Frames deaktivieren",
+      "Multipathing über zwei getrennte Pfade/Switches",
+      "Alles in ein flaches Netz legen",
+      "RAID 0 auf dem Storage"
+    ],
+    "correct": 1,
+    "explain": "MPIO über zwei unabhängige Pfade eliminiert den Single Point of Failure im Storage-Weg. Dazu eigenes Storage-VLAN; Jumbo Frames sind sinnvoll, kein Verbot.",
+    "hint": "Ein Kabel = ein SPOF."
+  },
+  {
+    "id": "y16",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "gap",
+    "q": "Eine Automatisierung kostet 12.000 € und spart 4.800 € jährlich. Amortisationsdauer in Jahren? (Dezimalzahl)",
+    "accept": [
+      "2,5",
+      "2.5"
+    ],
+    "placeholder": "Jahre",
+    "explain": "Amortisation = Investition ÷ jährliche Ersparnis = 12.000 ÷ 4.800 = 2,5 Jahre. Klassischer Baustein der Wirtschaftlichkeitsbetrachtung in der Projektdokumentation.",
+    "mistake": "Ersparnis ÷ Investition gerechnet (Kehrwert).",
+    "hint": "Wie oft passt die Jahresersparnis in die Investition?",
+    "simpler": "<p>12.000 ÷ 4.800 = ?</p>"
+  },
+  {
+    "id": "y17",
+    "topic": "Netzwerkplanung",
+    "rel": "high",
+    "type": "gap",
+    "q": "VLSM: Für eine Filiale mit 25 Hosts soll das kleinstmögliche Subnetz vergeben werden. Welches Präfix? (Format: /xx)",
+    "accept": [
+      "/27",
+      "27"
+    ],
+    "placeholder": "/xx",
+    "explain": "25 Hosts + Netz/Broadcast + Gateway → 2⁵ = 32 Adressen (30 nutzbar) reichen → /27. /28 (14 nutzbar) wäre zu klein, /26 Verschwendung. VLSM heißt: immer das knappste ausreichende Netz.",
+    "mistake": "Gateway vergessen und /28 gewählt.",
+    "hint": "Nächste Zweierpotenz über 25+Reserve.",
+    "simpler": "<p>2⁵ − 2 = 30 nutzbar ≥ 25? Dann 32er-Block = /27.</p>"
+  },
+  {
+    "id": "y18",
+    "topic": "Netzwerkplanung",
+    "rel": "high",
+    "type": "single",
+    "q": "Zwei Standorte sollen dauerhaft und transparent gekoppelt werden, alle Dienste sollen standortübergreifend erreichbar sein. Beste Lösung?",
+    "options": [
+      "Jeder Mitarbeiter startet manuell einen VPN-Client",
+      "Site-to-Site-VPN zwischen den Routern/Firewalls",
+      "Alle Ports im Internet freigeben",
+      "TeamViewer auf jedem PC"
+    ],
+    "correct": 1,
+    "explain": "Site-to-Site verbindet die NETZE über einen permanenten Tunnel zwischen den Gateways – für Nutzer unsichtbar. Client-VPN (Road Warrior) ist für Einzelgeräte unterwegs gedacht.",
+    "hint": "Netz-zu-Netz vs. Gerät-zu-Netz."
+  },
+  {
+    "id": "y19",
+    "topic": "Netzwerkplanung",
+    "rel": "med",
+    "type": "single",
+    "q": "Warum trennt man Drucker, Clients, Server und Gäste-WLAN in eigene VLANs?",
+    "options": [
+      "Damit die Kabel bunter sind",
+      "Kleinere Broadcast-Domänen + Firewall-Regeln ZWISCHEN den Zonen möglich",
+      "VLANs erhöhen die Leitungsbandbreite",
+      "Weil DHCP das verlangt"
+    ],
+    "correct": 1,
+    "explain": "Segmentierung = Sicherheitszonen: Der Gast kommt nicht an den Server, Regeln greifen am Inter-VLAN-Routing. Nebeneffekt: weniger Broadcast-Last. Standardbegründung in jeder AP2-Netzplanaufgabe.",
+    "hint": "Sicherheit + Ordnung, nicht Geschwindigkeit."
+  },
+  {
+    "id": "y20",
+    "topic": "Systemintegration",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein Hyper-V-Cluster mit 2 Knoten: Was ist zwingende Voraussetzung für automatisches Failover der VMs?",
+    "options": [
+      "Gleiche Gehäusefarbe",
+      "Gemeinsamer Storage (z. B. iSCSI/FC) + Cluster-Dienst",
+      "Doppelt so viel RAM in Knoten 1",
+      "Ein USB-Dongle"
+    ],
+    "correct": 1,
+    "explain": "Die VM-Daten müssen für BEIDE Knoten erreichbar sein (Shared Storage oder Replika), dazu Clusterdienst mit Quorum. Ohne gemeinsamen Datenzugriff kann Knoten 2 die VM nicht starten.",
+    "hint": "Worauf muss Knoten 2 zugreifen können, wenn Knoten 1 stirbt?"
+  },
+  {
+    "id": "y21",
+    "topic": "Systemintegration",
+    "rel": "med",
+    "type": "gap",
+    "q": "Eine USV soll 900 W Last mindestens 12 Minuten halten. Wie viel Wh Akku-Energie sind rechnerisch mindestens nötig? (ganze Zahl)",
+    "accept": [
+      "180"
+    ],
+    "placeholder": "Wh",
+    "explain": "900 W × (12/60) h = 180 Wh. Praxis: Wirkungsgrad und Akkualterung einrechnen → großzügig dimensionieren. Die Umrechnung Minuten→Stunden ist die typische Falle.",
+    "mistake": "12 statt 0,2 Stunden eingesetzt.",
+    "hint": "12 Minuten = 0,2 h.",
+    "simpler": "<p>900 × 0,2 = ?</p>"
+  },
+  {
+    "id": "y22",
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "single",
+    "q": "RPO 15 Minuten gefordert – tägliche Bandsicherung vorhanden. Welche Maßnahme erfüllt die Anforderung?",
+    "options": [
+      "Zweites tägliches Band",
+      "Snapshots alle 4 Stunden",
+      "Kontinuierliche Replikation/15-Minuten-Sicherungsintervalle",
+      "RAID 6 statt RAID 5"
+    ],
+    "correct": 2,
+    "explain": "RPO = maximal tolerierter Datenverlust. 15 Minuten erreichen nur Sicherungs-/Replikationsintervalle ≤ 15 Minuten. RAID schützt vor Plattenausfall, nicht vor Datenverlust seit letzter Sicherung.",
+    "hint": "RPO diktiert das Intervall."
+  },
+  {
+    "id": "y23",
+    "topic": "Storage & Backup",
+    "rel": "high",
+    "type": "order",
+    "q": "Sortiere die Wiederherstellung nach Ransomware-Befall in die richtige Reihenfolge.",
+    "items": [
+      "Betroffene Systeme isolieren (Netz trennen)",
+      "Ausmaß analysieren + Einfallstor identifizieren",
+      "Systeme aus sauberem (Offline-)Backup wiederherstellen",
+      "Lücke schließen, Monitoring verschärfen, Vorfall dokumentieren"
+    ],
+    "explain": "Isolieren stoppt die Ausbreitung, Analyse verhindert Wiederholung direkt nach Restore, erst DANN aus garantiert sauberem Backup zurück, zum Schluss härten + dokumentieren (u. a. DSGVO-Meldepflichten prüfen).",
+    "hint": "Erst Blutung stoppen, dann Diagnose, dann Heilung, dann Impfung."
+  },
+  {
+    "id": "y24",
+    "topic": "IT-Sicherheit",
+    "rel": "high",
+    "type": "single",
+    "q": "Der Webshop soll aus dem Internet erreichbar sein, die Warenwirtschaft nicht. Wo platzierst du den Webserver?",
+    "options": [
+      "Ins Server-VLAN neben die Warenwirtschaft",
+      "In die DMZ, mit minimalen Regeln Richtung internem Netz",
+      "Direkt ans Internet ohne Firewall",
+      "Auf den Domain Controller"
+    ],
+    "correct": 1,
+    "explain": "Öffentlich erreichbare Dienste gehören in die DMZ: Internet→DMZ nur 443, DMZ→intern nur die eine definierte DB-Verbindung. Kompromittierung bleibt eingedämmt – das Standard-Architekturbild der AP2.",
+    "hint": "Pufferzone zwischen böse und wertvoll."
+  },
+  {
+    "id": "y25",
+    "topic": "IT-Sicherheit",
+    "rel": "med",
+    "type": "single",
+    "q": "Welche Aussage zu einem AVV (Auftragsverarbeitungsvertrag) stimmt?",
+    "options": [
+      "Nur für Konzerne nötig",
+      "Pflicht, wenn ein Dienstleister personenbezogene Daten im Auftrag verarbeitet (Art. 28 DSGVO)",
+      "Ersetzt die Einwilligung der Betroffenen",
+      "Gilt nur für Cloud-Anbieter in den USA"
+    ],
+    "correct": 1,
+    "explain": "Sobald z. B. ein Hoster, ein Lohnbüro oder ein SaaS-Anbieter personenbezogene Daten für dich verarbeitet, braucht es den AVV mit TOM-Anlage. Ohne ihn haftet der Auftraggeber – klassische Konzeptfrage bei Cloud-Szenarien.",
+    "hint": "Auftrags-Verarbeitung = fremde Hände an deinen Daten."
+  },
+  {
+    "id": "y26",
+    "topic": "IT-Sicherheit",
+    "rel": "med",
+    "type": "mc",
+    "q": "Ein Notfallplan (IT-Notfallhandbuch) enthält typischerweise … (2 richtige)",
+    "options": [
+      "Wiederanlaufpläne mit Prioritäten (RTO je System)",
+      "Die privaten Handynummern aller Kunden",
+      "Kontaktkette + Verantwortlichkeiten",
+      "Die Passwörter im Klartext als Anhang"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "explain": "Kern: WER macht WAS in WELCHER Reihenfolge (Wiederanlauf nach RTO-Priorität, Eskalations-/Kontaktkette, Ausweichverfahren). Passwörter gehören in den Passwort-Safe mit Notfallzugriff, nie ins Handbuch.",
+    "hint": "Struktur und Zuständigkeit statt Geheimnisse."
+  },
+  {
+    "id": "y27",
+    "topic": "Monitoring",
+    "rel": "med",
+    "type": "single",
+    "q": "Der Kunde will VOR einem Plattenausfall gewarnt werden. Welche Kombination leistet das?",
+    "options": [
+      "Täglicher Neustart",
+      "S.M.A.R.T.-Überwachung + Monitoring mit Schwellwert-Alarm (z. B. via SNMP/Agent)",
+      "Lauteres Gehäuse",
+      "RAID 0"
+    ],
+    "correct": 1,
+    "explain": "S.M.A.R.T. liefert Frühindikatoren (schwebende Sektoren, Reallocated Count), das Monitoring macht daraus proaktive Alarme. Reaktiv (nach Ausfall) ist der Unterschied, den die Prüfung hören will: proaktiv statt reaktiv.",
+    "hint": "Frühwarnsystem = Sensor + Alarmierung."
+  },
+  {
+    "id": "y28",
+    "topic": "Automatisierung",
+    "rel": "high",
+    "type": "single",
+    "q": "Was gibt dieses PowerShell-Snippet aus? Get-Service | Where-Object {$_.Status -eq \"Stopped\"} | Measure-Object",
+    "options": [
+      "Alle laufenden Dienste",
+      "Die ANZAHL der gestoppten Dienste",
+      "Startet alle Dienste",
+      "Löscht gestoppte Dienste"
+    ],
+    "correct": 1,
+    "explain": "Pipeline lesen: Get-Service liefert Objekte → Where filtert auf Stopped → Measure-Object zählt. Skript-Lese-Aufgaben sind fester AP2-Bestandteil: Verben und Pipeline-Stationen einzeln übersetzen.",
+    "hint": "Drei Stationen: holen, filtern, zählen."
+  },
+  {
+    "id": "y29",
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Backup-Skript soll NUR bei Fehler eine Mail senden. Welcher Mechanismus gehört ans Ende des Skripts?",
+    "options": [
+      "sleep 60",
+      "Auswertung des Exit-Codes (Bash: if [ $? -ne 0 ], Batch: errorlevel)",
+      "Ein zweites Backup",
+      "Eine hübschere Ausgabe"
+    ],
+    "correct": 1,
+    "explain": "Professionelle Skripte prüfen Rückgabewerte: Exit-Code 0 = ok, ≠ 0 = Fehler → Alarmpfad. Ohne Auswertung laufen Fehler jahrelang unbemerkt – der Kern jeder Automatisierungs-Konzeptfrage.",
+    "hint": "Woran erkennt die Maschine „hat geklappt“?"
+  },
+  {
+    "id": "y30",
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "gap",
+    "q": "Zwei redundante Internetleitungen mit je 99 % Verfügbarkeit (parallel). Gesamtverfügbarkeit in Prozent? (2 Nachkommastellen)",
+    "accept": [
+      "99,99",
+      "99.99"
+    ],
+    "placeholder": "%",
+    "explain": "Parallel: 1 − (1−0,99)² = 1 − 0,0001 = 99,99 %. Redundanz quadriert die Ausfallwahrscheinlichkeit weg – Gegenstück zur Reihenschaltung, die Verfügbarkeiten multipliziert.",
+    "mistake": "Mittelwert (99 %) gebildet.",
+    "hint": "Beide müssten GLEICHZEITIG ausfallen: 0,01 × 0,01.",
+    "simpler": "<p>Ausfall beider: 0,0001 → Verfügbarkeit = ?</p>"
+  },
+  {
+    "id": "y31",
+    "topic": "Cloud",
+    "rel": "high",
+    "type": "single",
+    "q": "Beim IaaS-Betrieb einer VM: Wofür bleibt der KUNDE im Shared-Responsibility-Modell verantwortlich?",
+    "options": [
+      "Kühlung des Rechenzentrums",
+      "Betriebssystem-Patches, Datensicherung und Zugriffskontrolle der VM",
+      "Austausch defekter Netzteile",
+      "Physische Gebäudesicherheit"
+    ],
+    "correct": 1,
+    "explain": "Der Provider sichert Gebäude, Hardware, Hypervisor („Security OF the cloud“) – alles IN der VM (OS, Patches, Daten, Backups, Konten) bleibt Kundensache. Bei PaaS/SaaS wandert mehr zum Anbieter.",
+    "hint": "Alles oberhalb des Hypervisors gehört dir."
+  },
+  {
+    "id": "y32",
+    "topic": "WISO",
+    "rel": "high",
+    "type": "gap",
+    "q": "Make-or-Buy: Eigenbetrieb kostet 18.000 €/Jahr, der Managed-Service 1.750 €/Monat. Jährlicher Kostenvorteil des günstigeren Modells in Euro? (nur Zahl)",
+    "accept": [
+      "3000",
+      "3.000"
+    ],
+    "placeholder": "€",
+    "explain": "Buy: 1.750 × 12 = 21.000 €. Eigenbetrieb 18.000 € ist 3.000 € günstiger. In der Prüfung dazu qualitativ argumentieren: Know-how, Abhängigkeit, Reaktionszeiten, versteckte Personalkosten.",
+    "mistake": "Monatspreis nicht auf das Jahr hochgerechnet.",
+    "hint": "Beide auf denselben Zeitraum bringen.",
+    "simpler": "<p>1.750 × 12 = 21.000. Differenz zu 18.000?</p>"
+  },
+  {
+    "id": "y33",
+    "topic": "WISO",
+    "rel": "med",
+    "type": "single",
+    "q": "Leasing statt Kauf der Server-Hardware – welcher Vorteil stimmt?",
+    "options": [
+      "Leasing ist immer billiger",
+      "Planbare monatliche Raten schonen die Liquidität, Raten sind Betriebsausgaben",
+      "Geleaste Geräte müssen nie gewartet werden",
+      "Nach dem Leasing gehört die Hardware automatisch dem Kunden"
+    ],
+    "correct": 1,
+    "explain": "Leasing: keine hohe Anfangsinvestition (Liquidität), steuerlich sofort absetzbare Raten, kalkulierbarer Refresh-Zyklus. Dafür in Summe meist teurer und kein Eigentum – die Abwägung ist die eigentliche Prüfungsleistung.",
+    "hint": "Liquidität vs. Gesamtkosten."
+  },
+  {
+    "id": "y34",
+    "topic": "Projektmanagement",
+    "rel": "high",
+    "type": "gap",
+    "q": "Netzplan: Vorgang D hat zwei Vorgänger mit FEZ 14 und FEZ 17. Welchen FAZ hat D? (nur Zahl)",
+    "accept": [
+      "17"
+    ],
+    "placeholder": "FAZ",
+    "explain": "Bei mehreren Vorgängern gilt das MAXIMUM der FEZ-Werte: D kann erst starten, wenn ALLE Vorgänger fertig sind → FAZ = 17. Beim Rückwärtsrechnen gilt spiegelbildlich das Minimum der SAZ-Nachfolger.",
+    "mistake": "Minimum genommen – D kann aber nicht starten, bevor der langsamste Vorgänger fertig ist.",
+    "hint": "Alle Vorgänger müssen fertig sein.",
+    "simpler": "<p>Später von 14 und 17?</p>"
+  },
+  {
+    "id": "y35",
+    "topic": "Projektmanagement",
+    "rel": "med",
+    "type": "single",
+    "q": "Im Projekt taucht ein Risiko mit hoher Eintrittswahrscheinlichkeit und hohem Schaden auf. Richtige Strategie?",
+    "options": [
+      "Ignorieren, wird schon gutgehen",
+      "Aktiv behandeln: vermeiden oder mindern (Gegenmaßnahme einplanen)",
+      "Nur ins Protokoll schreiben",
+      "Das Projekt sofort abbrechen"
+    ],
+    "correct": 1,
+    "explain": "Risikomatrix: hoch/hoch = aktiv steuern – vermeiden (Umplanung), mindern (Gegenmaßnahme), übertragen (Versicherung/Vertrag). Akzeptieren ist nur bei geringer Auswirkung legitim. Abbruch wäre unverhältnismäßig.",
+    "hint": "Rot im Risikodiagramm heißt handeln."
+  },
+  {
+    "id": "y36",
+    "topic": "Service",
+    "rel": "med",
+    "type": "single",
+    "q": "Der Kunde versteht die vorgeschlagene Lösung nicht und wirkt verunsichert. Professionelle Reaktion?",
+    "options": [
+      "Mehr Fachbegriffe verwenden, das schafft Vertrauen",
+      "Nutzen und Funktionsweise adressatengerecht erklären, Verständnis aktiv prüfen",
+      "Die E-Mail einfach nochmal senden",
+      "Das Thema wechseln"
+    ],
+    "correct": 1,
+    "explain": "Adressatengerechte Kommunikation ist bewertetes AP2-Kriterium (auch im Fachgespräch): Nutzen vor Technik, Analogien, Rückfragen stellen („Soll ich einen Punkt vertiefen?“). Fachchinesisch erzeugt Distanz, keine Kompetenz.",
+    "hint": "Verstanden werden schlägt beeindrucken."
+  },
+  {
+    "id": "y37",
+    "topic": "Monitoring",
+    "rel": "med",
+    "type": "single",
+    "q": "SELECT host, COUNT(*) FROM alerts WHERE level='critical' GROUP BY host ORDER BY COUNT(*) DESC – was liefert die Abfrage?",
+    "options": [
+      "Alle Alerts unsortiert",
+      "Je Host die Anzahl kritischer Alerts, häufigste zuerst",
+      "Nur den neuesten Alert",
+      "Einen Syntaxfehler"
+    ],
+    "correct": 1,
+    "explain": "WHERE filtert auf kritisch, GROUP BY aggregiert je Host, ORDER BY DESC sortiert die Problemkinder nach oben – Monitoring-Auswertung in einer Zeile."
+  },
+  {
+    "id": "y38",
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Bash-Backupskript endet mit exit 1. Was bedeutet das für die aufrufende Überwachung?",
+    "options": [
+      "Erfolg",
+      "Fehlerfall – Exit-Codes ungleich 0 signalisieren ein Problem und müssen alarmieren",
+      "Neustart des Skripts",
+      "Nichts, Exit-Codes sind Deko"
+    ],
+    "correct": 1,
+    "explain": "0 = Erfolg, alles andere = Fehler. Monitoring und cron-Ketten (&&) stützen sich genau darauf."
+  },
+  {
+    "id": "y39",
+    "topic": "Schnittstellen",
+    "rel": "med",
+    "type": "single",
+    "q": "Eine Inventarsoftware holt Gerätedaten per REST-API. Welche HTTP-Methode ist für das reine Abrufen korrekt?",
+    "options": [
+      "POST",
+      "GET",
+      "DELETE",
+      "PUT"
+    ],
+    "correct": 1,
+    "explain": "GET liest ohne Seiteneffekte; POST erzeugt, PUT ersetzt, DELETE löscht – die Zuordnung ist Standard-Prüfungsstoff."
+  },
+  {
+    "id": "y40",
+    "topic": "Netzwerkplanung",
+    "rel": "high",
+    "type": "gap",
+    "q": "VLSM: Aus 10.0.0.0/24 braucht die Fertigung ein Subnetz für 100 Hosts. Welche Präfixlänge ist die passendste? (nur Zahl)",
+    "accept": [
+      "25"
+    ],
+    "placeholder": "/",
+    "explain": "2⁷−2 = 126 ≥ 100 → 7 Hostbits → /25. Ein /26 (62) wäre zu klein, ein /24 verschwendet."
+  },
+  {
+    "id": "y41",
+    "topic": "Speicher",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein RAID 6 aus 6 × 8 TB: Wie viel Nettokapazität bleibt?",
+    "options": [
+      "48 TB",
+      "40 TB",
+      "32 TB",
+      "24 TB"
+    ],
+    "correct": 2,
+    "explain": "RAID 6 opfert zwei Platten für Parität: (6−2) × 8 = 32 TB – dafür überlebt es zwei gleichzeitige Ausfälle."
+  },
+  {
+    "id": "y42",
+    "topic": "Hochverfügbarkeit",
+    "rel": "high",
+    "type": "gap",
+    "q": "Zwei redundante Systeme mit je 99 % Verfügbarkeit laufen parallel (eines genügt). Gesamtverfügbarkeit in Prozent (Format: 99,99)?",
+    "accept": [
+      "99,99",
+      "99.99"
+    ],
+    "placeholder": "%",
+    "explain": "1 − (0,01 × 0,01) = 0,9999 = 99,99 %. Parallel multiplizieren sich die AUSFALL-Wahrscheinlichkeiten."
+  },
+  {
+    "id": "y43",
+    "topic": "Elektro & USV",
+    "rel": "med",
+    "type": "single",
+    "q": "Eine USV mit 2.400 Wh nutzbarer Kapazität trägt 1.200 W Last. Rechnerische Überbrückungszeit?",
+    "options": [
+      "30 Minuten",
+      "1 Stunde",
+      "2 Stunden",
+      "4 Stunden"
+    ],
+    "correct": 2,
+    "explain": "Wh ÷ W = h: 2.400 ÷ 1.200 = 2 h. In der Praxis Abschläge für Akku-Alterung und Wirkungsgrad einplanen."
+  },
+  {
+    "id": "y44",
+    "topic": "Datensicherung",
+    "rel": "high",
+    "type": "match",
+    "q": "Ordne die Sicherungsart ihrer Eigenschaft zu.",
+    "pairs": [
+      {
+        "l": "Vollsicherung",
+        "r": "Restore aus genau einem Sicherungssatz"
+      },
+      {
+        "l": "Differenziell",
+        "r": "Sichert alles seit der letzten VOLLsicherung"
+      },
+      {
+        "l": "Inkrementell",
+        "r": "Sichert alles seit der letzten Sicherung beliebigen Typs"
+      },
+      {
+        "l": "Snapshot",
+        "r": "Zustand auf demselben System – kein Backup-Ersatz"
+      }
+    ],
+    "explain": "Der Restore-Weg unterscheidet die Verfahren: Voll+letzte Diff vs. Voll+ALLE Inkremente."
+  },
+  {
+    "id": "y45",
+    "topic": "Automatisierung",
+    "rel": "med",
+    "type": "single",
+    "q": "Get-Service | Where-Object { $_.Status -eq \"Stopped\" } | Start-Service – was tut die Pipeline?",
+    "options": [
+      "Stoppt alle Dienste",
+      "Startet alle aktuell gestoppten Dienste",
+      "Listet nur Dienste auf",
+      "Löscht Dienste"
+    ],
+    "correct": 1,
+    "explain": "Objekte fließen durch die Pipeline: holen → auf Stopped filtern → starten. $_ ist das aktuelle Objekt."
+  },
+  {
+    "id": "y46",
+    "topic": "Migration",
+    "rel": "high",
+    "type": "order",
+    "q": "Bringe die Schritte einer Server-Datenmigration in die richtige Reihenfolge.",
+    "items": [
+      "Ist-Analyse: Datenbestand und Abhängigkeiten erfassen",
+      "Daten bereinigen (Dubletten, Altlasten)",
+      "Testmigration in Testumgebung durchführen",
+      "Abnahme des Testergebnisses mit Fachbereich",
+      "Produktivmigration im Wartungsfenster mit Rollback-Plan"
+    ],
+    "explain": "Bereinigen VOR der Migration, testen VOR der Produktion, Rollback-Plan immer – das Bewertungsraster der Konzeptaufgabe."
+  },
+  {
+    "id": "y47",
+    "topic": "Datenschutz",
+    "rel": "high",
+    "type": "single",
+    "q": "Ein externer Dienstleister soll das Backup personenbezogener Daten betreiben. Was ist VOR Beauftragung zwingend?",
+    "options": [
+      "Nichts, Backup ist technisch",
+      "Ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO",
+      "Eine Pressemitteilung",
+      "Zustimmung jedes einzelnen Kunden"
+    ],
+    "correct": 1,
+    "explain": "Auftragsverarbeitung ohne AVV ist ein DSGVO-Verstoß – der AVV regelt Weisungen, TOM und Löschpflichten."
+  },
+  {
+    "id": "y48",
+    "topic": "Datentransfer",
+    "rel": "high",
+    "type": "gap",
+    "q": "4,5 GB Snapshot über eine 1-GBit/s-Leitung (real 100 MB/s). Übertragungsdauer in Sekunden?",
+    "accept": [
+      "45"
+    ],
+    "placeholder": "s",
+    "explain": "4,5 GB = 4.500 MB ÷ 100 MB/s = 45 s. Bit→Byte (÷8) steckt bereits im realen Durchsatzwert."
+  },
+  {
+    "id": "y49",
+    "topic": "Hochverfügbarkeit",
+    "rel": "med",
+    "type": "mc",
+    "q": "Zwei Server, EIN Switch davor, EINE USV, zwei Internetleitungen. Welche zwei Komponenten sind Single Points of Failure?",
+    "options": [
+      "Die Server",
+      "Der Switch",
+      "Die USV",
+      "Die Internetleitungen"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "explain": "Alles Einfache im Pfad ist ein SPOF: Switch und USV. Server und Leitungen sind redundant."
+  },
+  {
+    "id": "y50",
+    "topic": "Service",
+    "rel": "med",
+    "type": "single",
+    "q": "Ein Update auf dem Produktivserver steht an. Welches Vorgehen entspricht einem sauberen Change?",
+    "options": [
+      "Sofort einspielen, wird schon gutgehen",
+      "Angekündigtes Wartungsfenster, vorher Backup/Snapshot, dokumentierter Rollback-Plan, danach Funktionstest",
+      "Nachts heimlich ohne Doku",
+      "Update auslassen"
+    ],
+    "correct": 1,
+    "explain": "Change-Management-Minimum: Ankündigung, Rücksprungpunkt, Test, Doku – in Prüfung wie Praxis."
+  }
+]

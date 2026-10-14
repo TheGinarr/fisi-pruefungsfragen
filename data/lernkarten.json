@@ -1,0 +1,1072 @@
+[
+  {
+    "f": "Die 6 Dimensionen der Datenqualität?",
+    "b": "Vollständigkeit, Korrektheit, Konsistenz, Aktualität, Eindeutigkeit (keine Dubletten), Einheitlichkeit (Formate/Einheiten).",
+    "lf": [
+      "dp"
+    ]
+  },
+  {
+    "f": "Wofür steht ETL?",
+    "b": "Extract – Transform – Load: Daten aus Quellen holen, bereinigen/vereinheitlichen, ins Ziel (z. B. Data Warehouse) laden. Variante ELT: erst laden, im Ziel transformieren.",
+    "lf": [
+      "dp",
+      "lf8"
+    ]
+  },
+  {
+    "f": "Median vs. Mittelwert – wann welches Lagemaß?",
+    "b": "Mittelwert reagiert auf Ausreißer, der Median (mittlerer Wert der sortierten Reihe) bleibt robust – bei Gehältern, Bearbeitungszeiten, Auftragswerten meist die ehrlichere Kennzahl.",
+    "lf": [
+      "dp",
+      "wiso"
+    ]
+  },
+  {
+    "f": "BPMN: X-Gateway vs. +-Gateway?",
+    "b": "X (exklusiv): genau EIN ausgehender Pfad. + (parallel): ALLE Pfade gleichzeitig. Schließendes Gateway führt Pfade wieder zusammen.",
+    "lf": [
+      "dp"
+    ]
+  },
+  {
+    "f": "Durchlaufzeit vs. Bearbeitungszeit?",
+    "b": "Durchlaufzeit = Start bis Ende inkl. Liege-/Wartezeiten. Bearbeitungszeit = reine Arbeitszeit. Differenz = Wartezeit, der größte Optimierungshebel.",
+    "lf": [
+      "dp"
+    ]
+  },
+  {
+    "f": "Anonymisierung vs. Pseudonymisierung?",
+    "b": "Anonym: Personenbezug unumkehrbar entfernt, DSGVO greift nicht mehr. Pseudonym: Zuordnung über getrennten Schlüssel möglich, DSGVO gilt voll.",
+    "lf": [
+      "dp",
+      "lf4",
+      "wiso"
+    ]
+  },
+  {
+    "f": "Purdue-Modell: die Ebenen?",
+    "b": "0 Sensorik/Aktorik · 1 Steuerung (SPS) · 2 Leitebene (SCADA/HMI) · 3 Betriebsleitung (MES) · 3.5 Industrie-DMZ · 4/5 Unternehmens-IT. Übergänge nur über Firewalls/Conduits.",
+    "lf": [
+      "dv"
+    ]
+  },
+  {
+    "f": "Modbus / OPC UA / MQTT – Kurzprofil?",
+    "b": "Modbus TCP (502): alt, ohne Auth – kapseln! OPC UA (4840): Informationsmodell + Zertifikate, Industriestandard. MQTT (1883/8883): Publish/Subscribe über Broker, ideal für IoT-Telemetrie.",
+    "lf": [
+      "dv",
+      "lf7"
+    ]
+  },
+  {
+    "f": "Warum kein aktiver Portscan im OT-Netz?",
+    "b": "Alte Steuerungs-Stacks stürzen bei unerwarteten Paketen ab – Produktionsstopp. OT-Monitoring arbeitet passiv am Mirror-Port/TAP.",
+    "lf": [
+      "dv",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Sichere Hersteller-Fernwartung in 4 Punkten?",
+    "b": "Temporär auf Anforderung, personalisierte Konten + MFA, Sitzung protokolliert, Zugriff nur auf die Zielanlage (Firewall je Wartungsfall). Kein Dauer-VPN mit Sammellogin.",
+    "lf": [
+      "dv",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Was leistet TSN (Time-Sensitive Networking)?",
+    "b": "Macht Standard-Ethernet echtzeitfähig: synchronisierte Uhren (PTP) + reservierte Übertragungsfenster → garantierte maximale Latenz für Steuerungsverkehr.",
+    "lf": [
+      "dv"
+    ]
+  },
+  {
+    "f": "Safety vs. Security?",
+    "b": "Safety schützt Menschen vor der Maschine (Not-Aus, Normen), Security schützt Systeme vor Angriffen. In der OT gilt: Safety-Funktionen nie über Best-Effort-Netze führen.",
+    "lf": [
+      "dv",
+      "lf7"
+    ]
+  },
+  {
+    "f": "Klasse vs. Objekt – der Unterschied in einem Satz?",
+    "b": "Die Klasse ist der Bauplan (Attribute + Methoden), das Objekt eine konkrete Instanz davon zur Laufzeit. new Kunde() erzeugt aus dem Plan ein Objekt.",
+    "lf": [
+      "ae",
+      "aeap"
+    ]
+  },
+  {
+    "f": "Vererbung vs. Komposition – wann was?",
+    "b": "Vererbung: 'ist ein' (PKW ist ein Fahrzeug) – teilt Verhalten. Komposition: 'hat ein' (Auto hat einen Motor) – flexibler, bevorzugt bei bloßer Wiederverwendung.",
+    "lf": [
+      "ae",
+      "aeap"
+    ]
+  },
+  {
+    "f": "Interface vs. abstrakte Klasse?",
+    "b": "Interface: reiner Vertrag (nur Methodensignaturen), Klasse kann mehrere implementieren. Abstrakte Klasse: teilweise implementiert, nur Einfachvererbung – gemeinsames Grundverhalten.",
+    "lf": [
+      "ae"
+    ]
+  },
+  {
+    "f": "Polymorphie praktisch erklärt?",
+    "b": "Eine Referenz vom Typ der Oberklasse ruft die überschriebene Methode der tatsächlichen Unterklasse auf: fahrzeug.beschleunige() wirkt bei PKW anders als bei LKW – entschieden zur Laufzeit.",
+    "lf": [
+      "ae",
+      "aeap"
+    ]
+  },
+  {
+    "f": "UML-Sichtbarkeiten + Beziehungspfeile?",
+    "b": "+ public, − private, # protected. Pfeile: Dreieck (leer) = Vererbung, Raute (leer) = Aggregation, Raute (gefüllt) = Komposition, gestrichelt = Abhängigkeit.",
+    "lf": [
+      "ae",
+      "aeap"
+    ]
+  },
+  {
+    "f": "Big-O der wichtigsten Verfahren?",
+    "b": "Lineare Suche O(n), binäre Suche O(log n, sortiert!), Bubble Sort O(n²), Quick-/Mergesort O(n log n), Hash-Zugriff O(1). Big-O beschreibt das Wachstum, nicht die absolute Zeit.",
+    "lf": [
+      "ae",
+      "aeap"
+    ]
+  },
+  {
+    "f": "Was garantiert ACID bei Transaktionen?",
+    "b": "Atomicity (ganz oder gar nicht), Consistency (gültiger Zustand), Isolation (keine gegenseitige Störung), Durability (dauerhaft nach Commit). Beispiel: Überweisung = Abbuchung + Gutschrift atomar.",
+    "lf": [
+      "ae",
+      "lf8"
+    ]
+  },
+  {
+    "f": "SQL-Injection – Angriff und Gegenmittel?",
+    "b": "Eingaben werden als SQL interpretiert (' OR 1=1 --). Gegenmittel: Prepared Statements/Parameter-Bindung (Eingabe bleibt Datum, nie Code), minimale DB-Rechte, Validierung.",
+    "lf": [
+      "ae",
+      "lf8",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Blackbox- vs. Whitebox-Test?",
+    "b": "Blackbox: nur Ein-/Ausgabe gegen die Spezifikation (Äquivalenzklassen, Grenzwerte). Whitebox: mit Blick in den Code (Zweig-/Pfadabdeckung). Beide ergänzen sich.",
+    "lf": [
+      "ae",
+      "lf5"
+    ]
+  },
+  {
+    "f": "Compiler vs. Interpreter?",
+    "b": "Compiler übersetzt vorab komplett in Maschinencode (schnell zur Laufzeit, Fehler beim Übersetzen). Interpreter führt Zeile für Zeile aus (flexibel, Fehler erst zur Laufzeit). Java/C#: Zwischenweg über Bytecode + JIT.",
+    "lf": [
+      "ae"
+    ]
+  },
+  {
+    "f": "Welche Software-Lizenzmodelle musst du unterscheiden können?",
+    "b": "Proprietär (EULA, Kauf/Abo), OEM (an Gerät gebunden), Volumenlizenz, Freeware (kostenlos, nicht frei), Open Source (Quellcode frei – Lizenzen wie GPL mit Copyleft, MIT/BSD ohne).",
+    "lf": [
+      "lf5"
+    ]
+  },
+  {
+    "f": "Was verlangt eine Copyleft-Lizenz wie die GPL?",
+    "b": "Abgeleitete, weitergegebene Software muss wieder unter GPL stehen – Quellcode offenlegen. MIT/BSD erlauben dagegen Einbau in proprietäre Produkte.",
+    "lf": [
+      "lf5"
+    ]
+  },
+  {
+    "f": "Standardsoftware vs. Individualsoftware – Entscheidungskriterien?",
+    "b": "Standard: günstiger, sofort, erprobt, Updates – aber Anpassung an Prozesse nötig. Individual: passgenau, Wettbewerbsvorteil – teuer, Wartungsrisiko, Abhängigkeit vom Entwickler.",
+    "lf": [
+      "lf5"
+    ]
+  },
+  {
+    "f": "Welche Testarten sichern eine Software-Anpassung ab?",
+    "b": "Unit-Test (einzelne Funktion) → Integrationstest (Zusammenspiel) → Systemtest (Gesamtsystem) → Abnahmetest durch den Anwender (UAT). Nach Änderungen: Regressionstest.",
+    "lf": [
+      "lf5",
+      "ae"
+    ]
+  },
+  {
+    "f": "Woraus besteht ein cyber-physisches System (CPS)?",
+    "b": "Sensor (misst) → Steuerung/Verarbeitung (entscheidet) → Aktor (handelt), vernetzt mit IT/Cloud. Beispiele: Produktionsanlage, Gebäudeautomation, Smart Meter.",
+    "lf": [
+      "lf7"
+    ]
+  },
+  {
+    "f": "Warum trennt man OT-/Produktionsnetze vom Büro-LAN?",
+    "b": "Anlagen sind selten patchbar, Ausfall = Produktionsstopp, Safety vor Security. Eigene VLANs/Zonen, Firewall dazwischen, Fernwartung nur über Jump-Host – Purdue-Modell als Referenz.",
+    "lf": [
+      "lf7",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "MQTT in einem Satz?",
+    "b": "Leichtgewichtiges IoT-Protokoll nach Publish/Subscribe: Geräte veröffentlichen Topics an einen Broker, Abonnenten erhalten die Daten – ideal für schmale Bandbreiten.",
+    "lf": [
+      "lf7"
+    ]
+  },
+  {
+    "f": "Was unterscheidet Edge- von Cloud-Verarbeitung im IoT?",
+    "b": "Edge: Auswertung nahe an der Maschine – geringe Latenz, funktioniert offline, weniger Traffic. Cloud: zentrale Analyse großer Mengen. Praxis: Vorverarbeitung am Edge, Langzeitanalyse in der Cloud.",
+    "lf": [
+      "lf7"
+    ]
+  },
+  {
+    "f": "SELECT mit Bedingung und Sortierung – Grundgerüst?",
+    "b": "SELECT Spalten FROM Tabelle WHERE Bedingung ORDER BY Spalte [DESC]; – Filtern WHERE, Gruppieren GROUP BY (+HAVING), Duplikate weg mit DISTINCT.",
+    "lf": [
+      "lf8"
+    ]
+  },
+  {
+    "f": "Was macht ein INNER JOIN?",
+    "b": "Verknüpft zwei Tabellen über gleiche Schlüsselwerte und liefert NUR Zeilen mit Treffern in beiden. LEFT JOIN: zusätzlich alle Zeilen der linken Tabelle (rechts NULL).",
+    "lf": [
+      "lf8"
+    ]
+  },
+  {
+    "f": "Primär- und Fremdschlüssel – Aufgabe?",
+    "b": "Primärschlüssel identifiziert jede Zeile eindeutig (NOT NULL, unique). Fremdschlüssel verweist auf einen Primärschlüssel der Nachbartabelle und sichert referenzielle Integrität.",
+    "lf": [
+      "lf8"
+    ]
+  },
+  {
+    "f": "Die ersten drei Normalformen in Kurzform?",
+    "b": "1NF: nur atomare Werte. 2NF: keine Abhängigkeit von TEILEN des Schlüssels. 3NF: keine Abhängigkeiten zwischen Nicht-Schlüssel-Feldern. Ziel: Redundanz und Anomalien vermeiden.",
+    "lf": [
+      "lf8",
+      "ae"
+    ]
+  },
+  {
+    "f": "CSV vs. JSON vs. XML für den Datenaustausch?",
+    "b": "CSV: flach, kompakt, Tabellen. JSON: strukturiert, leichtgewichtig, Standard bei REST-APIs. XML: streng validierbar (Schema), verbreitet bei Behörden/Altsystemen.",
+    "lf": [
+      "lf8"
+    ]
+  },
+  {
+    "f": "Incident vs. Problem vs. Change (ITIL)?",
+    "b": "Incident: Störung schnell beheben (Workaround ok). Problem: Wurzelursache dauerhaft beseitigen. Change: geplante Änderung mit Genehmigung, Test und Rollback-Plan.",
+    "lf": [
+      "lf6"
+    ]
+  },
+  {
+    "f": "Welche Angaben gehören in ein brauchbares Ticket?",
+    "b": "Wer/Standort, betroffenes System, genaue Fehlermeldung, seit wann, Reproduzierbarkeit, was schon versucht wurde, Auswirkung/Prio – plus Screenshots/Logs.",
+    "lf": [
+      "lf6"
+    ]
+  },
+  {
+    "f": "Eskalation: funktional vs. hierarchisch?",
+    "b": "Funktional: an die nächste Fachebene (1st → 2nd → 3rd Level). Hierarchisch: an Führung, wenn Entscheidung/Priorität nötig ist (SLA-Verletzung droht).",
+    "lf": [
+      "lf6"
+    ]
+  },
+  {
+    "f": "Lastenheft vs. Pflichtenheft?",
+    "b": "Lastenheft: WAS und WOFÜR – vom Auftraggeber. Pflichtenheft: WIE und WOMIT – Antwort des Auftragnehmers, Basis der Abnahme. Reihenfolge ist prüfungsklassisch.",
+    "lf": [
+      "lf1",
+      "lf12a",
+      "wiso"
+    ]
+  },
+  {
+    "f": "Welche Rechtsform haftet wie?",
+    "b": "Einzelunternehmen/GbR/OHG: unbeschränkt privat. KG: Komplementär voll, Kommanditist mit Einlage. GmbH/UG: Gesellschaftsvermögen (Stammkapital 25.000 € / ab 1 €). AG: Grundkapital 50.000 €.",
+    "lf": [
+      "lf1",
+      "wiso"
+    ]
+  },
+  {
+    "f": "Magisches Dreieck des Projektmanagements?",
+    "b": "Zeit, Kosten, Qualität/Leistung – eine Ecke ändern verschiebt die anderen. In der Projektarbeit bei jeder Abweichung als Begründungsmuster nutzbar.",
+    "lf": [
+      "lf12a"
+    ]
+  },
+  {
+    "f": "Meilenstein vs. Arbeitspaket?",
+    "b": "Arbeitspaket: kleinste planbare Einheit mit Aufwand und Verantwortlichem (aus dem PSP). Meilenstein: Ergebnis-Zeitpunkt ohne Dauer (z. B. 'Testumgebung abgenommen').",
+    "lf": [
+      "lf12a"
+    ]
+  },
+  {
+    "f": "Was prüfst du in den letzten 10 Minuten vor Abgabe der AP1?",
+    "b": "Alle Aufgaben beantwortet (nichts leer!), Einheiten und Rechenwege notiert, Antworten zur Fragestellung (begründen ≠ nennen), Namen/Nummern auf jedem Blatt.",
+    "lf": [
+      "prap1"
+    ]
+  },
+  {
+    "f": "Wie gehst du eine unbekannte AP2-Konzeptaufgabe an?",
+    "b": "Anforderungen markieren → Ist aufnehmen → Lösung skizzieren (Diagramm!) → begründen (Kosten, Sicherheit, Verfügbarkeit) → Risiken/Alternativen nennen. Punkte gibt es für nachvollziehbare Struktur.",
+    "lf": [
+      "prap2"
+    ]
+  },
+  {
+    "f": "Wofür steht das EVA-Prinzip?",
+    "b": "Eingabe → Verarbeitung → Ausgabe (+ Speicherung). Grundmuster jeder Datenverarbeitung."
+  },
+  {
+    "f": "OSI-Schicht 3: Name, Geräte, Protokoll?",
+    "b": "Vermittlungsschicht (Network Layer) – Router, IP-Protokoll, Pakete."
+  },
+  {
+    "f": "Private IPv4-Bereiche nach RFC 1918?",
+    "b": "10.0.0.0/8 · 172.16.0.0/12 · 192.168.0.0/16"
+  },
+  {
+    "f": "Wie viele nutzbare Hosts hat ein /26-Netz?",
+    "b": "2⁶ − 2 = 62 Hosts (6 Hostbits, minus Netz- und Broadcast-Adresse)."
+  },
+  {
+    "f": "RAID 5: Mindestplatten & Nettokapazität?",
+    "b": "Mindestens 3 Platten; netto (n−1) × Plattengröße; verkraftet 1 Plattenausfall."
+  },
+  {
+    "f": "3-2-1-Backup-Regel?",
+    "b": "3 Kopien der Daten, auf 2 verschiedenen Medientypen, 1 Kopie extern/offline."
+  },
+  {
+    "f": "Unterschied Lastenheft / Pflichtenheft?",
+    "b": "Lastenheft: Kunde beschreibt WAS gefordert ist. Pflichtenheft: Auftragnehmer beschreibt WIE es umgesetzt wird."
+  },
+  {
+    "f": "TCP vs. UDP in je 3 Stichworten?",
+    "b": "TCP: verbindungsorientiert, zuverlässig, Handshake. UDP: verbindungslos, schnell, ohne Quittung."
+  },
+  {
+    "f": "Was bedeuten RTO und RPO?",
+    "b": "RTO: maximal erlaubte Ausfallzeit. RPO: maximal erlaubter Datenverlust (Zeit seit letzter Sicherung)."
+  },
+  {
+    "f": "OSI-Schicht 1: Name, Geräte, Einheit?",
+    "b": "Bitübertragungsschicht (Physical) – Kabel, Repeater, Hub. Einheit: Bits.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "OSI-Schicht 2: Name, Geräte, Adresse, Einheit?",
+    "b": "Sicherungsschicht (Data Link) – Switch, Bridge. MAC-Adressen, Einheit: Frames.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "OSI-Schicht 4: Name, Protokolle, Einheit?",
+    "b": "Transportschicht – TCP (verbindungsorientiert, zuverlässig) und UDP (verbindungslos, schnell). Einheit: Segmente.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "TCP vs. UDP in je einem Satz?",
+    "b": "TCP: Verbindungsaufbau (3-Way-Handshake), Bestätigungen, Reihenfolge garantiert. UDP: einfach losschicken – schnell, aber ohne Garantie (VoIP, Streaming, DNS).",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "Standard-Ports: HTTP, HTTPS, SSH, DNS, RDP?",
+    "b": "HTTP 80 · HTTPS 443 · SSH 22 · DNS 53 · RDP 3389.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Standard-Ports: SMTP, POP3, IMAP, FTP?",
+    "b": "SMTP 25 (Versand) · POP3 110 · IMAP 143 · FTP 21. Verschlüsselt: 465/587, 995, 993.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Wichtige DNS-Record-Typen?",
+    "b": "A (Name→IPv4) · AAAA (Name→IPv6) · CNAME (Alias) · MX (Mailserver) · PTR (IP→Name, Reverse) · TXT (u. a. SPF).",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Was macht NAT/PAT?",
+    "b": "Übersetzt private in öffentliche Adressen. PAT (Port Address Translation): viele interne Clients teilen sich EINE öffentliche IP, unterschieden per Port.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Wozu VLANs? Was macht 802.1Q?",
+    "b": "Logische Netztrennung auf einem Switch: kleinere Broadcast-Domänen, Sicherheit. 802.1Q taggt Frames auf Trunk-Ports mit der VLAN-ID.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Netzadresse und Broadcast von 192.168.1.77/27?",
+    "b": "/27 → Blockgröße 32 → Block 64–95. Netz: 192.168.1.64, Broadcast: 192.168.1.95, Hosts .65–.94.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Welches Präfix für eine Punkt-zu-Punkt-Verbindung (2 Hosts)?",
+    "b": "/30 (2 nutzbare Adressen) – oder modern /31 nach RFC 3021 speziell für P2P.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "IPv6: Was bedeuten fe80::/10, 2000::/3, fd00::/8, ff00::/8?",
+    "b": "fe80 = Link-Local (immer da, nicht geroutet) · 2000 = Global Unicast · fd = Unique Local (privat) · ff = Multicast.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Was ist APIPA und was verrät es dir?",
+    "b": "169.254.x.x – automatische Notfall-IP, wenn kein DHCP-Server erreichbar war. Klassisches Diagnose-Indiz für DHCP-Probleme.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "DHCP-Ablauf in 4 Schritten?",
+    "b": "DORA: Discover (Broadcast) → Offer (Server bietet) → Request (Client nimmt) → Acknowledge (Lease + Gateway + DNS).",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "RAID 0 / 1 / 5 / 6 / 10 – Kurzprofil?",
+    "b": "0: Striping, schnell, keine Redundanz · 1: Spiegel, 50 % netto · 5: Parität, n−1, 1 Ausfall · 6: Doppelparität, n−2, 2 Ausfälle · 10: gespiegelte Stripes, schnell + sicher.",
+    "lf": [
+      "lf3",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Warum ersetzt RAID kein Backup?",
+    "b": "RAID schützt nur vor Plattenausfall. Löschen, Ransomware, Überspannung und Brand treffen alle Platten gleichzeitig – dagegen hilft nur ein (Offline-)Backup.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Die 3-2-1-Backup-Regel?",
+    "b": "3 Kopien der Daten, auf 2 verschiedenen Medientypen, 1 davon extern/offline. Plus: Restore regelmäßig testen.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Voll- vs. differenzielle vs. inkrementelle Sicherung?",
+    "b": "Voll: alles. Differenziell: alles seit letzter VOLLsicherung (Restore: Voll + letzte Diff). Inkrementell: alles seit LETZTER Sicherung (Restore: Voll + komplette Kette).",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "RTO und RPO?",
+    "b": "RTO = maximal erlaubte Ausfallzeit (wie schnell wieder da?). RPO = maximal erlaubter Datenverlust (wie alt darf der letzte Stand sein?).",
+    "lf": [
+      "lf11a"
+    ]
+  },
+  {
+    "f": "MTBF, MTTR und die Verfügbarkeitsformel?",
+    "b": "MTBF = mittlere Zeit zwischen Ausfällen, MTTR = mittlere Reparaturzeit. Verfügbarkeit = MTBF ÷ (MTBF + MTTR).",
+    "lf": [
+      "lf11a"
+    ]
+  },
+  {
+    "f": "NAS vs. SAN?",
+    "b": "NAS: Dateiebene, fertige Freigaben über SMB/NFS. SAN: Blockebene über iSCSI/Fibre Channel – Server sieht rohe LUNs und formatiert selbst. Cluster brauchen Block.",
+    "lf": [
+      "lf9",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "iSCSI: Initiator, Target, LUN?",
+    "b": "Initiator = zugreifender Server · Target = Speichersystem · LUN = logisches Blockgerät, das eingebunden wird. Best Practice: eigenes VLAN + Multipathing.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Hypervisor Typ 1 vs. Typ 2?",
+    "b": "Typ 1 (bare metal): direkt auf der Hardware – ESXi, Hyper-V, Proxmox. Typ 2 (hosted): läuft als Programm im OS – VirtualBox, VMware Workstation.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Container vs. virtuelle Maschine?",
+    "b": "VM: eigenes komplettes OS je Instanz, stark isoliert, schwergewichtig. Container: teilen den Host-Kernel, starten in Sekunden, ideal für einzelne Anwendungen.",
+    "lf": [
+      "lf9",
+      "lf10a"
+    ]
+  },
+  {
+    "f": "Warum ist ein Snapshot kein Backup?",
+    "b": "Er liegt auf demselben Storage wie das Original und hängt von dessen Basis ab. Stirbt das Storage, sterben Original UND Snapshot.",
+    "lf": [
+      "lf4",
+      "lf9"
+    ]
+  },
+  {
+    "f": "USV-Typen: offline, line-interactive, online?",
+    "b": "Offline: schaltet erst bei Ausfall um. Line-interactive: regelt zusätzlich Spannungsschwankungen. Online (Doppelwandler): Last läuft permanent über den Wechselrichter – beste Qualität.",
+    "lf": [
+      "lf2",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Die drei Schutzziele der Informationssicherheit?",
+    "b": "Vertraulichkeit, Integrität, Verfügbarkeit (VIV bzw. englisch CIA). Erweitert: Authentizität und Nichtabstreitbarkeit.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Symmetrische vs. asymmetrische Verschlüsselung?",
+    "b": "Symmetrisch: ein gemeinsamer Schlüssel, schnell (AES). Asymmetrisch: Schlüsselpaar aus öffentlich + privat (RSA/ECC), löst das Schlüsselaustauschproblem. Praxis: Hybrid (TLS).",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Hash vs. Verschlüsselung?",
+    "b": "Hash: Einwegfunktion, fester Fingerabdruck, nicht umkehrbar (Integrität, Passwörter mit Salt). Verschlüsselung: umkehrbar mit Schlüssel (Vertraulichkeit).",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Wozu dient eine DMZ?",
+    "b": "Pufferzone für von außen erreichbare Dienste (Web, Mail). Wird ein DMZ-Server kompromittiert, kommt der Angreifer nicht direkt ins LAN – Firewall-Regeln begrenzen jede Richtung.",
+    "lf": [
+      "lf4",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "802.1X: die drei Rollen?",
+    "b": "Supplicant (Client) → Authenticator (Switch/AP, hält den Port zu) → Authentication Server (RADIUS, prüft gegen AD/Zertifikate). Erst nach Access-Accept wird der Port frei.",
+    "lf": [
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Was ist das TGT bei Kerberos?",
+    "b": "Ticket Granting Ticket: nach einmaliger Anmeldung beim KDC der „Tagesausweis“, mit dem Service-Tickets je Dienst geholt werden – Single Sign-on ohne erneute Passwortübertragung.",
+    "lf": [
+      "lf4",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Woran erkennst du eine Phishing-Mail?",
+    "b": "Druck/Drohung, unerwarteter Anhang oder Link, abweichende Absender-Domain, generische Anrede, Rechtschreibfehler, Link-Ziel ≠ angezeigter Text (Mouseover prüfen).",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Was regelt die DSGVO in einem Satz + 3 Grundsätze?",
+    "b": "Schutz personenbezogener Daten. Grundsätze u. a.: Zweckbindung, Datenminimierung, Speicherbegrenzung – plus Rechtsgrundlage nach Art. 6.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Was sind TOM?",
+    "b": "Technische und organisatorische Maßnahmen (Art. 32 DSGVO): z. B. Verschlüsselung, Zugriffskontrolle, Backup (technisch) und Richtlinien, Schulungen, Berechtigungsprozesse (organisatorisch).",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Zwei-Faktor-Authentifizierung: die drei Faktor-Klassen?",
+    "b": "Wissen (Passwort, PIN) · Besitz (Token, Smartphone, Smartcard) · Biometrie (Fingerabdruck, Gesicht). 2FA = zwei VERSCHIEDENE Klassen kombinieren.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Linux: Was bedeutet chmod 755?",
+    "b": "Besitzer: rwx (7) · Gruppe: r-x (5) · Andere: r-x (5). r=4, w=2, x=1 – Ziffern sind die Summen.",
+    "lf": [
+      "lf10a"
+    ]
+  },
+  {
+    "f": "AD: Wozu OUs, wozu Gruppen?",
+    "b": "OUs strukturieren Objekte und sind Ziel für Gruppenrichtlinien (GPOs). Gruppen bündeln Berechtigungen (AGDLP: Konto → Globale → Domänenlokale Gruppe → Berechtigung).",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "GPO-Verarbeitungsreihenfolge?",
+    "b": "LSDOU: Lokal → Site → Domäne → OU (von oben nach unten, die letzte gewinnt bei Konflikten).",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "NTFS- vs. Freigabeberechtigungen?",
+    "b": "Beim Zugriff über das Netz gilt die RESTRIKTIVERE der beiden. Praxis: Freigabe großzügig (Ändern), Feinsteuerung über NTFS.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Die wichtigsten Linux-Diagnosebefehle?",
+    "b": "ip a (Adressen) · ss -tulpn (offene Ports) · systemctl status (Dienste) · journalctl -u (Logs) · df -h / du -sh (Platz) · top (Last).",
+    "lf": [
+      "lf10a"
+    ]
+  },
+  {
+    "f": "PoE: Was liefert 802.3af / at / bt?",
+    "b": "af: ~15 W · at (PoE+): ~30 W · bt (PoE++): 60–90 W – Strom über das Datenkabel für APs, Telefone, Kameras (Budget am Switch-Port; am Gerät kommen ~12,95/25,5 W an).",
+    "lf": [
+      "lf2",
+      "lf3"
+    ]
+  },
+  {
+    "f": "Multimode- vs. Singlemode-LWL?",
+    "b": "Multimode (OM3/OM4): kurze Strecken bis ~550 m, günstige Optik. Singlemode (OS2): Laser, Kilometerbereich, Standard zwischen Gebäuden.",
+    "lf": [
+      "lf2",
+      "lf3"
+    ]
+  },
+  {
+    "f": "T568B: die Paar-Positionen?",
+    "b": "1/2 weiß-orange+orange · 3/6 weiß-grün+grün · 4/5 blau+weiß-blau · 7/8 weiß-braun+braun. A tauscht nur Orange- und Grün-Paar.",
+    "lf": [
+      "lf2",
+      "lf3"
+    ]
+  },
+  {
+    "f": "SMART-Kriterien für Ziele?",
+    "b": "Spezifisch · Messbar · Attraktiv/Akzeptiert · Realistisch · Terminiert.",
+    "lf": [
+      "lf1",
+      "lf12a"
+    ]
+  },
+  {
+    "f": "Netzplan: FAZ, FEZ, SAZ, SEZ, GP?",
+    "b": "FAZ/FEZ = früheste Anfangs-/Endzeit (vorwärts), SAZ/SEZ = späteste (rückwärts). Gesamtpuffer GP = SAZ − FAZ; GP = 0 → kritischer Pfad.",
+    "lf": [
+      "lf12a"
+    ]
+  },
+  {
+    "f": "Lineare AfA: Formel + Beispiel?",
+    "b": "Jahresbetrag = Anschaffungskosten ÷ Nutzungsdauer. 3.900 € Notebook ÷ 3 Jahre = 1.300 €/Jahr (unterjährig monatsgenau).",
+    "lf": [
+      "lf1",
+      "wiso"
+    ]
+  },
+  {
+    "f": "Break-Even-Menge?",
+    "b": "Fixkosten ÷ (Verkaufspreis − variable Stückkosten). Ab dieser Stückzahl ist der Gewinn positiv.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Warum lohnt Skonto fast immer?",
+    "b": "Effektiver Jahreszins ≈ Skontosatz × 360 ÷ (Zahlungsziel − Skontofrist). 2 % bei 10/30 Tagen ≈ 36 % p. a. – teurer ist kaum ein Kredit.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Handelskalkulation: die Kette vorwärts?",
+    "b": "Listeneinkaufspreis − Rabatt − Skonto + Bezugskosten = Bezugspreis → + Handlungskosten = Selbstkosten → + Gewinn = Nettoverkaufspreis → + USt = Brutto.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Probezeit in der Ausbildung: Dauer und Kündigung?",
+    "b": "1 bis 4 Monate (BBiG). In der Probezeit können beide Seiten jederzeit ohne Frist und ohne Grund kündigen – danach nur noch unter engen Bedingungen.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Nutzwertanalyse in 4 Schritten?",
+    "b": "Kriterien festlegen → gewichten (Summe 100 %) → Alternativen bewerten (Punkte) → Punkte × Gewicht summieren. Höchster Nutzwert gewinnt – Entscheidung dokumentierbar.",
+    "lf": [
+      "lf1",
+      "lf12a"
+    ]
+  },
+  {
+    "f": "IHK-Notenschlüssel?",
+    "b": "100–92 = 1 · 91–81 = 2 · 80–67 = 3 · 66–50 = 4 · 49–30 = 5 · 29–0 = 6. Bestanden ab 50 Punkten.",
+    "lf": [
+      "prap1",
+      "prap2"
+    ]
+  },
+  {
+    "f": "Broadcast- vs. Kollisionsdomäne?",
+    "b": "Kollisionsdomäne: Bereich, in dem sich Frames stören können – jeder Switchport ist eine eigene. Broadcast-Domäne: so weit ein Broadcast kommt – erst Router oder VLANs trennen sie.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Aufbau einer MAC-Adresse?",
+    "b": "48 Bit, hexadezimal (z. B. 00:1A:2B:3C:4D:5E). Erste 24 Bit = OUI (Herstellerkennung), letzte 24 Bit = Gerätenummer. Weltweit (nahezu) eindeutig, Schicht 2.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "Wie läuft eine DNS-Auflösung ab?",
+    "b": "Browser-Cache → hosts-Datei → konfigurierter Resolver → (rekursiv) Root-Server → TLD-Server → autoritativer Server. Antwort wird gemäß TTL zwischengespeichert.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Wie funktioniert traceroute/tracert?",
+    "b": "Schickt Pakete mit steigender TTL (1, 2, 3 …). Jeder Router, bei dem die TTL abläuft, meldet sich mit „Time Exceeded“ – so wird der Pfad sichtbar.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Wozu dient das Standardgateway?",
+    "b": "Ziel-IP außerhalb des eigenen Subnetzes? Dann schickt der Client das Paket an das Standardgateway (Router) – ohne Gateway endet die Welt am eigenen Netz.",
+    "lf": [
+      "lf3"
+    ]
+  },
+  {
+    "f": "Ports: NTP, SNMP, LDAP, LDAPS?",
+    "b": "NTP 123/UDP · SNMP 161 (Traps 162)/UDP · LDAP 389 · LDAPS 636.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Was macht SLAAC bei IPv6?",
+    "b": "Stateless Address Autoconfiguration: Der Client baut sich aus dem Router-Advertisement-Präfix selbst eine Adresse – ganz ohne DHCP-Server. DHCPv6 ergänzt bei Bedarf Optionen wie DNS.",
+    "lf": [
+      "lf3",
+      "lf9"
+    ]
+  },
+  {
+    "f": "Wozu QoS im Netzwerk?",
+    "b": "Quality of Service priorisiert Verkehr (z. B. VoIP vor Downloads), damit Sprache auch bei Last verzögerungsfrei bleibt – etwa per DSCP-Markierung und Switch-Queues.",
+    "lf": [
+      "lf9"
+    ]
+  },
+  {
+    "f": "Was ist Wake-on-LAN?",
+    "b": "Ein „Magic Packet“ an die MAC-Adresse weckt den ausgeschalteten PC über die Netzwerkkarte – praktisch für Wartung außerhalb der Arbeitszeit.",
+    "lf": [
+      "lf10a"
+    ]
+  },
+  {
+    "f": "Was ist eine Hot-Spare-Platte?",
+    "b": "Eine eingebaute Reserveplatte im RAID: Fällt eine Platte aus, startet der Rebuild sofort automatisch – das Zeitfenster ohne Redundanz schrumpft.",
+    "lf": [
+      "lf11a"
+    ]
+  },
+  {
+    "f": "S.M.A.R.T. bei Festplatten?",
+    "b": "Selbstüberwachung des Laufwerks (Self-Monitoring, Analysis and Reporting Technology): meldet z. B. schwebende Sektoren – Frühwarnung VOR dem Ausfall, Werte regelmäßig prüfen.",
+    "lf": [
+      "lf2",
+      "lf11a"
+    ]
+  },
+  {
+    "f": "Warum ESD-Schutz beim Hardware-Tausch?",
+    "b": "Elektrostatische Entladung (schon ab ~100 V, unspürbar) zerstört Bauteile schleichend. Erdungsarmband, ESD-Matte, Bauteile am Gehäuse fassen, Tüten erst am Arbeitsplatz öffnen.",
+    "lf": [
+      "lf2"
+    ]
+  },
+  {
+    "f": "Change Management in 3 Stichworten?",
+    "b": "Geplant (Wartungsfenster + Genehmigung), getestet (vorher in Testumgebung), umkehrbar (Rollback-Plan + Backup). Ungeplante Änderungen sind die häufigste Ausfallursache.",
+    "lf": [
+      "lf6",
+      "lf10a"
+    ]
+  },
+  {
+    "f": "Signatur- vs. verhaltensbasierter Virenschutz?",
+    "b": "Signatur: erkennt bekannte Schädlinge per Muster – schnell, aber blind für Neues. Verhalten/Heuristik: erkennt verdächtige Aktionen (z. B. Massenverschlüsselung) – fängt auch Unbekanntes.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Was ist Social Engineering?",
+    "b": "Angriff auf den Menschen statt auf die Technik: Dringlichkeit, Autorität, Hilfsbereitschaft ausnutzen (CEO-Fraud, Phishing, Tailgating). Gegenmittel: Prozesse + Schulung, nicht nur Technik.",
+    "lf": [
+      "lf4"
+    ]
+  },
+  {
+    "f": "Least-Privilege-Prinzip?",
+    "b": "Jeder bekommt nur die Rechte, die er für seine Aufgabe braucht – nicht mehr. Begrenzt Schaden bei Fehlern UND bei kompromittierten Konten. Admin-Konten nur für Admin-Arbeit.",
+    "lf": [
+      "lf4",
+      "lf9"
+    ]
+  },
+  {
+    "f": "SSH-Schlüssel statt Passwort – warum?",
+    "b": "Kein Geheimnis geht über die Leitung, nicht bruteforcebar wie Passwörter, pro Gerät sperrbar. Privater Schlüssel bleibt lokal (Rechte 600!), öffentlicher liegt auf dem Server.",
+    "lf": [
+      "lf10a"
+    ]
+  },
+  {
+    "f": "Wer ist an der dualen Ausbildung beteiligt?",
+    "b": "Betrieb (Praxis, Vergütung, BBiG-Pflichten), Berufsschule (Theorie nach Rahmenlehrplan), IHK (Prüfungen, Eintragung, Beratung). Grundlage: Ausbildungsvertrag + Ausbildungsordnung.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Ab wann kann ein Betriebsrat gewählt werden?",
+    "b": "Ab 5 ständigen wahlberechtigten Arbeitnehmern (BetrVG). Mitbestimmung u. a. bei Arbeitszeit, Überwachungstechnik und Verhaltensregeln – IT-Einführungen brauchen oft seine Zustimmung.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "Ist ein Schaufensterpreis ein bindendes Angebot?",
+    "b": "Nein – nur eine „invitatio ad offerendum“ (Einladung, ein Angebot abzugeben). Das Angebot macht der Kunde an der Kasse; der Verkäufer nimmt an oder lehnt ab.",
+    "lf": [
+      "wiso"
+    ]
+  },
+  {
+    "f": "EN→DE: „to deploy“?",
+    "b": "Bereitstellen/ausrollen (Software, Server). „Deployment“ = die Auslieferung/Inbetriebnahme.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „issue“ im IT-Kontext?",
+    "b": "Problem/Störung/Vorgang – neutraler als „error“. „to raise an issue“ = ein Ticket/Anliegen eröffnen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „maintenance window“?",
+    "b": "Wartungsfenster – geplanter Zeitraum für Updates/Arbeiten mit möglicher Downtime.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „on-premises (on-prem)“?",
+    "b": "Im eigenen Haus betrieben (eigenes RZ) – Gegenteil von Cloud/„hosted“.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „troubleshooting“?",
+    "b": "Systematische Fehlersuche/Störungsbeseitigung.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „default“?",
+    "b": "Standard(wert)/Voreinstellung – „by default“ = standardmäßig.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „deprecated“?",
+    "b": "Veraltet/abgekündigt – funktioniert noch, soll aber nicht mehr verwendet werden.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „backup & restore“?",
+    "b": "Datensicherung & Wiederherstellung. „to restore from backup“ = aus der Sicherung zurückspielen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „credentials“?",
+    "b": "Zugangsdaten (Benutzername + Passwort/Token).",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „to escalate“?",
+    "b": "Eskalieren – an die nächste Support-Ebene oder Führungskraft weitergeben.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „outage“ vs. „downtime“?",
+    "b": "Outage = (ungeplanter) Ausfall; downtime = Nichtverfügbarkeits-Zeit (geplant oder ungeplant).",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „patch“ / „hotfix“?",
+    "b": "Korrektur-Update; Hotfix = dringende Sofortkorrektur außerhalb des normalen Release-Zyklus.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Rechnung“ (an den Kunden)?",
+    "b": "invoice – „to invoice a customer“ = einem Kunden eine Rechnung stellen. (bill = eher Restaurant/umgangssprachlich)",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Angebot“ (kaufmännisch)?",
+    "b": "quotation/quote – „to request a quote (RFQ)“ = ein Angebot anfordern.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Anhang“ (E-Mail)?",
+    "b": "attachment – „please find attached …“ = im Anhang finden Sie …",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Frist/Abgabetermin“?",
+    "b": "deadline – „to meet/miss a deadline“ = eine Frist einhalten/verpassen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Störung melden“?",
+    "b": "to report an incident/issue – „the user reported an issue with …“",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "DE→EN: „Berechtigung/Zugriffsrecht“?",
+    "b": "permission / access right – „insufficient permissions“ = fehlende Berechtigungen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „scope“ (Projekt)?",
+    "b": "(Projekt-)Umfang – „out of scope“ = nicht Teil des Auftrags; „scope creep“ = schleichende Ausweitung.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „requirements“?",
+    "b": "Anforderungen – functional/non-functional requirements = funktionale/nichtfunktionale Anforderungen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „to schedule a meeting“?",
+    "b": "Einen Termin ansetzen/planen. „reschedule“ = verschieben, „cancel“ = absagen.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „warranty“ vs. „guarantee“?",
+    "b": "Warranty = Gewährleistung/Herstellergarantie (vertraglich); guarantee = allgemeine Zusicherung.",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "Höfliche englische Bitte in Support-Mails?",
+    "b": "„Could you please …“ / „Would you mind …“ – plus konkreter Handlungsschritt und Dank: „Thanks in advance.“",
+    "lf": [
+      "allgemein"
+    ]
+  },
+  {
+    "f": "EN→DE: „single point of failure (SPOF)“?",
+    "b": "Einzelner Ausfallpunkt, dessen Defekt alles lahmlegt – Gegenmittel: Redundanz.",
+    "lf": [
+      "allgemein"
+    ]
+  }
+]
